@@ -17,7 +17,7 @@ class Generator(ABC):
         self.Q = params.Q
         self.secret = params.secret
         self.hamming = params.hamming
-        self.sigma = params.sigma
+        self.sigma = params.sigma #표준편차 시그마 값이 작으면 0근처에 오밀조밀하게 모인다 크면 분포가 넓어진다
 
     @abstractmethod
     def generate(self):
@@ -43,40 +43,41 @@ class RLWE(Generator):
         b = self.compute_b(c, rng)
        
         return c, b # return shapes NxN, N
-
-    def gen_a_row(self, rng, minQ, maxQ):
+    
+    # a만드는 함수임
+    def gen_a_row(self, rng, minQ, maxQ): # 1차원 벡터생성 a0 a1 a2 a3 ... an-1, n개 원소, 0~Q-1 사이의 정수로 채워짐
         a = rng.randint(minQ, maxQ, size=self.N, dtype=np.int64)
         return a
 
-    def compute_circulant(self, a):
-        c = circulant(a)
-        tri = np.triu_indices(self.N, 1)
-        c[tri] *= -1
-        if self.correctQ:
-            c = self.q2_correction(c)
+    def compute_circulant(self, a): # 랜덤행렬 A계산 함수, NxN 행렬로 반환 이건 그냥 랜덤행렬임
+        c = circulant(a) # circulant 행렬로 a로 부터 c를 선언
+        tri = np.triu_indices(self.N, 1) # 1차원 벡터 a를 한칸식 민다
+        c[tri] *= -1 # c의 upper triangular 부분을 -1로 곱한다. (a0 a1 a2 a3) -> (a0 -a3 -a2 -a1)
+        if self.correctQ: # correctQ가 발동이 될때 이거 모듈러 q를 보정하기 위함임 이유는 인공지능에서 0을 기준으로 양 쪽으로 퍼져있는경우 더 잘학습한다고 함 작은 노이즈라는 의미가 보존됨
+            c = self.q2_correction(c) # c의 원소들을 -Q/2 ~ Q/2 사이로 보정한다. ex) Q=10이면, 0~9 사이의 원소들을 -5~4 사이로 보정
 
-        c = c % self.Q
+        c = c % self.Q # c의 원소들을 0~Q-1 사이로 보정한다. ex) Q=10이면, -5~4 사이의 원소들을 0~9 사이로 보정
 
-        assert (np.min(c) >= 0) and (np.max(c) < self.Q)
+        assert (np.min(c) >= 0) and (np.max(c) < self.Q) # 데이터 검증용 c가 0~Q-1 사이의 원소로만 이루어져 있는지 그리고 c의 최대값이 Q보다 작은지 검증
 
-        return c
+        return c # c반환 이게 결국
         
-    def compute_b(self, c, rng):
-        if self.sigma > 0:
-            e = np.int64(rng.normal(0, self.sigma, size = self.N).round())
-            b = (np.inner(c, self.secret) + e) % self.Q
-        else:
-            b = np.inner(c, self.secret) % self.Q
+    def compute_b(self, c, rng): # b = c * s + e mod q, s는 secret, e는 노이즈 ## 식 완성하는 함수임
+        if self.sigma > 0: #시그마가 0보다 크면 노이즈가 존재한다는 의미임
+            e = np.int64(rng.normal(0, self.sigma, size = self.N).round()) # 랜덤 노이즈 e를 만드는 함수인데 N이 256이고 시그마가 3.0인 경우 -3에서 32사이 작은 숫자들로 채워짐
+            b = (np.inner(c, self.secret) + e) % self.Q # 연립방정식으로 이뤄진 최종 수식 b = c * s + e mod q
+            b = np.inner(c, self.secret) % self.Q # 노이즈가 없는 경우 그냥 결합
 
-        if self.correctQ:
+        if self.correctQ: # Q 보정을 할경우 식 전체를 -Q/2 ~ Q/2 사이로 보정한다. ex) Q=10이면, 0~9 사이의 원소들을 -5~4 사이로 보정
             b = self.q2_correction(b)
         return b
 
-    def q2_correct(self, x):
+    def q2_correct(self, x): # 보정 함수의 조건에 따른 작동 함수 이게 있는 이유는 q2_correction이 발동될때 호출이 되고 해당 함수를 벡터화 해서 위 b = self.q2_correction(b)의 작동을 담당함 
+                             #즉 의미는 q2_correction(b)자체가 q2_correct함수의 벡터화된 버전임 그래서 q2_correction이 발동될때 b의 원소 하나하나에 대해서 q2_correct함수가 작동하는 형태임
         if x <= -self.Q/2:
-            x = x+self.Q
-        elif x >= self.Q/2:
-            x = x-self.Q
+            x = x+self.Q # x가 -Q나누기 2 보다 작을 경우 x에 Q를 더해서 보정한다
+        elif x >= self.Q/2: 
+            x = x-self.Q # 만약 클 경우 Q나누기 2보다 크면 x에서 Q를 빼서 보정한다
         return x
 
     def evaluate(self, src, tgt, hyp):

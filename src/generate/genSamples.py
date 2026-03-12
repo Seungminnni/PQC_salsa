@@ -360,7 +360,7 @@ class RA_Rb():
         self.N, self.Q, self.m = params.N, params.Q, params.m
         self.tiny1, self.tiny2 = params.tiny1, params.tiny2
         self.sigma = params.sigma
-        # load secret (create if not exist)
+        # load secret (create if not exist) # 비밀 생성 알고리즘 
         if os.path.isfile(os.path.join(params.secret_dir, 'secret.npy')):
             self.s = np.load(os.path.join(params.secret_dir, 'secret.npy'))
             if self.tiny1 or self.tiny2:
@@ -368,13 +368,13 @@ class RA_Rb():
             logger.info(f'Loaded secret (and b, if tiny) from {params.secret_dir}')
         else:
             secret_size = (self.N, params.num_secret_seeds * (params.max_hamming-params.min_hamming+1))
-            if params.secret_type == "ternary":
+            if params.secret_type == "ternary": # 삼진
                 logger.info(f'Creating ternary secret')
                 self.s = np.random.choice([-1,1], size = secret_size)
-            elif params.secret_type == "gaussian":
+            elif params.secret_type == "gaussian": # 가우시안
                 logger.info(f'Creating gaussian secret')
                 self.s = np.random.normal(0, params.sigma, size = secret_size).round().astype(int)
-            elif params.secret_type == "binomial":
+            elif params.secret_type == "binomial": # 이항분포
                 logger.info(f'Creating binomial secret')
                 self.s = np.random.binomial(params.gamma, 0.5, secret_size) - np.random.binomial(params.gamma, 0.5, secret_size)
             else:

@@ -1,0 +1,301 @@
+INFO - 03/12/26 16:12:24 - 0:00:00 - ============ Initialized logger ============
+INFO - 03/12/26 16:12:24 - 0:00:00 - N: 256
+                                     Q: 842779
+                                     accumulate_gradients: 1
+                                     act_ponder_coupling: 0.05
+                                     act_threshold: 0.01
+                                     add_unred_perc: 0
+                                     amp: 2
+                                     attention_dropout: 0
+                                     balanced_base: False
+                                     batch_load: False
+                                     batch_size: 128
+                                     beam_early_stopping: True
+                                     beam_eval: True
+                                     beam_eval_train: 0
+                                     beam_length_penalty: 1
+                                     beam_size: 1
+                                     clip_grad_norm: 5
+                                     command: python train.py --reload_data './data' --dump_path '/home/yu_mcc/PQC_salsa/experiments/test' --secret_seed 3 --hamming 30 --input_int_base 105348 --share_token 64 --optimizer 'adam_warmup,lr=0.00001,warmup_updates=1000,warmup_init_lr=0.00000001' --cpu False --exp_id "6iuctmbjfj"
+                                     correctQ: False
+                                     cpu: False
+                                     data_cols: None
+                                     debug: False
+                                     debug_slurm: False
+                                     dec_act: False
+                                     dec_emb_dim: 512
+                                     dec_gated: False
+                                     dec_loop_idx: 0
+                                     dec_loops: 8
+                                     dense_cols: None
+                                     dim_red: 
+                                     distinguisher_size: 128
+                                     dropout: 0
+                                     dump_path: /home/yu_mcc/PQC_salsa/experiments/test/debug/6iuctmbjfj
+                                     enc_act: False
+                                     enc_emb_dim: 1024
+                                     enc_gated: False
+                                     enc_loop_idx: -1
+                                     enc_loops: 1
+                                     env_base_seed: 520211042
+                                     epoch_size: 2000000
+                                     eval_data: 
+                                     eval_from_exp: 
+                                     eval_only: False
+                                     eval_size: 10000
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exp_id: 6iuctmbjfj
+                                     exp_name: debug
+                                     fp16: True
+                                     freeze_embeddings: False
+                                     gated: True
+                                     gelu_activation: False
+                                     global_rank: 0
+                                     hamming: 30
+                                     input_int_base: 105348
+                                     is_master: True
+                                     is_slurm_job: False
+                                     local_rank: 0
+                                     master_port: -1
+                                     max_epoch: 20
+                                     max_output_len: 10
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_cross_heads: 4
+                                     n_dec_heads: 4
+                                     n_dec_hidden_layers: 1
+                                     n_dec_layers: 2
+                                     n_enc_heads: 4
+                                     n_enc_hidden_layers: 1
+                                     n_enc_layers: 1
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     norm_attention: False
+                                     num_reuse_samples: 10000
+                                     num_workers: 1
+                                     nvidia_apex: False
+                                     optimizer: adam_warmup,lr=0.00001,warmup_updates=1000,warmup_init_lr=0.00000001
+                                     output_int_base: 105348
+                                     reload_checkpoint: 
+                                     reload_data: ./data
+                                     reload_model: 
+                                     reload_size: 10000000
+                                     reuse: False
+                                     scalar_gate: False
+                                     secret: [1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0
+                                      0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                      1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+                                      0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0
+                                      0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0
+                                      0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                      0 0 0 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0]
+                                     secret_col: 273
+                                     secret_seed: 3
+                                     secret_type: binary
+                                     share_inout_emb: True
+                                     share_token: 64
+                                     shuffle: True
+                                     sigma: 3.0
+                                     sinusoidal_embeddings: False
+                                     stopping_criterion: 
+                                     test_path: ./data/test.prefix
+                                     times_reused: 10
+                                     train_path: ./data/train.prefix
+                                     transformermode: old
+                                     validation_metrics: 
+                                     weighted_loss: False
+                                     windows: False
+                                     world_size: 1
+                                     xav_init: False
+INFO - 03/12/26 16:12:24 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/experiments/test/debug/6iuctmbjfj
+                                     
+INFO - 03/12/26 16:12:24 - 0:00:00 - Running command: python train.py --reload_data './data' --dump_path '/home/yu_mcc/PQC_salsa/experiments/test' --secret_seed 3 --hamming 30 --input_int_base 105348 --share_token 64 --optimizer 'adam_warmup,lr=0.00001,warmup_updates=1000,warmup_init_lr=0.00000001' --cpu False
+
+INFO - 03/12/26 16:12:24 - 0:00:00 - vocabulary: 1651 words
+DEBUG - 03/12/26 16:12:24 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 1024)
+                                        (embeddings): Embedding(1651, 1024, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                              (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 1024)
+                                        (embeddings): Embedding(1651, 1024, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                              (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      )
+DEBUG - 03/12/26 16:12:24 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 512)
+                                        (embeddings): Embedding(1651, 512, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (gate2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=512, out_features=1651, bias=True)
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 512)
+                                        (embeddings): Embedding(1651, 512, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (gate2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=512, out_features=1651, bias=True)
+                                      )
+INFO - 03/12/26 16:12:24 - 0:00:00 - Number of parameters (encoder): 18483200
+INFO - 03/12/26 16:12:24 - 0:00:00 - Number of parameters (decoder): 14501491
+INFO - 03/12/26 16:27:14 - 0:14:50 - Loading data from ./data/train.prefix ... seekpos 0, basepos 0
+INFO - 03/12/26 16:30:21 - 0:17:57 - Loaded 3922030 equations from the disk. seekpos 0, nextpos 3922030
+INFO - 03/12/26 16:30:21 - 0:17:57 - Creating train dataloader...
+INFO - 03/12/26 16:30:21 - 0:17:57 - Loading data from ./data/test.prefix ... seekpos 0, basepos 0
+INFO - 03/12/26 16:30:21 - 0:17:58 - Loaded 10000 equations from the disk. seekpos 42770723, nextpos 10000
+INFO - 03/12/26 16:30:21 - 0:17:58 - Creating test dataloader...
+INFO - 03/12/26 16:30:21 - 0:17:58 - Found 81 parameters in model.
+INFO - 03/12/26 16:30:21 - 0:17:58 - Optimizer: <class 'src.train.optim.AdamWithWarmup'>
+INFO - 03/12/26 16:30:22 - 0:17:58 - ============ Starting epoch 0 ... ============
+INFO - 03/12/26 16:30:22 - 0:17:58 - Initialized random generator for worker 0, with seed [0, 0, 520211042, 1773300622] (base seed=520211042).
+INFO - 03/12/26 16:33:56 - 0:21:33 -      50 -   29.77 equations/s - 15359.70 words/s - MEM: 8.83 GB - LOSS:  8.6625 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 5.0950e-07
+INFO - 03/12/26 16:34:33 - 0:22:09 -     100 -  175.78 equations/s - 90704.35 words/s - MEM: 8.83 GB - LOSS:  7.5255 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 1.0090e-06
+INFO - 03/12/26 16:35:09 - 0:22:45 -     150 -  178.71 equations/s - 92213.01 words/s - MEM: 8.83 GB - LOSS:  5.8269 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 1.5085e-06
+INFO - 03/12/26 16:35:44 - 0:23:21 -     200 -  178.78 equations/s - 92249.28 words/s - MEM: 8.83 GB - LOSS:  4.4901 || ACC1:  0.0000 || ACC2:  0.1250 - LR: 2.0080e-06
+INFO - 03/12/26 16:36:20 - 0:23:56 -     250 -  179.62 equations/s - 92683.54 words/s - MEM: 8.83 GB - LOSS:  3.7570 || ACC1: 11.2656 || ACC2: 11.3125 - LR: 2.5075e-06
+INFO - 03/12/26 16:36:56 - 0:24:32 -     300 -  177.96 equations/s - 91829.10 words/s - MEM: 8.83 GB - LOSS:  3.4708 || ACC1: 12.4688 || ACC2: 12.5312 - LR: 3.0070e-06
+INFO - 03/12/26 16:37:32 - 0:25:08 -     350 -  179.90 equations/s - 92827.00 words/s - MEM: 8.83 GB - LOSS:  3.3763 || ACC1: 12.5312 || ACC2: 12.5625 - LR: 3.5065e-06
+INFO - 03/12/26 16:38:08 - 0:25:44 -     400 -  177.88 equations/s - 91785.44 words/s - MEM: 8.83 GB - LOSS:  3.3300 || ACC1: 12.7969 || ACC2: 12.8594 - LR: 4.0060e-06
+INFO - 03/12/26 16:38:44 - 0:26:20 -     450 -  177.46 equations/s - 91566.86 words/s - MEM: 8.83 GB - LOSS:  3.3033 || ACC1: 12.4219 || ACC2: 12.4531 - LR: 4.5055e-06
+INFO - 03/12/26 16:39:20 - 0:26:56 -     500 -  178.41 equations/s - 92057.16 words/s - MEM: 8.83 GB - LOSS:  3.2867 || ACC1: 12.2969 || ACC2: 12.3438 - LR: 5.0050e-06
+INFO - 03/12/26 16:39:55 - 0:27:31 -     550 -  179.36 equations/s - 92552.31 words/s - MEM: 8.83 GB - LOSS:  3.2746 || ACC1: 12.6250 || ACC2: 12.7188 - LR: 5.5045e-06
+INFO - 03/12/26 16:40:31 - 0:28:07 -     600 -  177.91 equations/s - 91799.40 words/s - MEM: 8.83 GB - LOSS:  3.2595 || ACC1: 13.1250 || ACC2: 13.1562 - LR: 6.0040e-06
+INFO - 03/12/26 16:41:07 - 0:28:43 -     650 -  177.70 equations/s - 91692.41 words/s - MEM: 8.83 GB - LOSS:  3.2514 || ACC1: 12.7500 || ACC2: 12.8438 - LR: 6.5035e-06
+INFO - 03/12/26 16:41:44 - 0:29:20 -     700 -  173.23 equations/s - 89388.93 words/s - MEM: 8.83 GB - LOSS:  3.2446 || ACC1: 12.8906 || ACC2: 12.9844 - LR: 7.0030e-06
+INFO - 03/12/26 16:42:21 - 0:29:57 -     750 -  176.10 equations/s - 90869.61 words/s - MEM: 8.83 GB - LOSS:  3.2423 || ACC1: 11.4531 || ACC2: 11.4844 - LR: 7.5025e-06
+INFO - 03/12/26 16:42:56 - 0:30:32 -     800 -  179.86 equations/s - 92807.24 words/s - MEM: 8.83 GB - LOSS:  3.2401 || ACC1: 12.9531 || ACC2: 13.0156 - LR: 8.0020e-06
+INFO - 03/12/26 16:43:32 - 0:31:08 -     850 -  178.89 equations/s - 92305.59 words/s - MEM: 8.83 GB - LOSS:  3.2272 || ACC1: 13.7188 || ACC2: 13.7812 - LR: 8.5015e-06
+INFO - 03/12/26 16:44:09 - 0:31:45 -     900 -  173.91 equations/s - 89735.26 words/s - MEM: 8.83 GB - LOSS:  3.2258 || ACC1: 12.8906 || ACC2: 13.0000 - LR: 9.0010e-06
+INFO - 03/12/26 16:44:45 - 0:32:21 -     950 -  177.84 equations/s - 91765.84 words/s - MEM: 8.83 GB - LOSS:  3.2218 || ACC1: 12.3906 || ACC2: 12.4688 - LR: 9.5005e-06

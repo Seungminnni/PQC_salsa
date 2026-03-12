@@ -15,8 +15,8 @@ class Generator(ABC):
     def __init__(self, params):
         self.N = params.N
         self.Q = params.Q
-        self.secret = params.secret
-        self.hamming = params.hamming
+        self.secret = params.secret #비밀 벡터 s의 원소는 0과 1로 이루어져 있고, 이 값이 1이면 랜덤행렬 
+        self.hamming = params.hamming #해밍 무게 값이 크면 비밀 벡터의 1의 개수가 많아진다. 비밀 벡터의 1의 개수가 많아지면 랜덤행렬 c와의 내적에서 1이 곱해지는 원소가 많아져서 b의 값이 더 다양해진다. 반대로 해밍 무게가 작으면 비밀 벡터의 1의 개수가 적어져서 b의 값이 덜 다양해진다.
         self.sigma = params.sigma #표준편차 시그마 값이 작으면 0근처에 오밀조밀하게 모인다 크면 분포가 넓어진다
 
     @abstractmethod
@@ -64,7 +64,7 @@ class RLWE(Generator):
         
     def compute_b(self, c, rng): # b = c * s + e mod q, s는 secret, e는 노이즈 ## 식 완성하는 함수임
         if self.sigma > 0: #시그마가 0보다 크면 노이즈가 존재한다는 의미임
-            e = np.int64(rng.normal(0, self.sigma, size = self.N).round()) # 랜덤 노이즈 e를 만드는 함수인데 N이 256이고 시그마가 3.0인 경우 -3에서 32사이 작은 숫자들로 채워짐
+            e = np.int64(rng.normal(0, self.sigma, size = self.N).round()) # 랜덤 노이즈 e를 만드는 함수인데 N이 256이고 시그마가 3.0인 경우 -3에서 3사이 작은 숫자들로 채워짐
             b = (np.inner(c, self.secret) + e) % self.Q # 연립방정식으로 이뤄진 최종 수식 b = c * s + e mod q
             b = np.inner(c, self.secret) % self.Q # 노이즈가 없는 경우 그냥 결합
 
@@ -80,11 +80,11 @@ class RLWE(Generator):
             x = x-self.Q # 만약 클 경우 Q나누기 2보다 크면 x에서 Q를 빼서 보정한다
         return x
 
-    def evaluate(self, src, tgt, hyp):
-        return 1 if hyp == tgt else 0
+    def evaluate(self, src, tgt, hyp): # hyp는 모델이 예측한 값, tgt는 실제값, src는 입력값
+        return 1 if hyp == tgt else 0 # 완전히 일치할 경우 1 아니면 0
 
-    def get_difference(self, tgt, hyp):
-        diff = (hyp[0]-tgt[0]) % self.Q
+    def get_difference(self, tgt, hyp): # hyp와 tgt의 차이를 계산하는 함수, 이 함수는 hyp와 tgt가 0~Q-1 사이의 정수로 이루어져 있다고 가정하고 작동함
+        diff = (hyp[0]-tgt[0]) % self.Q # hyp와 tgt의 차이를 계산하는데, 이때 차이는 모듈로 Q로 계산됨. 예를 들어, Q=10이고 hyp=2, tgt=8인 경우 diff는 (2-8) mod 10 = -6 mod 10 = 4가 됨. 이렇게 모듈로 연산을 하면 hyp와 tgt의 차이가 항상 0~Q-1 사이의 값으로 표현됨
         if diff > self.Q // 2:
             return abs(diff - self.Q)
         return diff

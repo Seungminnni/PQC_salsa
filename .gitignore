@@ -1,4 +1,5 @@
 *.npy
 *.pkl
 *.prefix
+*.pth
 __pycache__/

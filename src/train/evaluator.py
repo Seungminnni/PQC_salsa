@@ -16,6 +16,7 @@ import torch
 from scipy import stats
 
 from src.train.model import TransformerModel
+from src.train.metrics import compute_prediction_accuracies
 from src.utils import to_cuda
 
 logger = getLogger()
@@ -27,6 +28,24 @@ class SecretCheck(object):
         self.params = trainer.params
         self.orig_A, self.orig_b = dataset.orig_A, dataset.orig_b
         self.secret_recovery = { 'success': [] }
+
+    @staticmethod
+    def _format_array(arr):
+        return np.array2string(np.asarray(arr).astype(int), separator=' ')
+
+    def _support(self, arr):
+        return (np.asarray(arr).astype(int) != 0).astype(int)
+
+    def _log_guess(self, method_name, status, guess):
+        true_secret = np.asarray(self.params.secret).astype(int)
+        guess = np.asarray(guess).astype(int)
+        logger.info(
+            f"{method_name}: {status} "
+            f"(true secret = {self._format_array(true_secret)}, "
+            f"predicted secret = {self._format_array(guess)}, "
+            f"true support = {self._format_array(self._support(true_secret))}, "
+            f"predicted support = {self._format_array(self._support(guess))})"
+        )
 
     def match_secret(self, guess, method_name):
         '''
@@ -43,11 +62,12 @@ class SecretCheck(object):
             err_pred[err_pred > self.params.Q // 2] -= self.params.Q
             matched = np.std(err_pred) < 2*self.params.sigma
         if matched: 
-            logger.info(f'{method_name}: all bits in secret have been recovered!')
+            self._log_guess(method_name, 'all bits in secret have been recovered!', guess)
             if method_name not in self.secret_recovery['success']:
                 self.secret_recovery['success'].append(method_name)
                 self.trainer.secret_match = True
             return True
+        return False
 
     def match_secret_iter(self, idx_list, sorted_idx_with_scores, method_name):
         ''' 
@@ -60,7 +80,7 @@ class SecretCheck(object):
             guess[idx_list[i]] = 1
             if self.match_secret(guess, method_name):
                 return True
-        logger.info(f'{method_name}: secret not predicted.')
+        self._log_guess(method_name, 'secret not predicted.', guess)
         return False
     
     def add_log(self, k, v):
@@ -289,6 +309,8 @@ class Evaluator(object):
         # iterator
         ca_results = np.zeros(self.params.N), np.zeros(self.params.N)
         xe_loss = []
+        valid_acc1 = []
+        valid_acc2 = []
         for (x1, len1), (x2, len2), nb_ops in self.iterator:
             # target words to predict
             alen = torch.arange(len2.max(), dtype=torch.long, device=len2.device)
@@ -314,6 +336,9 @@ class Evaluator(object):
                 "predict", tensor=decoded, pred_mask=pred_mask, y=y, get_scores=True
             )
             xe_loss.append(loss.item())
+            acc1, acc2 = compute_prediction_accuracies(pred_mask, word_scores, y)
+            valid_acc1.append(acc1)
+            valid_acc2.append(acc2)
 
             for layerId in [0, 1]:
                 ca_scores = torch.stack(decoder.layers[layerId].cross_attention.outputs)
@@ -328,6 +353,8 @@ class Evaluator(object):
             self.secret_check.match_secret_iter(indices, sorted_idx_by_count, 'CA')
 
         scores["valid_xe_loss"] = np.mean(xe_loss)
+        scores["valid_acc1"] = np.mean(valid_acc1)
+        scores["valid_acc2"] = np.mean(valid_acc2)
         self.secret_check.add_log('xe_loss', np.mean(xe_loss))
         TransformerModel.STORE_OUTPUTS = False
 

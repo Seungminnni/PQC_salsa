@@ -5,6 +5,7 @@
 # LICENSE file in the root directory of this source tree.
 
 import json
+import csv
 import random
 import argparse
 import numpy as np
@@ -23,6 +24,45 @@ from src.train.envs.lattice import LatticeEnvironment
 from src.train.envs.datasets import create_dataloader
 
 np.seterr(all='raise')
+
+
+def log_epoch_metrics(logger, epoch, scores):
+    fields = [
+        "train_loss",
+        "train_acc1",
+        "train_acc2",
+        "valid_xe_loss",
+        "valid_acc1",
+        "valid_acc2",
+    ]
+    parts = [f"Epoch {epoch} metrics"]
+    for field in fields:
+        value = scores.get(field)
+        if value is None:
+            parts.append(f"{field}: n/a")
+        else:
+            parts.append(f"{field}: {float(value):.6f}")
+    logger.info(" | ".join(parts))
+
+
+def append_metrics_csv(dump_path, scores):
+    fields = [
+        "epoch",
+        "train_loss",
+        "train_acc1",
+        "train_acc2",
+        "valid_xe_loss",
+        "valid_acc1",
+        "valid_acc2",
+    ]
+    row = {field: scores.get(field) for field in fields}
+    path = os.path.join(dump_path, "metrics.csv")
+    file_exists = os.path.isfile(path)
+    with open(path, "a", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        if not file_exists or os.path.getsize(path) == 0:
+            writer.writeheader()
+        writer.writerow(row)
 
 
 def get_parser():
@@ -322,8 +362,10 @@ def main(params):
     # evaluation
     if params.eval_only:
         scores = evaluator.run_all_evals()
+        log_epoch_metrics(logger, trainer.epoch, scores)
         for k, v in scores.items():
             logger.info("%s -> %.6f" % (k, v))
+        append_metrics_csv(params.dump_path, scores)
         logger.info("__log__:%s" % json.dumps(scores))
         exit()
 
@@ -333,19 +375,24 @@ def main(params):
         logger.info("============ Starting epoch %i ... ============" % trainer.epoch)
 
         trainer.n_equations = 0
+        trainer.reset_epoch_stats()
       
         while trainer.n_equations < trainer.epoch_size:
             trainer.enc_dec_step()
             trainer.iter()
 
+        trainer.print_stats(force=True)
         logger.info("============ End of epoch %i ============" % trainer.epoch)
 
         
         # evaluate perplexity
-        scores = evaluator.run_all_evals()
+        scores = trainer.get_epoch_scores()
+        scores.update(evaluator.run_all_evals())
 
         # print / JSON log
         if params.is_master:
+            log_epoch_metrics(logger, trainer.epoch, scores)
+            append_metrics_csv(params.dump_path, scores)
             logger.info("__log__:%s" % json.dumps(scores))
 
         # end of epoch

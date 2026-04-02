@@ -16,6 +16,7 @@ import torch
 from torch.nn.utils import clip_grad_norm_
 
 from .optim import get_optimizer
+from .metrics import compute_prediction_accuracies
 from src.utils import to_cuda
 from torch.utils.data import DataLoader
 
@@ -110,6 +111,7 @@ class Trainer(object):
         self.stats = OrderedDict(
             [("processed_e", 0), ("processed_w", 0), ("loss", []), ("acc1", []), ("acc2", [])]
         )
+        self.reset_epoch_stats()
         self.last_time = time.time()
 
         # reload potential checkpoints
@@ -135,6 +137,23 @@ class Trainer(object):
         for k, v in self.parameters.items():
             logger.info("Found %i parameters in %s." % (len(v), k))
             assert len(v) >= 1
+
+    def reset_epoch_stats(self):
+        """
+        Reset epoch-level metrics used for JSON / CSV logging.
+        """
+        self.epoch_stats = OrderedDict(
+            [("train_loss", []), ("train_acc1", []), ("train_acc2", [])]
+        )
+
+    def get_epoch_scores(self):
+        """
+        Return aggregated training metrics for the current epoch.
+        """
+        scores = OrderedDict()
+        for key, values in self.epoch_stats.items():
+            scores[key] = float(np.mean(values)) if len(values) > 0 else None
+        return scores
 
     def set_optimizer(self):
         """
@@ -225,11 +244,13 @@ class Trainer(object):
         self.n_total_iter += 1
         self.print_stats()
 
-    def print_stats(self):
+    def print_stats(self, force=False):
         """
         Print statistics about the training.
         """
-        if self.n_total_iter % 50 != 0:
+        if not force and self.n_total_iter % 50 != 0:
+            return
+        if len(self.stats["loss"]) == 0:
             return
 
         s_iter = "%7i - " % self.n_total_iter
@@ -508,9 +529,10 @@ class Trainer(object):
                 src_enc=encoded.transpose(0, 1),
                 src_len=len1,
             )
-            _, loss = decoder(
-                "predict", tensor=decoded, pred_mask=pred_mask, y=y, get_scores=False, weighted= self.params.weighted_loss,  # EJW -- set as param.
+            word_scores, loss = decoder(
+                "predict", tensor=decoded, pred_mask=pred_mask, y=y, get_scores=True, weighted= self.params.weighted_loss,  # EJW -- set as param.
             )
+            acc1, acc2 = compute_prediction_accuracies(pred_mask, word_scores, y)
         else:
             with torch.cuda.amp.autocast():
                 if self.params.transformermode.startswith('new'):
@@ -530,20 +552,17 @@ class Trainer(object):
                         tensor=decoded,
                         pred_mask=pred_mask,
                         y=y,
-                        get_scores=False,
+                        get_scores=True,
                         weighted= self.params.weighted_loss, 
                     )
-                    with torch.no_grad():
-                        t = torch.zeros_like(pred_mask, device=y.device)
-                        t[pred_mask] += word_scores.max(1)[1] == y
-                        valid1 = (t[0]).cpu().long()
-                        valid2 = (t.sum(0) >= 2).cpu().long()
-                        acc1 = valid1.float().mean().item()*100
-                        acc2 = valid2.float().mean().item()*100
+                    acc1, acc2 = compute_prediction_accuracies(pred_mask, word_scores, y)
 
         self.stats['loss'].append(loss.item())
         self.stats['acc1'].append(acc1)
         self.stats['acc2'].append(acc2)
+        self.epoch_stats['train_loss'].append(loss.item())
+        self.epoch_stats['train_acc1'].append(acc1)
+        self.epoch_stats['train_acc2'].append(acc2)
 
         # optimize
         self.optimize(loss)

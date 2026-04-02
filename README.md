@@ -190,7 +190,7 @@ python train.py \
 - `input_int_base=3`와 `share_token=1`은 작은 `Q=17` 예제 전용입니다. 논문 스케일의 `n=256, q=842779` 설정에서는 다른 인코딩 값을 사용합니다.
 - 즉시 조기 종료되는 대신 더 긴 학습 곡선을 보고 싶다면, 짧은 로그를 실패로 해석하기보다 문제 난이도를 올려서 실험하세요.
 
-__가우시안 설정 정의 (friend-style pipeline, N=5, Q=17, h=3)__: 아래 명령들은 수동으로 만든 `orig_A.npy`, `RA_tiny2`, `Ab`, 그리고 오래 실행되는 debug 학습 잡을 사용하는 작은 Gaussian secret 파이프라인을 그대로 재현합니다. 위의 짧은 binary 예제보다, 재현용 toy Gaussian 실험을 잡고 싶을 때 적합한 설정입니다.
+__가우시안 설정 정의 (실제 성공한 경로 기준, N=5, Q=17, h=3)__: 아래 명령들은 로컬에서 실제로 support recovery가 성공했던 `data_n5q17_pathcheck` Gaussian 파이프라인을 그대로 재현합니다. 위의 짧은 binary sanity check보다, 작은 `q=17`에서 Gaussian support recovery를 다시 확인하고 싶을 때 적합한 설정입니다.
 
 1. 환경을 활성화하고 `fpylll`가 준비되어 있는지 확인:
 ```bash
@@ -199,19 +199,19 @@ conda activate lattice_env
 conda install -y -c conda-forge fpylll
 ```
 
-2. 원본 LWE 샘플 행렬을 수동으로 생성합니다. 수학적 분포는 `generate.py --step origA`와 같지만, 친구 파이프라인과 동일하게 맞춘 방식입니다.
+2. 원본 LWE 샘플 행렬을 수동으로 생성합니다. 수학적 분포는 `generate.py --step origA`와 같지만, 성공했던 로컬 run과 동일하게 수동 생성 방식을 사용합니다.
 ```bash
-mkdir -p data_n5q17
+mkdir -p data_n5q17_pathcheck
 python - <<'PY'
 import numpy as np
 
 A = np.random.randint(0, 17, size=(20, 5), dtype=np.int64)
-np.save("data_n5q17/orig_A.npy", A)
+np.save("data_n5q17_pathcheck/orig_A.npy", A)
 print("orig_A.npy saved", A.shape)
 PY
 ```
 기대 결과:
-- `data_n5q17/orig_A.npy`가 생성됨
+- `data_n5q17_pathcheck/orig_A.npy`가 생성됨
 - shape은 `(20, 5)`
 - 원소는 `[0, 16]` 범위에 있음
 - 현재 저장소 기준으로 이 예시는 `ctypes`로 C 표준 라이브러리의 `rand()`를 부르는 방식이 아니라, NumPy의 정수 난수 생성기를 사용합니다.
@@ -219,8 +219,8 @@ PY
 
 3. 같은 작은 파라미터 reduction 스타일로 `RA_tiny2` 실행:
 ```bash
-python generate.py --step RA_tiny2 --dump_path ./data_n5q17/ra \
-  --reload_data ./data_n5q17/orig_A.npy \
+python generate.py --step RA_tiny2 --dump_path ./data_n5q17_pathcheck/ra \
+  --reload_data ./data_n5q17_pathcheck/orig_A.npy \
   --timeout 120 \
   --N 5 --Q 17 \
   --lll_delta 0.99 --float_type double \
@@ -228,31 +228,32 @@ python generate.py --step RA_tiny2 --dump_path ./data_n5q17/ra \
   --num_workers 1 --epoch_size 10000
 ```
 기대 결과:
-- `data_n5q17/ra/debug/` 아래에 새 디렉터리가 생성됨
-- reduced data는 `data_n5q17/ra/debug/<run_id>/data.prefix`에 기록됨
-- 이 toy 설정에서는 `wc -l data_n5q17/ra/debug/*/data.prefix` 결과가 대략 `50000`줄 정도 나옵니다.
+- `data_n5q17_pathcheck/ra/debug/` 아래에 새 디렉터리가 생성됨
+- reduced data는 `data_n5q17_pathcheck/ra/debug/<run_id>/data.prefix`에 기록됨
+- 로컬 성공 run에서는 `data_n5q17_pathcheck/ra/debug/dsm9ksxqyc/data.prefix`가 생성되었고, `wc -l` 결과는 `50000`이었습니다.
 
 4. Hamming weight `3`인 sparse Gaussian secret에 대한 reduced `(A, b)` 샘플 생성:
 ```bash
-python generate.py --step Ab --dump_path ./data_n5q17/ab \
-  --reload_data ./data_n5q17/ra/debug/* \
-  --secret_dir ./data_n5q17/ab \
+python generate.py --step Ab --dump_path ./data_n5q17_pathcheck/ab \
+  --reload_data ./data_n5q17_pathcheck/ra/debug/* \
+  --secret_dir ./data_n5q17_pathcheck/ab \
   --min_hamming 3 --max_hamming 3 --num_secret_seeds 5 \
   --secret_type gaussian --sigma 3 \
   --epoch_size 20000 --reload_size 20000 \
   --num_workers 1 --timeout 120
 ```
 기대 결과:
-- `data_n5q17/ab/debug/` 아래에 새 디렉터리가 생성됨
-- `data_n5q17/ab/debug/<run_id>/train.prefix`와 `test.prefix`가 생성됨
-- `data_n5q17/ab/debug/<run_id>/secret.npy`가 생성됨
-- 로컬 실행 기준으로 `wc -l data_n5q17/ab/debug/*/*.prefix`를 치면 `test.prefix` 하나는 약 `10000`줄, `train.prefix` 하나는 약 `75248`줄이 나왔습니다.
+- `data_n5q17_pathcheck/ab/debug/` 아래에 새 디렉터리가 생성됨
+- `data_n5q17_pathcheck/ab/debug/<run_id>/train.prefix`와 `test.prefix`가 생성됨
+- `data_n5q17_pathcheck/ab/debug/<run_id>/secret.npy`가 생성됨
+- 로컬 성공 run에서는 `data_n5q17_pathcheck/ab/debug/1426x4dp23/train.prefix`가 `78664`줄, `test.prefix`가 `10000`줄이었습니다.
 - `num_secret_seeds=5`이므로 `secret.npy` shape은 `(5, 5)`입니다.
+- 같은 run에서 `secret_seed=0`의 secret은 `[-3, 2, 0, 0, 6]`, support는 `[1, 1, 0, 0, 1]`이었습니다.
 
 5. GPU에서 Gaussian 공격 학습 시작:
 ```bash
-python train.py --cpu false --reload_data ./data_n5q17/ab/debug/* \
-  --dump_path ./data_n5q17/train_run \
+python train.py --cpu false --reload_data ./data_n5q17_pathcheck/ab/debug/* \
+  --dump_path ./data_n5q17_pathcheck/train_run \
   --hamming 3 --secret_seed 0 \
   --epoch_size 100 --max_epoch 9999999 \
   --batch_size 512 --num_workers 0 \
@@ -260,15 +261,19 @@ python train.py --cpu false --reload_data ./data_n5q17/ab/debug/* \
   --eval_size 100 --debug
 ```
 기대 결과:
-- `data_n5q17/train_run/debug/` 아래에 새 디렉터리가 생성됨
-- `data_n5q17/train_run/debug/debug_<run_id>/train.log`가 생성됨
-- 평가가 끝날 때마다 `data_n5q17/train_run/debug/debug_<run_id>/checkpoint.pth`가 갱신됨
-- `tail -n 40 data_n5q17/train_run/debug/debug_*/train.log`를 통해 validation loss와 evaluator 출력을 확인할 수 있음
+- `data_n5q17_pathcheck/train_run/debug/` 아래에 새 디렉터리가 생성됨
+- `data_n5q17_pathcheck/train_run/debug/debug_<run_id>/train.log`가 생성됨
+- 평가가 끝날 때마다 `data_n5q17_pathcheck/train_run/debug/debug_<run_id>/checkpoint.pth`가 갱신됨
+- `tail -n 40 data_n5q17_pathcheck/train_run/debug/debug_*/train.log`를 통해 validation loss와 evaluator 출력을 확인할 수 있음
+- 로컬 성공 run에서는 `data_n5q17_pathcheck/train_run/debug/debug_50519924/train.log`에서 epoch `286` 평가 시 `Direct: all bits in secret have been recovered!`가 나타났고, 직후 `Found secret match - ending experiment.`로 종료되었습니다.
+- 같은 성공 epoch의 `valid_xe_loss`는 약 `2.320574`였습니다.
 
 참고:
 - `--output_int_base`는 채팅이나 PDF에서 복사한 유니코드 대시가 아니라, 일반 ASCII 하이픈을 사용해야 합니다.
 - 이 Gaussian 설정은 튜닝이 많이 된 논문 스케일 실험이라기보다, 재현과 디버깅을 위한 설정에 더 가깝습니다. `input_int_base=17`, `share_token=1`, `epoch_size=100`, `--debug` 조합은 내부 상태를 보기 쉽게 유지하기 위한 선택입니다.
-- 로컬 재현에서는 `data_n5q17/train_run/debug/debug_67523308` 디렉터리에서 학습이 실행되었고, validation loss는 꾸준히 감소했습니다. 다만 설정이 같아도 모든 seed에서 secret recovery가 보장되지는 않습니다.
+- 작은 `q=17` Gaussian 설정에서는 `train_acc1/2`, `valid_acc1/2`가 오래 `0.0`으로 남아도 `Direct` probing으로 support recovery가 성공할 수 있습니다. 즉 이 설정에선 `ACC`보다 `valid_xe_loss`와 evaluator의 `Direct / Distinguisher / CA` 로그를 더 중요하게 해석해야 합니다.
+- 로컬 성공 run `debug_50519924`도 epoch `286`에서 support recovery가 성공했지만, 같은 epoch의 `train_acc1/2`, `valid_acc1/2`는 모두 `0.0`이었습니다.
+- 같은 데이터셋으로 다시 학습을 올리면 항상 같은 epoch에 성공한다는 보장은 없습니다. 작은 toy Gaussian 설정은 seed와 샘플 인스턴스 영향이 큽니다.
 - `eval_size`가 `distinguisher_size`보다 작으면, 현재 저장소는 사용 가능한 evaluation set 크기에 맞춰 distinguisher sample 수를 자동으로 줄이도록 되어 있어 이 작은 Gaussian 설정이 깨지지 않게 처리합니다.
 
 위의 두 preprocessing 단계를 slurm으로 돌리고 싶다면 `slurm_params` 폴더에 있는 `create_n256_data_step1.json`과 `create_n256_data_step2.json`을 참고하면 됩니다. 이 파일들은 `sbatch` 같은 slurm 스케줄링 도구를 설정할 때 좋은 예시가 됩니다.

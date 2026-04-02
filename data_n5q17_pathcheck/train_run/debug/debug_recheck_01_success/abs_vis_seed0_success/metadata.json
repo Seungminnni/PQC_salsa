@@ -1,0 +1,30 @@
+{
+  "train_prefix": "/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab/debug/1426x4dp23/train.prefix",
+  "secret_npy": "/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab/debug/1426x4dp23/secret.npy",
+  "q": 17,
+  "primary_seed": 0,
+  "seed_count": 1,
+  "scatter_samples": 3500,
+  "manifold_samples": 1200,
+  "edge_samples": 180,
+  "knn_k": 4,
+  "seeds": [
+    {
+      "seed": 0,
+      "secret": [
+        -3,
+        2,
+        0,
+        0,
+        6
+      ],
+      "support": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

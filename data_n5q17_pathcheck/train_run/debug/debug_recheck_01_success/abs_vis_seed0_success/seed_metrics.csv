@@ -1,0 +1,2 @@
+seed,secret,support,observed_mean,observed_std,signal_mean,signal_std,residual_mean,residual_std,residual_abs_mean
+0,"[-3, 2, 0, 0, 6]","[1, 1, 0, 0, 1]",-0.04978134852028882,4.900151009674506,1.0984567273466896,4.231543476476647,0.19120563408929117,3.1719812286326525,2.625864436082579

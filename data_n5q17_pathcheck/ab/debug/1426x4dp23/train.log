@@ -1,0 +1,91 @@
+INFO - 04/02/26 18:44:32 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/02/26 18:44:32 - 0:00:00 - N: 5
+                                     Q: 17
+                                     algo: BKZ2.0
+                                     algo2: BKZ2.0
+                                     batch_size: 20
+                                     bkz_block_size: 30
+                                     bkz_block_size2: 40
+                                     command: python generate.py --step Ab --dump_path '/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab' --reload_data '/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ra/debug/dsm9ksxqyc' --secret_dir '/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab' --min_hamming 3 --max_hamming 3 --num_secret_seeds 5 --secret_type gaussian --sigma 3 --epoch_size 20000 --reload_size 20000 --num_workers 1 --timeout 120 --exp_id "1426x4dp23"
+                                     correctQ: False
+                                     cpu: True
+                                     debug: False
+                                     debug_slurm: False
+                                     dump_path: /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab/debug/1426x4dp23
+                                     env_base_seed: -1
+                                     epoch_size: 20000
+                                     exp_id: 1426x4dp23
+                                     exp_name: debug
+                                     float_type: double
+                                     gamma: 2
+                                     global_rank: 0
+                                     is_master: True
+                                     is_slurm_job: False
+                                     lll_delta: 0.96
+                                     lll_delta2: 0.99
+                                     lll_penalty: 10
+                                     local_rank: 0
+                                     lwe: False
+                                     m: 5
+                                     master_port: -1
+                                     max_hamming: 3
+                                     max_timeout_count: 10
+                                     min_hamming: 3
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     num_orig_samples: -1
+                                     num_secret_seeds: 5
+                                     num_workers: 1
+                                     orig_A_path: /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/orig_A.npy
+                                     reload_data: /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ra/debug/dsm9ksxqyc
+                                     reload_perm: 
+                                     reload_size: 20000
+                                     resume_path: 
+                                     rnorm: 1.0
+                                     secret_dir: /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab
+                                     secret_type: gaussian
+                                     sigma: 3.0
+                                     step: Ab
+                                     threshold: -1
+                                     threshold2: 0.5
+                                     timeout: 120
+                                     tiny1: False
+                                     tiny2: True
+                                     use_polish: False
+                                     world_size: 1
+INFO - 04/02/26 18:44:32 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab/debug/1426x4dp23
+                                     
+INFO - 04/02/26 18:44:32 - 0:00:00 - Running command: python generate.py --step Ab --dump_path '/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab' --reload_data '/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ra/debug/dsm9ksxqyc' --secret_dir '/home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab' --min_hamming 3 --max_hamming 3 --num_secret_seeds 5 --secret_type gaussian --sigma 3 --epoch_size 20000 --reload_size 20000 --num_workers 1 --timeout 120
+
+INFO - 04/02/26 18:44:32 - 0:00:00 -  Nb CPU: 24 and Nb worker: 1
+INFO - 04/02/26 18:44:32 - 0:00:00 - Creating gaussian secret
+INFO - 04/02/26 18:44:32 - 0:00:00 - Data will be stored in: /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab/debug/1426x4dp23/test.prefix ...
+INFO - 04/02/26 18:44:32 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ra/debug/dsm9ksxqyc/data.prefix ... seekpos 0
+INFO - 04/02/26 18:44:32 - 0:00:00 - Loaded 10000 matrices from the disk. seekpos 1246407
+INFO - 04/02/26 18:44:32 - 0:00:00 -     500 - 29601.02 equations/s - 
+INFO - 04/02/26 18:44:32 - 0:00:00 -    1000 - 187709.96 equations/s - 
+INFO - 04/02/26 18:44:32 - 0:00:00 -    1500 - 169805.75 equations/s - 
+INFO - 04/02/26 18:44:32 - 0:00:00 -    2000 - 158301.91 equations/s - 
+INFO - 04/02/26 18:44:33 - 0:00:00 -    2500 - 147125.20 equations/s - 
+INFO - 04/02/26 18:44:33 - 0:00:00 -    3000 - 135701.98 equations/s - 
+INFO - 04/02/26 18:44:33 - 0:00:00 -    3500 - 114380.96 equations/s - 
+INFO - 04/02/26 18:44:33 - 0:00:01 -    4000 - 27854.55 equations/s - 
+INFO - 04/02/26 18:44:33 - 0:00:01 -    4500 - 21602.86 equations/s - 
+INFO - 04/02/26 18:44:33 - 0:00:01 -    5000 - 19764.84 equations/s - 
+INFO - 04/02/26 18:44:34 - 0:00:01 -    5500 - 17619.00 equations/s - 
+INFO - 04/02/26 18:44:34 - 0:00:02 -    6000 - 15700.25 equations/s - 
+INFO - 04/02/26 18:44:34 - 0:00:02 -    6500 - 14584.59 equations/s - 
+INFO - 04/02/26 18:44:35 - 0:00:02 -    7000 - 13684.45 equations/s - 
+INFO - 04/02/26 18:44:35 - 0:00:03 -    7500 - 12907.48 equations/s - 
+INFO - 04/02/26 18:44:35 - 0:00:03 -    8000 - 12206.31 equations/s - 
+INFO - 04/02/26 18:44:36 - 0:00:04 -    8500 - 11142.23 equations/s - 
+INFO - 04/02/26 18:44:36 - 0:00:04 -    9000 - 10630.99 equations/s - 
+INFO - 04/02/26 18:44:37 - 0:00:05 -    9500 - 11038.95 equations/s - 
+INFO - 04/02/26 18:44:37 - 0:00:05 -   10000 - 10334.71 equations/s - 
+INFO - 04/02/26 18:44:37 - 0:00:05 - Loading data from /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ra/debug/dsm9ksxqyc/data.prefix ... seekpos 1246407
+INFO - 04/02/26 18:44:37 - 0:00:05 - Loaded 0 matrices from the disk. seekpos 1246407
+INFO - 04/02/26 18:44:37 - 0:00:05 - ============ End of file ============
+INFO - 04/02/26 18:44:37 - 0:00:05 - Saved diff at /home/yu_mcc/PQC_salsa/data_n5q17_pathcheck/ab/debug/1426x4dp23/diff.npy

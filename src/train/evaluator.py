@@ -209,8 +209,10 @@ class Evaluator(object):
                 continue
 
             # 3 methods of testing for matching: mean, mode, and softmax mean
+            mode_result = stats.mode(pred_final, keepdims=False)
+            mode_value = np.asarray(mode_result.mode).reshape(-1)[0]
             pred_bin1 = np.vectorize(lambda x: 0 if x > np.mean(pred_final) else 1)(pred_final) 
-            pred_bin2 = np.vectorize(lambda x: 0 if x != stats.mode(pred_final)[0][0] else 1)(pred_final)
+            pred_bin2 = np.vectorize(lambda x: 0 if x != mode_value else 1)(pred_final)
             pred_bin3 = np.vectorize(lambda x: 0 if x > np.mean(pred_softmax) else 1)(pred_softmax)
 
             # Match list
@@ -225,7 +227,20 @@ class Evaluator(object):
     def run_distinguisher(self, encoder, decoder):
         self.distinguisher_results = np.zeros(self.params.N)
         logger.info(f'Starting Distinguisher Method')
-        num_samples = self.params.distinguisher_size
+        available = len(self.iterator.dataset.data)
+        num_samples = min(self.params.distinguisher_size, available)
+        # Keep the positive / negative perturbation halves aligned with the
+        # actual number of eval samples we loaded from disk.
+        if num_samples % 2 == 1:
+            num_samples -= 1
+        if num_samples <= 0:
+            logger.info('Distinguisher skipped: no evaluation samples available.')
+            return
+        if num_samples < self.params.distinguisher_size:
+            logger.info(
+                f'Reducing distinguisher_size from {self.params.distinguisher_size} '
+                f'to {num_samples} to match the available evaluation samples.'
+            )
         # Get the A (bkz reduced) and run through the model. 
         A_s = np.array(self.iterator.dataset.getbatchA(num_samples))
         lwe_preds0 = self.predict_outputs(A_s, encoder, decoder, intermediate=True)

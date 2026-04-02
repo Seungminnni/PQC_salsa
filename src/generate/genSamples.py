@@ -7,14 +7,15 @@
 import io
 import os
 import pickle
+import queue
 import numpy as np
 from time import time
-from scipy.linalg import circulant
 from logging import getLogger
 from fpylll import FPLLL, LLL, BKZ, GSO, IntegerMatrix
 from fpylll.algorithms.bkz2 import BKZReduction as BKZ2
 from ..utils import TimeoutError, timeout
 import multiprocessing
+from .lwe import sample_negacyclic_rlwe_matrix, sample_uniform_lwe_matrix
 
 logger = getLogger()
 FLOAT_UPGRADE = {
@@ -65,7 +66,7 @@ class BKZReducedRLWE():
             assert self.float_type == 'mpfr'
             FPLLL.set_precision(int(precision))
 
-    def timedout_bkz(self, return_dict):
+    def timedout_bkz(self, result_queue):
         if os.path.isfile(self.matrix_filename):
             A_Ap = np.load(self.matrix_filename)
             UT_or_AT, Ap = A_Ap[:, :self.m], A_Ap[:, self.m:]
@@ -81,17 +82,19 @@ class BKZReducedRLWE():
 
         param_change = True
         while param_change:
-            Ap, param_change = self.run_bkz(return_dict, UT_or_AT, Ap)
+            Ap, param_change = self.run_bkz(UT_or_AT, Ap)
 
         # Rewrite checkpoint with new data and return the bkz reduced result
         newA, newAp = self.get_A_Ap()
         self.save_mat(newA.T, newAp)
 
         R = (Ap[:,:self.m] / self.params.lll_penalty).astype(int)
-        return_dict["R"] = R
-        return_dict["XT"] = UT_or_AT[:len(newA.T)]
+        result_queue.put({
+            "R": R,
+            "XT": UT_or_AT[:len(newA.T)],
+        })
 
-    def run_bkz(self, return_dict, UT_or_AT, Ap):
+    def run_bkz(self, UT_or_AT, Ap):
         fplll_Ap = IntegerMatrix.from_matrix(Ap.tolist())
         M = GSO.Mat(fplll_Ap, float_type=self.float_type, update=True)
         bkz_params = BKZ.Param(self.block_size, delta=self.delta, max_time=MAX_TIME)
@@ -130,6 +133,8 @@ class BKZReducedRLWE():
             if oldstddev - newstddev > 0:
                 logger.info(f'stddev reduction: {oldstddev - newstddev}, time {time() - polishtime}. ')
                 return Ap, True
+            logger.info(f'stddev plateau at {newstddev}. Exporting {self.matrix_filename}')
+            return Ap, False
         
     def save_mat(self, X, Y):
         mat_to_save = np.zeros((len(Y), len(Y)+self.m)).astype(int)
@@ -161,9 +166,8 @@ class BKZReducedRLWE():
         return self.calc_std(X)
 
     def generate(self):
-        manager = multiprocessing.Manager()
-        return_dict = manager.dict()
-        p = multiprocessing.Process(target=self.timedout_bkz, name="data generation", args=(return_dict,))
+        result_queue = multiprocessing.Queue(maxsize=1)
+        p = multiprocessing.Process(target=self.timedout_bkz, name="data generation", args=(result_queue,))
         p.start()
         start = time()
         curr = time() - start
@@ -176,9 +180,10 @@ class BKZReducedRLWE():
         if curr >= self.timeout:
             raise TimeoutError
         try:
-            R = return_dict["R"]
-            XT = return_dict["XT"]
-        except KeyError:
+            result = result_queue.get_nowait()
+            R = result["R"]
+            XT = result["XT"]
+        except (queue.Empty, KeyError):
             raise TimeoutError
         self.counter += 1
         if self.counter % 200 == 0:
@@ -201,14 +206,9 @@ class BKZReducedRLWE():
             A = self.tiny_A[idxs]
         else: # regular
             if self.params.lwe:
-                A = rng.randint(0, self.Q, size=(self.m, self.N), dtype=np.int64)
+                A = sample_uniform_lwe_matrix(rng, self.m, self.N, self.Q)
             else:
-                a = rng.randint(0, self.Q, size=self.N, dtype=np.int64)
-                A = circulant(a)
-                tri = np.triu_indices(self.N, 1)
-                A[tri] *= -1
-        A = A % self.Q
-        assert (np.min(A) >= 0) and (np.max(A) < self.Q)
+                A = sample_negacyclic_rlwe_matrix(rng, self.N, self.Q)
         
         # Arrange the matrix as [0 Q*Id; w*Id A]
         Ap = np.zeros((self.m+self.N, self.m+self.N), dtype = int)
@@ -326,8 +326,7 @@ class BenchmarkBKZ():
     def get_Kannans_embedding(self):
         N, m, Q = self.N, self.m, self.Q
         rng = np.random.RandomState(self.seed + [int(time())])
-        A = rng.randint(0, Q, size=(m, N), dtype=np.int64)
-        assert (np.min(A) >= 0) and (np.max(A) < Q)
+        A = sample_uniform_lwe_matrix(rng, m, N, Q)
         e = rng.normal(0, self.sigma, size = m).round()
         b = ((A@self.s).flatten() + e).astype(int) % Q
         self.start = time()

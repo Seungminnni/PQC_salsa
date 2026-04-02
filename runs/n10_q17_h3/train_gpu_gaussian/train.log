@@ -1,0 +1,1618 @@
+INFO - 04/01/26 22:06:34 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/01/26 22:06:34 - 0:00:00 - N: 10
+                                     Q: 17
+                                     accumulate_gradients: 1
+                                     act_ponder_coupling: 0.05
+                                     act_threshold: 0.01
+                                     add_unred_perc: 0
+                                     amp: 2
+                                     attention_dropout: 0.0
+                                     balanced_base: False
+                                     batch_load: False
+                                     batch_size: 256
+                                     beam_early_stopping: True
+                                     beam_eval: True
+                                     beam_eval_train: 0
+                                     beam_length_penalty: 1
+                                     beam_size: 1
+                                     clip_grad_norm: 5
+                                     command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian' --secret_seed 0 --hamming 3 --input_int_base 3 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n10_q17_h3 --exp_id train_gpu_gaussian --batch_size 256 --epoch_size 12000 --max_epoch 5 --eval_size 2048 --distinguisher_size 256 --enc_emb_dim 256 --dec_emb_dim 256 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 2 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001' --num_workers 0 --beam_size 1 --max_output_len 4 --exp_id "train_gpu_gaussian"
+                                     correctQ: False
+                                     cpu: False
+                                     data_cols: None
+                                     debug: False
+                                     debug_slurm: False
+                                     dec_act: False
+                                     dec_emb_dim: 256
+                                     dec_gated: False
+                                     dec_loop_idx: 0
+                                     dec_loops: 2
+                                     dense_cols: None
+                                     dim_red: 
+                                     distinguisher_size: 256
+                                     dropout: 0.0
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian
+                                     enc_act: False
+                                     enc_emb_dim: 256
+                                     enc_gated: False
+                                     enc_loop_idx: -1
+                                     enc_loops: 1
+                                     env_base_seed: 828947819
+                                     epoch_size: 12000
+                                     eval_data: 
+                                     eval_from_exp: 
+                                     eval_only: False
+                                     eval_size: 2048
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exp_id: train_gpu_gaussian
+                                     exp_name: n10_q17_h3
+                                     fp16: True
+                                     freeze_embeddings: False
+                                     gated: True
+                                     gelu_activation: False
+                                     global_rank: 0
+                                     hamming: 3
+                                     input_int_base: 3
+                                     is_master: True
+                                     is_slurm_job: False
+                                     local_rank: 0
+                                     master_port: -1
+                                     max_epoch: 5
+                                     max_output_len: 4
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_cross_heads: 4
+                                     n_dec_heads: 4
+                                     n_dec_hidden_layers: 1
+                                     n_dec_layers: 2
+                                     n_enc_heads: 4
+                                     n_enc_hidden_layers: 1
+                                     n_enc_layers: 1
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     norm_attention: False
+                                     num_reuse_samples: 10000
+                                     num_workers: 0
+                                     nvidia_apex: False
+                                     optimizer: adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001
+                                     output_int_base: 3
+                                     reload_checkpoint: 
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian
+                                     reload_model: 
+                                     reload_size: 10000000
+                                     reuse: False
+                                     scalar_gate: False
+                                     secret: [ 2  0  0  0  0 -7  0  0  1  0]
+                                     secret_col: 0
+                                     secret_seed: 0
+                                     secret_type: gaussian
+                                     share_inout_emb: True
+                                     share_token: 1
+                                     shuffle: True
+                                     sigma: 3.0
+                                     sinusoidal_embeddings: False
+                                     stopping_criterion: 
+                                     test_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/test.prefix
+                                     times_reused: 10
+                                     train_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/train.prefix
+                                     transformermode: old
+                                     validation_metrics: 
+                                     weighted_loss: False
+                                     windows: False
+                                     world_size: 1
+                                     xav_init: False
+INFO - 04/01/26 22:06:34 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian
+                                     
+INFO - 04/01/26 22:06:34 - 0:00:00 - Running command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian' --secret_seed 0 --hamming 3 --input_int_base 3 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n10_q17_h3 --exp_id train_gpu_gaussian --batch_size 256 --epoch_size 12000 --max_epoch 5 --eval_size 2048 --distinguisher_size 256 --enc_emb_dim 256 --dec_emb_dim 256 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 2 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001' --num_workers 0 --beam_size 1 --max_output_len 4
+
+INFO - 04/01/26 22:06:34 - 0:00:00 - vocabulary: 7 words
+INFO - 04/01/26 22:06:34 - 0:00:00 - words: {'<eos>': 0, '<pad>': 1, '<mask>': 2, '+': 3, '0': 4, '1': 5, '2': 6}
+DEBUG - 04/01/26 22:06:34 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      )
+DEBUG - 04/01/26 22:06:34 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (gate2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=256, out_features=7, bias=True)
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (gate2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=256, out_features=7, bias=True)
+                                      )
+INFO - 04/01/26 22:06:34 - 0:00:00 - Number of parameters (encoder): 1840640
+INFO - 04/01/26 22:06:34 - 0:00:00 - Number of parameters (decoder): 3683335
+INFO - 04/01/26 22:06:34 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/train.prefix ... seekpos 0, basepos 0
+INFO - 04/01/26 22:06:34 - 0:00:00 - Loaded 10880 equations from the disk. seekpos 0, nextpos 10880
+INFO - 04/01/26 22:06:34 - 0:00:00 - Creating train dataloader...
+INFO - 04/01/26 22:06:34 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/test.prefix ... seekpos 0, basepos 0
+INFO - 04/01/26 22:06:34 - 0:00:00 - Loaded 2048 equations from the disk. seekpos 58204, nextpos 2048
+INFO - 04/01/26 22:06:34 - 0:00:00 - Creating test dataloader...
+INFO - 04/01/26 22:06:34 - 0:00:00 - Found 81 parameters in model.
+INFO - 04/01/26 22:06:35 - 0:00:01 - Optimizer: <class 'src.train.optim.AdamWithWarmup'>
+INFO - 04/01/26 22:06:35 - 0:00:01 - ============ Starting epoch 0 ... ============
+INFO - 04/01/26 22:06:35 - 0:00:01 - Initialized random generator for worker 0, with seed [0, 0, 828947819, 1775048795] (base seed=828947819).
+INFO - 04/01/26 22:06:37 - 0:00:03 - ============ End of epoch 0 ============
+INFO - 04/01/26 22:06:37 - 0:00:03 - Starting Distinguisher Method
+INFO - 04/01/26 22:06:40 - 0:00:06 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:06:40 - 0:00:06 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:06:40 - 0:00:06 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:06:40 - 0:00:06 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:06:40 - 0:00:06 - Starting Direct Method
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=6
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=10
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=5
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=6
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=9
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=11
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=11
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=9
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=8
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=10
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=11
+INFO - 04/01/26 22:06:40 - 0:00:06 - Direct:  K=9
+INFO - 04/01/26 22:06:41 - 0:00:06 - Direct:  K=4
+INFO - 04/01/26 22:06:41 - 0:00:06 - Direct:  K=7
+INFO - 04/01/26 22:06:41 - 0:00:07 - Direct:  K=8
+INFO - 04/01/26 22:06:41 - 0:00:07 - Direct: secret not predicted.
+INFO - 04/01/26 22:06:41 - 0:00:07 - CA: secret not predicted.
+INFO - 04/01/26 22:06:41 - 0:00:07 - CA: secret not predicted.
+INFO - 04/01/26 22:06:41 - 0:00:07 - Hybrid: direct, ca
+INFO - 04/01/26 22:06:41 - 0:00:07 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:06:41 - 0:00:07 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:06:41 - 0:00:07 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:06:41 - 0:00:07 - __log__:{"epoch": 0, "valid_xe_loss": 3.0560675263404846}
+INFO - 04/01/26 22:06:41 - 0:00:07 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:06:41 - 0:00:07 - Saving encoder parameters ...
+WARNING - 04/01/26 22:06:41 - 0:00:07 - Saving decoder parameters ...
+WARNING - 04/01/26 22:06:41 - 0:00:07 - Saving optimizer ...
+INFO - 04/01/26 22:06:41 - 0:00:07 - ============ Starting epoch 1 ... ============
+INFO - 04/01/26 22:06:41 - 0:00:07 -      50 - 2054.52 equations/s - 71908.22 words/s - MEM: 0.29 GB - LOSS:  5.9667 || ACC1:  0.0000 || ACC2: 10.3203 - LR: 2.5750e-05
+INFO - 04/01/26 22:06:43 - 0:00:09 - ============ End of epoch 1 ============
+INFO - 04/01/26 22:06:43 - 0:00:09 - Starting Distinguisher Method
+INFO - 04/01/26 22:06:47 - 0:00:13 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:06:47 - 0:00:13 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:06:47 - 0:00:13 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:06:47 - 0:00:13 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:06:47 - 0:00:13 - Starting Direct Method
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=7
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=8
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=9
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=9
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=11
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=7
+INFO - 04/01/26 22:06:47 - 0:00:13 - Direct:  K=7
+INFO - 04/01/26 22:06:48 - 0:00:13 - Direct:  K=10
+INFO - 04/01/26 22:06:48 - 0:00:13 - Direct:  K=10
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct:  K=11
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct:  K=5
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct:  K=4
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct:  K=6
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct:  K=11
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct:  K=9
+INFO - 04/01/26 22:06:48 - 0:00:14 - Direct: secret not predicted.
+INFO - 04/01/26 22:06:48 - 0:00:14 - CA: secret not predicted.
+INFO - 04/01/26 22:06:48 - 0:00:14 - CA: secret not predicted.
+INFO - 04/01/26 22:06:48 - 0:00:14 - Hybrid: direct, ca
+INFO - 04/01/26 22:06:48 - 0:00:14 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:06:48 - 0:00:14 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:06:48 - 0:00:14 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:06:48 - 0:00:14 - __log__:{"epoch": 1, "valid_xe_loss": 0.8332274779677391}
+INFO - 04/01/26 22:06:48 - 0:00:14 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:06:48 - 0:00:14 - Saving encoder parameters ...
+WARNING - 04/01/26 22:06:48 - 0:00:14 - Saving decoder parameters ...
+WARNING - 04/01/26 22:06:48 - 0:00:14 - Saving optimizer ...
+INFO - 04/01/26 22:06:48 - 0:00:14 - ============ Starting epoch 2 ... ============
+INFO - 04/01/26 22:06:48 - 0:00:14 -     100 - 1750.85 equations/s - 61279.75 words/s - MEM: 0.29 GB - LOSS:  1.1276 || ACC1: 39.6406 || ACC2: 67.0938 - LR: 5.0500e-05
+INFO - 04/01/26 22:06:50 - 0:00:16 - ============ End of epoch 2 ============
+INFO - 04/01/26 22:06:50 - 0:00:16 - Starting Distinguisher Method
+INFO - 04/01/26 22:06:55 - 0:00:21 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:06:55 - 0:00:21 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:06:55 - 0:00:21 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:06:55 - 0:00:21 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:06:55 - 0:00:21 - Starting Direct Method
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=10
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=11
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=4
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=4
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=8
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=9
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=8
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=5
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=4
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=7
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=4
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=5
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=9
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=9
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct:  K=8
+INFO - 04/01/26 22:06:55 - 0:00:21 - Direct: secret not predicted.
+INFO - 04/01/26 22:06:56 - 0:00:21 - CA: secret not predicted.
+INFO - 04/01/26 22:06:56 - 0:00:21 - CA: secret not predicted.
+INFO - 04/01/26 22:06:56 - 0:00:21 - Hybrid: direct, ca
+INFO - 04/01/26 22:06:56 - 0:00:21 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:06:56 - 0:00:21 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:06:56 - 0:00:21 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:06:56 - 0:00:21 - __log__:{"epoch": 2, "valid_xe_loss": 0.7308623269200325}
+INFO - 04/01/26 22:06:56 - 0:00:21 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:06:56 - 0:00:21 - Saving encoder parameters ...
+WARNING - 04/01/26 22:06:56 - 0:00:21 - Saving decoder parameters ...
+WARNING - 04/01/26 22:06:56 - 0:00:21 - Saving optimizer ...
+INFO - 04/01/26 22:06:56 - 0:00:22 - ============ Starting epoch 3 ... ============
+INFO - 04/01/26 22:06:56 - 0:00:22 -     150 - 1654.78 equations/s - 57917.38 words/s - MEM: 0.29 GB - LOSS:  0.6963 || ACC1: 55.8594 || ACC2: 84.3438 - LR: 7.5250e-05
+INFO - 04/01/26 22:06:58 - 0:00:24 - ============ End of epoch 3 ============
+INFO - 04/01/26 22:06:58 - 0:00:24 - Starting Distinguisher Method
+INFO - 04/01/26 22:07:02 - 0:00:28 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:07:02 - 0:00:28 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:07:02 - 0:00:28 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:07:02 - 0:00:28 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:07:02 - 0:00:28 - Starting Direct Method
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=7
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=9
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=7
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=4
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=8
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=9
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=9
+INFO - 04/01/26 22:07:02 - 0:00:28 - Direct:  K=11
+INFO - 04/01/26 22:07:03 - 0:00:28 - Direct:  K=4
+INFO - 04/01/26 22:07:03 - 0:00:28 - Direct:  K=8
+INFO - 04/01/26 22:07:03 - 0:00:28 - Direct:  K=5
+INFO - 04/01/26 22:07:03 - 0:00:29 - Direct:  K=8
+INFO - 04/01/26 22:07:03 - 0:00:29 - Direct:  K=5
+INFO - 04/01/26 22:07:03 - 0:00:29 - Direct:  K=8
+INFO - 04/01/26 22:07:03 - 0:00:29 - Direct:  K=8
+INFO - 04/01/26 22:07:03 - 0:00:29 - Direct: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - CA: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - CA: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - Hybrid: direct, ca
+INFO - 04/01/26 22:07:03 - 0:00:29 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:07:03 - 0:00:29 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:07:03 - 0:00:29 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:07:03 - 0:00:29 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:07:03 - 0:00:29 - __log__:{"epoch": 3, "valid_xe_loss": 0.7044013142585754}
+INFO - 04/01/26 22:07:03 - 0:00:29 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:07:03 - 0:00:29 - Saving encoder parameters ...
+WARNING - 04/01/26 22:07:03 - 0:00:29 - Saving decoder parameters ...
+WARNING - 04/01/26 22:07:03 - 0:00:29 - Saving optimizer ...
+INFO - 04/01/26 22:07:03 - 0:00:29 - ============ Starting epoch 4 ... ============
+INFO - 04/01/26 22:07:04 - 0:00:29 -     200 - 1713.90 equations/s - 59986.49 words/s - MEM: 0.29 GB - LOSS:  0.6098 || ACC1: 66.6172 || ACC2: 91.6953 - LR: 1.0000e-04
+INFO - 04/01/26 22:07:05 - 0:00:31 - ============ End of epoch 4 ============
+INFO - 04/01/26 22:07:05 - 0:00:31 - Starting Distinguisher Method
+INFO - 04/01/26 22:07:09 - 0:00:35 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:07:09 - 0:00:35 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:07:09 - 0:00:35 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:07:09 - 0:00:35 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:07:09 - 0:00:35 - Starting Direct Method
+INFO - 04/01/26 22:07:09 - 0:00:35 - Direct:  K=6
+INFO - 04/01/26 22:07:09 - 0:00:35 - Direct:  K=11
+INFO - 04/01/26 22:07:10 - 0:00:35 - Direct:  K=8
+INFO - 04/01/26 22:07:10 - 0:00:35 - Direct:  K=4
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=8
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=5
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=4
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=8
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=10
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=10
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=5
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=11
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=10
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=7
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct:  K=8
+INFO - 04/01/26 22:07:10 - 0:00:36 - Direct: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - CA: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - CA: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - Hybrid: direct, ca
+INFO - 04/01/26 22:07:10 - 0:00:36 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:07:10 - 0:00:36 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:07:10 - 0:00:36 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:07:10 - 0:00:36 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:07:10 - 0:00:36 - __log__:{"epoch": 4, "valid_xe_loss": 0.8516281247138977}
+INFO - 04/01/26 22:07:10 - 0:00:36 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:07:10 - 0:00:36 - Saving encoder parameters ...
+WARNING - 04/01/26 22:07:10 - 0:00:36 - Saving decoder parameters ...
+WARNING - 04/01/26 22:07:10 - 0:00:36 - Saving optimizer ...
+INFO - 04/01/26 22:08:46 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/01/26 22:08:46 - 0:00:00 - N: 10
+                                     Q: 17
+                                     accumulate_gradients: 1
+                                     act_ponder_coupling: 0.05
+                                     act_threshold: 0.01
+                                     add_unred_perc: 0
+                                     amp: 2
+                                     attention_dropout: 0.0
+                                     balanced_base: False
+                                     batch_load: False
+                                     batch_size: 256
+                                     beam_early_stopping: True
+                                     beam_eval: True
+                                     beam_eval_train: 0
+                                     beam_length_penalty: 1
+                                     beam_size: 1
+                                     clip_grad_norm: 5
+                                     command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian' --secret_seed 0 --hamming 3 --input_int_base 3 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n10_q17_h3 --exp_id train_gpu_gaussian --batch_size 256 --epoch_size 12000 --max_epoch 20 --eval_size 2048 --distinguisher_size 256 --enc_emb_dim 256 --dec_emb_dim 256 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 2 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001' --num_workers 0 --beam_size 1 --max_output_len 4 --exp_id "train_gpu_gaussian"
+                                     correctQ: False
+                                     cpu: False
+                                     data_cols: None
+                                     debug: False
+                                     debug_slurm: False
+                                     dec_act: False
+                                     dec_emb_dim: 256
+                                     dec_gated: False
+                                     dec_loop_idx: 0
+                                     dec_loops: 2
+                                     dense_cols: None
+                                     dim_red: 
+                                     distinguisher_size: 256
+                                     dropout: 0.0
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian
+                                     enc_act: False
+                                     enc_emb_dim: 256
+                                     enc_gated: False
+                                     enc_loop_idx: -1
+                                     enc_loops: 1
+                                     env_base_seed: 350177728
+                                     epoch_size: 12000
+                                     eval_data: 
+                                     eval_from_exp: 
+                                     eval_only: False
+                                     eval_size: 2048
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exp_id: train_gpu_gaussian
+                                     exp_name: n10_q17_h3
+                                     fp16: True
+                                     freeze_embeddings: False
+                                     gated: True
+                                     gelu_activation: False
+                                     global_rank: 0
+                                     hamming: 3
+                                     input_int_base: 3
+                                     is_master: True
+                                     is_slurm_job: False
+                                     local_rank: 0
+                                     master_port: -1
+                                     max_epoch: 20
+                                     max_output_len: 4
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_cross_heads: 4
+                                     n_dec_heads: 4
+                                     n_dec_hidden_layers: 1
+                                     n_dec_layers: 2
+                                     n_enc_heads: 4
+                                     n_enc_hidden_layers: 1
+                                     n_enc_layers: 1
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     norm_attention: False
+                                     num_reuse_samples: 10000
+                                     num_workers: 0
+                                     nvidia_apex: False
+                                     optimizer: adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001
+                                     output_int_base: 3
+                                     reload_checkpoint: 
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian
+                                     reload_model: 
+                                     reload_size: 10000000
+                                     reuse: False
+                                     scalar_gate: False
+                                     secret: [ 2  0  0  0  0 -7  0  0  1  0]
+                                     secret_col: 0
+                                     secret_seed: 0
+                                     secret_type: gaussian
+                                     share_inout_emb: True
+                                     share_token: 1
+                                     shuffle: True
+                                     sigma: 3.0
+                                     sinusoidal_embeddings: False
+                                     stopping_criterion: 
+                                     test_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/test.prefix
+                                     times_reused: 10
+                                     train_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/train.prefix
+                                     transformermode: old
+                                     validation_metrics: 
+                                     weighted_loss: False
+                                     windows: False
+                                     world_size: 1
+                                     xav_init: False
+INFO - 04/01/26 22:08:46 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian
+                                     
+INFO - 04/01/26 22:08:46 - 0:00:00 - Running command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian' --secret_seed 0 --hamming 3 --input_int_base 3 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n10_q17_h3 --exp_id train_gpu_gaussian --batch_size 256 --epoch_size 12000 --max_epoch 20 --eval_size 2048 --distinguisher_size 256 --enc_emb_dim 256 --dec_emb_dim 256 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 2 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001' --num_workers 0 --beam_size 1 --max_output_len 4
+
+INFO - 04/01/26 22:08:46 - 0:00:00 - vocabulary: 7 words
+INFO - 04/01/26 22:08:46 - 0:00:00 - words: {'<eos>': 0, '<pad>': 1, '<mask>': 2, '+': 3, '0': 4, '1': 5, '2': 6}
+DEBUG - 04/01/26 22:08:46 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      )
+DEBUG - 04/01/26 22:08:46 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (gate2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=256, out_features=7, bias=True)
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (gate2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=256, out_features=7, bias=True)
+                                      )
+INFO - 04/01/26 22:08:46 - 0:00:00 - Number of parameters (encoder): 1840640
+INFO - 04/01/26 22:08:46 - 0:00:00 - Number of parameters (decoder): 3683335
+INFO - 04/01/26 22:08:46 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/train.prefix ... seekpos 0, basepos 0
+INFO - 04/01/26 22:08:46 - 0:00:00 - Loaded 10880 equations from the disk. seekpos 0, nextpos 10880
+INFO - 04/01/26 22:08:46 - 0:00:00 - Creating train dataloader...
+INFO - 04/01/26 22:08:46 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/test.prefix ... seekpos 0, basepos 0
+INFO - 04/01/26 22:08:46 - 0:00:00 - Loaded 2048 equations from the disk. seekpos 58204, nextpos 2048
+INFO - 04/01/26 22:08:46 - 0:00:00 - Creating test dataloader...
+INFO - 04/01/26 22:08:46 - 0:00:00 - Found 81 parameters in model.
+INFO - 04/01/26 22:08:47 - 0:00:01 - Optimizer: <class 'src.train.optim.AdamWithWarmup'>
+WARNING - 04/01/26 22:08:47 - 0:00:01 - Reloading checkpoint from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+INFO - 04/01/26 22:09:39 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/01/26 22:09:39 - 0:00:00 - N: 10
+                                     Q: 17
+                                     accumulate_gradients: 1
+                                     act_ponder_coupling: 0.05
+                                     act_threshold: 0.01
+                                     add_unred_perc: 0
+                                     amp: 2
+                                     attention_dropout: 0.0
+                                     balanced_base: False
+                                     batch_load: False
+                                     batch_size: 256
+                                     beam_early_stopping: True
+                                     beam_eval: True
+                                     beam_eval_train: 0
+                                     beam_length_penalty: 1
+                                     beam_size: 1
+                                     clip_grad_norm: 5
+                                     command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian' --secret_seed 0 --hamming 3 --input_int_base 3 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n10_q17_h3 --exp_id train_gpu_gaussian --batch_size 256 --epoch_size 12000 --max_epoch 20 --eval_size 2048 --distinguisher_size 256 --enc_emb_dim 256 --dec_emb_dim 256 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 2 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001' --num_workers 0 --beam_size 1 --max_output_len 4 --exp_id "train_gpu_gaussian"
+                                     correctQ: False
+                                     cpu: False
+                                     data_cols: None
+                                     debug: False
+                                     debug_slurm: False
+                                     dec_act: False
+                                     dec_emb_dim: 256
+                                     dec_gated: False
+                                     dec_loop_idx: 0
+                                     dec_loops: 2
+                                     dense_cols: None
+                                     dim_red: 
+                                     distinguisher_size: 256
+                                     dropout: 0.0
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian
+                                     enc_act: False
+                                     enc_emb_dim: 256
+                                     enc_gated: False
+                                     enc_loop_idx: -1
+                                     enc_loops: 1
+                                     env_base_seed: 481961320
+                                     epoch_size: 12000
+                                     eval_data: 
+                                     eval_from_exp: 
+                                     eval_only: False
+                                     eval_size: 2048
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exp_id: train_gpu_gaussian
+                                     exp_name: n10_q17_h3
+                                     fp16: True
+                                     freeze_embeddings: False
+                                     gated: True
+                                     gelu_activation: False
+                                     global_rank: 0
+                                     hamming: 3
+                                     input_int_base: 3
+                                     is_master: True
+                                     is_slurm_job: False
+                                     local_rank: 0
+                                     master_port: -1
+                                     max_epoch: 20
+                                     max_output_len: 4
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_cross_heads: 4
+                                     n_dec_heads: 4
+                                     n_dec_hidden_layers: 1
+                                     n_dec_layers: 2
+                                     n_enc_heads: 4
+                                     n_enc_hidden_layers: 1
+                                     n_enc_layers: 1
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     norm_attention: False
+                                     num_reuse_samples: 10000
+                                     num_workers: 0
+                                     nvidia_apex: False
+                                     optimizer: adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001
+                                     output_int_base: 3
+                                     reload_checkpoint: 
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian
+                                     reload_model: 
+                                     reload_size: 10000000
+                                     reuse: False
+                                     scalar_gate: False
+                                     secret: [ 2  0  0  0  0 -7  0  0  1  0]
+                                     secret_col: 0
+                                     secret_seed: 0
+                                     secret_type: gaussian
+                                     share_inout_emb: True
+                                     share_token: 1
+                                     shuffle: True
+                                     sigma: 3.0
+                                     sinusoidal_embeddings: False
+                                     stopping_criterion: 
+                                     test_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/test.prefix
+                                     times_reused: 10
+                                     train_path: /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/train.prefix
+                                     transformermode: old
+                                     validation_metrics: 
+                                     weighted_loss: False
+                                     windows: False
+                                     world_size: 1
+                                     xav_init: False
+INFO - 04/01/26 22:09:39 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian
+                                     
+INFO - 04/01/26 22:09:39 - 0:00:00 - Running command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian' --secret_seed 0 --hamming 3 --input_int_base 3 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n10_q17_h3 --exp_id train_gpu_gaussian --batch_size 256 --epoch_size 12000 --max_epoch 20 --eval_size 2048 --distinguisher_size 256 --enc_emb_dim 256 --dec_emb_dim 256 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 2 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001' --num_workers 0 --beam_size 1 --max_output_len 4
+
+INFO - 04/01/26 22:09:39 - 0:00:00 - vocabulary: 7 words
+INFO - 04/01/26 22:09:39 - 0:00:00 - words: {'<eos>': 0, '<pad>': 1, '<mask>': 2, '+': 3, '0': 4, '1': 5, '2': 6}
+DEBUG - 04/01/26 22:09:39 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      )
+DEBUG - 04/01/26 22:09:39 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (gate2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=256, out_features=7, bias=True)
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 256)
+                                        (embeddings): Embedding(7, 256, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (gate2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (k_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (v_lin): Linear(in_features=256, out_features=256, bias=True)
+                                              (out_lin): Linear(in_features=256, out_features=256, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=256, out_features=1024, bias=True)
+                                              (lin2): Linear(in_features=1024, out_features=256, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=256, out_features=7, bias=True)
+                                      )
+INFO - 04/01/26 22:09:39 - 0:00:00 - Number of parameters (encoder): 1840640
+INFO - 04/01/26 22:09:39 - 0:00:00 - Number of parameters (decoder): 3683335
+INFO - 04/01/26 22:09:39 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/train.prefix ... seekpos 0, basepos 0
+INFO - 04/01/26 22:09:39 - 0:00:00 - Loaded 10880 equations from the disk. seekpos 0, nextpos 10880
+INFO - 04/01/26 22:09:39 - 0:00:00 - Creating train dataloader...
+INFO - 04/01/26 22:09:39 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/ab_gaussian/test.prefix ... seekpos 0, basepos 0
+INFO - 04/01/26 22:09:39 - 0:00:00 - Loaded 2048 equations from the disk. seekpos 58204, nextpos 2048
+INFO - 04/01/26 22:09:39 - 0:00:00 - Creating test dataloader...
+INFO - 04/01/26 22:09:39 - 0:00:00 - Found 81 parameters in model.
+INFO - 04/01/26 22:09:40 - 0:00:01 - Optimizer: <class 'src.train.optim.AdamWithWarmup'>
+WARNING - 04/01/26 22:09:40 - 0:00:01 - Reloading checkpoint from /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:09:40 - 0:00:01 - Reloading checkpoint optimizer ...
+WARNING - 04/01/26 22:09:40 - 0:00:01 - Reloading gradient scaler ...
+WARNING - 04/01/26 22:09:40 - 0:00:01 - Checkpoint reloaded. Resuming at epoch 5 / iteration 235 ...
+INFO - 04/01/26 22:09:40 - 0:00:01 - ============ Starting epoch 5 ... ============
+INFO - 04/01/26 22:09:40 - 0:00:01 - Initialized random generator for worker 0, with seed [0, 0, 481961320, 1775048980] (base seed=481961320).
+INFO - 04/01/26 22:09:41 - 0:00:02 -     250 - 2892.56 equations/s - 101239.60 words/s - MEM: 0.29 GB - LOSS:  0.2411 || ACC1: 86.9531 || ACC2: 99.8438 - LR: 1.0000e-04
+INFO - 04/01/26 22:09:42 - 0:00:03 - ============ End of epoch 5 ============
+INFO - 04/01/26 22:09:42 - 0:00:03 - Starting Distinguisher Method
+INFO - 04/01/26 22:09:47 - 0:00:08 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:09:47 - 0:00:08 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:09:47 - 0:00:08 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:09:47 - 0:00:08 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:09:47 - 0:00:08 - Starting Direct Method
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=9
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=5
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=6
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=4
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=5
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=8
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=10
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=10
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=10
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=6
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=8
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=8
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=6
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=4
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct:  K=6
+INFO - 04/01/26 22:09:47 - 0:00:08 - Direct: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - CA: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - CA: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - Hybrid: direct, ca
+INFO - 04/01/26 22:09:48 - 0:00:09 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:09:48 - 0:00:09 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:09:48 - 0:00:09 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:09:48 - 0:00:09 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:09:48 - 0:00:09 - __log__:{"epoch": 5, "valid_xe_loss": 1.2740350514650345}
+INFO - 04/01/26 22:09:48 - 0:00:09 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:09:48 - 0:00:09 - Saving encoder parameters ...
+WARNING - 04/01/26 22:09:48 - 0:00:09 - Saving decoder parameters ...
+WARNING - 04/01/26 22:09:48 - 0:00:09 - Saving optimizer ...
+INFO - 04/01/26 22:09:48 - 0:00:09 - ============ Starting epoch 6 ... ============
+INFO - 04/01/26 22:09:48 - 0:00:09 -     300 - 1743.34 equations/s - 61017.04 words/s - MEM: 0.29 GB - LOSS:  0.0765 || ACC1: 94.5781 || ACC2: 99.8984 - LR: 1.0000e-04
+INFO - 04/01/26 22:09:49 - 0:00:11 - ============ End of epoch 6 ============
+INFO - 04/01/26 22:09:49 - 0:00:11 - Starting Distinguisher Method
+INFO - 04/01/26 22:09:54 - 0:00:15 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:09:54 - 0:00:15 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:09:54 - 0:00:15 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:09:54 - 0:00:15 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:09:54 - 0:00:15 - Starting Direct Method
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=4
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=10
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=11
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=6
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=7
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=4
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=11
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=4
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=5
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=4
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=11
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=4
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=10
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=5
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct:  K=7
+INFO - 04/01/26 22:09:54 - 0:00:15 - Direct: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - CA: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - CA: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - Hybrid: direct, ca
+INFO - 04/01/26 22:09:55 - 0:00:16 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:09:55 - 0:00:16 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:09:55 - 0:00:16 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:09:55 - 0:00:16 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:09:55 - 0:00:16 - __log__:{"epoch": 6, "valid_xe_loss": 1.810132548213005}
+INFO - 04/01/26 22:09:55 - 0:00:16 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:09:55 - 0:00:16 - Saving encoder parameters ...
+WARNING - 04/01/26 22:09:55 - 0:00:16 - Saving decoder parameters ...
+WARNING - 04/01/26 22:09:55 - 0:00:16 - Saving optimizer ...
+INFO - 04/01/26 22:09:55 - 0:00:16 - ============ Starting epoch 7 ... ============
+INFO - 04/01/26 22:09:56 - 0:00:17 -     350 - 1773.67 equations/s - 62078.31 words/s - MEM: 0.29 GB - LOSS:  0.0068 || ACC1: 99.4453 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:09:57 - 0:00:18 - ============ End of epoch 7 ============
+INFO - 04/01/26 22:09:57 - 0:00:18 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:01 - 0:00:22 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:01 - 0:00:22 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:01 - 0:00:22 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:01 - 0:00:22 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:01 - 0:00:22 - Starting Direct Method
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=5
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=10
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=10
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=4
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=11
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=10
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=6
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=7
+INFO - 04/01/26 22:10:01 - 0:00:22 - Direct:  K=9
+INFO - 04/01/26 22:10:01 - 0:00:23 - Direct:  K=4
+INFO - 04/01/26 22:10:01 - 0:00:23 - Direct:  K=10
+INFO - 04/01/26 22:10:01 - 0:00:23 - Direct:  K=6
+INFO - 04/01/26 22:10:01 - 0:00:23 - Direct:  K=11
+INFO - 04/01/26 22:10:01 - 0:00:23 - Direct:  K=7
+INFO - 04/01/26 22:10:02 - 0:00:23 - Direct:  K=9
+INFO - 04/01/26 22:10:02 - 0:00:23 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - CA: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - CA: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:02 - 0:00:23 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:02 - 0:00:23 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:02 - 0:00:23 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:02 - 0:00:23 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:02 - 0:00:23 - __log__:{"epoch": 7, "valid_xe_loss": 2.0565211176872253}
+INFO - 04/01/26 22:10:02 - 0:00:23 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:02 - 0:00:23 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:02 - 0:00:23 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:02 - 0:00:23 - Saving optimizer ...
+INFO - 04/01/26 22:10:02 - 0:00:23 - ============ Starting epoch 8 ... ============
+INFO - 04/01/26 22:10:03 - 0:00:24 -     400 - 1739.99 equations/s - 60899.54 words/s - MEM: 0.29 GB - LOSS:  0.0007 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:04 - 0:00:25 - ============ End of epoch 8 ============
+INFO - 04/01/26 22:10:04 - 0:00:25 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:09 - 0:00:30 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:09 - 0:00:30 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:09 - 0:00:30 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:09 - 0:00:30 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:09 - 0:00:30 - Starting Direct Method
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=4
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=9
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=11
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=7
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=5
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=8
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=7
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=6
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=6
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=8
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=9
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=7
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=9
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=7
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct:  K=9
+INFO - 04/01/26 22:10:09 - 0:00:30 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - CA: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - CA: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:10 - 0:00:31 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:10 - 0:00:31 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:10 - 0:00:31 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:10 - 0:00:31 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:10 - 0:00:31 - __log__:{"epoch": 8, "valid_xe_loss": 2.1784819215536118}
+INFO - 04/01/26 22:10:10 - 0:00:31 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:10 - 0:00:31 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:10 - 0:00:31 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:10 - 0:00:31 - Saving optimizer ...
+INFO - 04/01/26 22:10:10 - 0:00:31 - ============ Starting epoch 9 ... ============
+INFO - 04/01/26 22:10:11 - 0:00:32 -     450 - 1623.24 equations/s - 56813.23 words/s - MEM: 0.29 GB - LOSS:  0.0003 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:12 - 0:00:33 - ============ End of epoch 9 ============
+INFO - 04/01/26 22:10:12 - 0:00:33 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:16 - 0:00:37 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:16 - 0:00:37 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:16 - 0:00:37 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:16 - 0:00:37 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:16 - 0:00:37 - Starting Direct Method
+INFO - 04/01/26 22:10:16 - 0:00:37 - Direct:  K=5
+INFO - 04/01/26 22:10:16 - 0:00:37 - Direct:  K=5
+INFO - 04/01/26 22:10:16 - 0:00:37 - Direct:  K=7
+INFO - 04/01/26 22:10:16 - 0:00:37 - Direct:  K=4
+INFO - 04/01/26 22:10:16 - 0:00:37 - Direct:  K=9
+INFO - 04/01/26 22:10:16 - 0:00:38 - Direct:  K=9
+INFO - 04/01/26 22:10:16 - 0:00:38 - Direct:  K=11
+INFO - 04/01/26 22:10:16 - 0:00:38 - Direct:  K=6
+INFO - 04/01/26 22:10:16 - 0:00:38 - Direct:  K=4
+INFO - 04/01/26 22:10:16 - 0:00:38 - Direct:  K=6
+INFO - 04/01/26 22:10:17 - 0:00:38 - Direct:  K=10
+INFO - 04/01/26 22:10:17 - 0:00:38 - Direct:  K=11
+INFO - 04/01/26 22:10:17 - 0:00:38 - Direct:  K=8
+INFO - 04/01/26 22:10:17 - 0:00:38 - Direct:  K=11
+INFO - 04/01/26 22:10:17 - 0:00:38 - Direct:  K=5
+INFO - 04/01/26 22:10:17 - 0:00:38 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - CA: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - CA: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:17 - 0:00:38 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:17 - 0:00:38 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:17 - 0:00:38 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:17 - 0:00:38 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:17 - 0:00:38 - __log__:{"epoch": 9, "valid_xe_loss": 2.268677145242691}
+INFO - 04/01/26 22:10:17 - 0:00:38 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:17 - 0:00:38 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:17 - 0:00:38 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:17 - 0:00:38 - Saving optimizer ...
+INFO - 04/01/26 22:10:17 - 0:00:38 - ============ Starting epoch 10 ... ============
+INFO - 04/01/26 22:10:18 - 0:00:39 -     500 - 1724.78 equations/s - 60367.35 words/s - MEM: 0.29 GB - LOSS:  0.0002 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:19 - 0:00:40 - ============ End of epoch 10 ============
+INFO - 04/01/26 22:10:19 - 0:00:40 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:23 - 0:00:45 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:23 - 0:00:45 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:23 - 0:00:45 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:23 - 0:00:45 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:23 - 0:00:45 - Starting Direct Method
+INFO - 04/01/26 22:10:23 - 0:00:45 - Direct:  K=10
+INFO - 04/01/26 22:10:23 - 0:00:45 - Direct:  K=5
+INFO - 04/01/26 22:10:23 - 0:00:45 - Direct:  K=4
+INFO - 04/01/26 22:10:23 - 0:00:45 - Direct:  K=6
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=6
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=4
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=9
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=5
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=8
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=6
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=4
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=5
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=8
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=10
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct:  K=6
+INFO - 04/01/26 22:10:24 - 0:00:45 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - CA: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - CA: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:24 - 0:00:45 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:24 - 0:00:45 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:24 - 0:00:45 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:24 - 0:00:45 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:24 - 0:00:45 - __log__:{"epoch": 10, "valid_xe_loss": 2.3367651402950287}
+INFO - 04/01/26 22:10:24 - 0:00:45 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:24 - 0:00:45 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:24 - 0:00:45 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:24 - 0:00:45 - Saving optimizer ...
+INFO - 04/01/26 22:10:24 - 0:00:45 - ============ Starting epoch 11 ... ============
+INFO - 04/01/26 22:10:25 - 0:00:47 -     550 - 1778.49 equations/s - 62246.98 words/s - MEM: 0.29 GB - LOSS:  0.0001 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:26 - 0:00:47 - ============ End of epoch 11 ============
+INFO - 04/01/26 22:10:26 - 0:00:47 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:30 - 0:00:52 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:30 - 0:00:52 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:30 - 0:00:52 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:30 - 0:00:52 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:30 - 0:00:52 - Starting Direct Method
+INFO - 04/01/26 22:10:30 - 0:00:52 - Direct:  K=4
+INFO - 04/01/26 22:10:30 - 0:00:52 - Direct:  K=6
+INFO - 04/01/26 22:10:30 - 0:00:52 - Direct:  K=10
+INFO - 04/01/26 22:10:30 - 0:00:52 - Direct:  K=5
+INFO - 04/01/26 22:10:30 - 0:00:52 - Direct:  K=6
+INFO - 04/01/26 22:10:30 - 0:00:52 - Direct:  K=11
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=8
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=10
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=6
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=4
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=10
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=7
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=8
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=5
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct:  K=7
+INFO - 04/01/26 22:10:31 - 0:00:52 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - CA: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - CA: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:31 - 0:00:52 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:31 - 0:00:52 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:31 - 0:00:52 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:31 - 0:00:52 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:31 - 0:00:52 - __log__:{"epoch": 11, "valid_xe_loss": 2.3980561196804047}
+INFO - 04/01/26 22:10:31 - 0:00:52 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:31 - 0:00:52 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:31 - 0:00:52 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:31 - 0:00:52 - Saving optimizer ...
+INFO - 04/01/26 22:10:31 - 0:00:52 - ============ Starting epoch 12 ... ============
+INFO - 04/01/26 22:10:33 - 0:00:54 -     600 - 1789.83 equations/s - 62643.95 words/s - MEM: 0.29 GB - LOSS:  0.0001 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:33 - 0:00:54 - ============ End of epoch 12 ============
+INFO - 04/01/26 22:10:33 - 0:00:54 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:37 - 0:00:58 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:37 - 0:00:58 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:37 - 0:00:58 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:37 - 0:00:58 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:37 - 0:00:58 - Starting Direct Method
+INFO - 04/01/26 22:10:37 - 0:00:58 - Direct:  K=10
+INFO - 04/01/26 22:10:37 - 0:00:58 - Direct:  K=7
+INFO - 04/01/26 22:10:37 - 0:00:58 - Direct:  K=8
+INFO - 04/01/26 22:10:37 - 0:00:58 - Direct:  K=5
+INFO - 04/01/26 22:10:37 - 0:00:59 - Direct:  K=9
+INFO - 04/01/26 22:10:37 - 0:00:59 - Direct:  K=11
+INFO - 04/01/26 22:10:37 - 0:00:59 - Direct:  K=4
+INFO - 04/01/26 22:10:37 - 0:00:59 - Direct:  K=6
+INFO - 04/01/26 22:10:37 - 0:00:59 - Direct:  K=7
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct:  K=10
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct:  K=11
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct:  K=5
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct:  K=6
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct:  K=4
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct:  K=10
+INFO - 04/01/26 22:10:38 - 0:00:59 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - CA: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - CA: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:38 - 0:00:59 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:38 - 0:00:59 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:38 - 0:00:59 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:38 - 0:00:59 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:38 - 0:00:59 - __log__:{"epoch": 12, "valid_xe_loss": 2.482166349887848}
+INFO - 04/01/26 22:10:38 - 0:00:59 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:38 - 0:00:59 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:38 - 0:00:59 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:38 - 0:00:59 - Saving optimizer ...
+INFO - 04/01/26 22:10:38 - 0:00:59 - ============ Starting epoch 13 ... ============
+INFO - 04/01/26 22:10:40 - 0:01:01 -     650 - 1728.53 equations/s - 60498.53 words/s - MEM: 0.29 GB - LOSS:  0.0000 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:40 - 0:01:01 - ============ End of epoch 13 ============
+INFO - 04/01/26 22:10:40 - 0:01:01 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:45 - 0:01:06 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:45 - 0:01:06 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:45 - 0:01:06 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - Starting Direct Method
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=10
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=11
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=11
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=5
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=8
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=8
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=4
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=11
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=11
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=8
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=11
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=8
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=11
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=6
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct:  K=8
+INFO - 04/01/26 22:10:45 - 0:01:06 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - CA: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - CA: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:45 - 0:01:06 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:45 - 0:01:06 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:45 - 0:01:06 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:45 - 0:01:06 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:45 - 0:01:06 - __log__:{"epoch": 13, "valid_xe_loss": 2.5809966027736664}
+INFO - 04/01/26 22:10:45 - 0:01:06 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:45 - 0:01:06 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:45 - 0:01:06 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:45 - 0:01:06 - Saving optimizer ...
+INFO - 04/01/26 22:10:45 - 0:01:07 - ============ Starting epoch 14 ... ============
+INFO - 04/01/26 22:10:47 - 0:01:08 -     700 - 1787.95 equations/s - 62578.11 words/s - MEM: 0.29 GB - LOSS:  0.0000 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:47 - 0:01:08 - ============ End of epoch 14 ============
+INFO - 04/01/26 22:10:47 - 0:01:08 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:51 - 0:01:13 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:51 - 0:01:13 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:51 - 0:01:13 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:51 - 0:01:13 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:51 - 0:01:13 - Starting Direct Method
+INFO - 04/01/26 22:10:51 - 0:01:13 - Direct:  K=10
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=5
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=8
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=10
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=8
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=6
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=9
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=10
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=10
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=4
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=10
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=6
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=9
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=10
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct:  K=6
+INFO - 04/01/26 22:10:52 - 0:01:13 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - CA: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - CA: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:52 - 0:01:13 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:52 - 0:01:13 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:52 - 0:01:13 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:52 - 0:01:13 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:52 - 0:01:13 - __log__:{"epoch": 14, "valid_xe_loss": 2.6590916216373444}
+INFO - 04/01/26 22:10:52 - 0:01:13 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:52 - 0:01:13 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:52 - 0:01:13 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:52 - 0:01:13 - Saving optimizer ...
+INFO - 04/01/26 22:10:52 - 0:01:13 - ============ Starting epoch 15 ... ============
+INFO - 04/01/26 22:10:54 - 0:01:15 -     750 - 1887.18 equations/s - 66051.39 words/s - MEM: 0.29 GB - LOSS:  0.0000 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:10:54 - 0:01:15 - ============ End of epoch 15 ============
+INFO - 04/01/26 22:10:54 - 0:01:15 - Starting Distinguisher Method
+INFO - 04/01/26 22:10:58 - 0:01:19 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:10:58 - 0:01:19 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:10:58 - 0:01:19 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:10:58 - 0:01:19 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:10:58 - 0:01:19 - Starting Direct Method
+INFO - 04/01/26 22:10:58 - 0:01:19 - Direct:  K=7
+INFO - 04/01/26 22:10:58 - 0:01:20 - Direct:  K=8
+INFO - 04/01/26 22:10:58 - 0:01:20 - Direct:  K=4
+INFO - 04/01/26 22:10:58 - 0:01:20 - Direct:  K=10
+INFO - 04/01/26 22:10:58 - 0:01:20 - Direct:  K=7
+INFO - 04/01/26 22:10:58 - 0:01:20 - Direct:  K=5
+INFO - 04/01/26 22:10:58 - 0:01:20 - Direct:  K=9
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=8
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=11
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=6
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=5
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=4
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=6
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=9
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct:  K=9
+INFO - 04/01/26 22:10:59 - 0:01:20 - Direct: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - CA: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - CA: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - Hybrid: direct, ca
+INFO - 04/01/26 22:10:59 - 0:01:20 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:10:59 - 0:01:20 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:10:59 - 0:01:20 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:10:59 - 0:01:20 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:10:59 - 0:01:20 - __log__:{"epoch": 15, "valid_xe_loss": 2.7188526690006256}
+INFO - 04/01/26 22:10:59 - 0:01:20 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:10:59 - 0:01:20 - Saving encoder parameters ...
+WARNING - 04/01/26 22:10:59 - 0:01:20 - Saving decoder parameters ...
+WARNING - 04/01/26 22:10:59 - 0:01:20 - Saving optimizer ...
+INFO - 04/01/26 22:10:59 - 0:01:20 - ============ Starting epoch 16 ... ============
+INFO - 04/01/26 22:11:01 - 0:01:22 - ============ End of epoch 16 ============
+INFO - 04/01/26 22:11:01 - 0:01:22 - Starting Distinguisher Method
+INFO - 04/01/26 22:11:05 - 0:01:26 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:11:05 - 0:01:26 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:11:05 - 0:01:26 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:11:05 - 0:01:26 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:11:05 - 0:01:26 - Starting Direct Method
+INFO - 04/01/26 22:11:05 - 0:01:26 - Direct:  K=11
+INFO - 04/01/26 22:11:05 - 0:01:26 - Direct:  K=11
+INFO - 04/01/26 22:11:05 - 0:01:26 - Direct:  K=6
+INFO - 04/01/26 22:11:05 - 0:01:26 - Direct:  K=6
+INFO - 04/01/26 22:11:05 - 0:01:26 - Direct:  K=7
+INFO - 04/01/26 22:11:05 - 0:01:27 - Direct:  K=5
+INFO - 04/01/26 22:11:05 - 0:01:27 - Direct:  K=11
+INFO - 04/01/26 22:11:05 - 0:01:27 - Direct:  K=10
+INFO - 04/01/26 22:11:05 - 0:01:27 - Direct:  K=9
+INFO - 04/01/26 22:11:05 - 0:01:27 - Direct:  K=10
+INFO - 04/01/26 22:11:06 - 0:01:27 - Direct:  K=5
+INFO - 04/01/26 22:11:06 - 0:01:27 - Direct:  K=11
+INFO - 04/01/26 22:11:06 - 0:01:27 - Direct:  K=7
+INFO - 04/01/26 22:11:06 - 0:01:27 - Direct:  K=6
+INFO - 04/01/26 22:11:06 - 0:01:27 - Direct:  K=8
+INFO - 04/01/26 22:11:06 - 0:01:27 - Direct: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - CA: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - CA: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - Hybrid: direct, ca
+INFO - 04/01/26 22:11:06 - 0:01:27 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:11:06 - 0:01:27 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:11:06 - 0:01:27 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:11:06 - 0:01:27 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:11:06 - 0:01:27 - __log__:{"epoch": 16, "valid_xe_loss": 2.7612328231334686}
+INFO - 04/01/26 22:11:06 - 0:01:27 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:11:06 - 0:01:27 - Saving encoder parameters ...
+WARNING - 04/01/26 22:11:06 - 0:01:27 - Saving decoder parameters ...
+WARNING - 04/01/26 22:11:06 - 0:01:27 - Saving optimizer ...
+INFO - 04/01/26 22:11:06 - 0:01:27 - ============ Starting epoch 17 ... ============
+INFO - 04/01/26 22:11:06 - 0:01:27 -     800 - 1056.31 equations/s - 36970.68 words/s - MEM: 0.29 GB - LOSS:  0.0000 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:11:08 - 0:01:29 - ============ End of epoch 17 ============
+INFO - 04/01/26 22:11:08 - 0:01:29 - Starting Distinguisher Method
+INFO - 04/01/26 22:11:13 - 0:01:34 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:11:13 - 0:01:34 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:11:13 - 0:01:34 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - Starting Direct Method
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=11
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=8
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=9
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=5
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=5
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=7
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=8
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=7
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=8
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=7
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=6
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=7
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=5
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=7
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct:  K=5
+INFO - 04/01/26 22:11:13 - 0:01:34 - Direct: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - CA: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - CA: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - Hybrid: direct, ca
+INFO - 04/01/26 22:11:13 - 0:01:34 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:11:13 - 0:01:34 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:11:13 - 0:01:34 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:11:13 - 0:01:34 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:11:13 - 0:01:34 - __log__:{"epoch": 17, "valid_xe_loss": 2.7943743467330933}
+INFO - 04/01/26 22:11:13 - 0:01:34 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:11:13 - 0:01:34 - Saving encoder parameters ...
+WARNING - 04/01/26 22:11:13 - 0:01:34 - Saving decoder parameters ...
+WARNING - 04/01/26 22:11:13 - 0:01:34 - Saving optimizer ...
+INFO - 04/01/26 22:11:13 - 0:01:34 - ============ Starting epoch 18 ... ============
+INFO - 04/01/26 22:11:13 - 0:01:35 -     850 - 1710.41 equations/s - 59864.37 words/s - MEM: 0.29 GB - LOSS:  0.0000 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:11:15 - 0:01:36 - ============ End of epoch 18 ============
+INFO - 04/01/26 22:11:15 - 0:01:36 - Starting Distinguisher Method
+INFO - 04/01/26 22:11:20 - 0:01:41 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:11:20 - 0:01:41 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:11:20 - 0:01:41 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - Starting Direct Method
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=5
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=5
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=6
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=7
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=6
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=11
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=5
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=7
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=5
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=9
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=11
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=8
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=5
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=4
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct:  K=9
+INFO - 04/01/26 22:11:20 - 0:01:41 - Direct: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - CA: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - CA: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - Hybrid: direct, ca
+INFO - 04/01/26 22:11:20 - 0:01:41 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:11:20 - 0:01:41 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:11:20 - 0:01:41 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:11:20 - 0:01:41 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:11:20 - 0:01:41 - __log__:{"epoch": 18, "valid_xe_loss": 2.81953963637352}
+INFO - 04/01/26 22:11:20 - 0:01:41 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:11:20 - 0:01:41 - Saving encoder parameters ...
+WARNING - 04/01/26 22:11:20 - 0:01:41 - Saving decoder parameters ...
+WARNING - 04/01/26 22:11:20 - 0:01:41 - Saving optimizer ...
+INFO - 04/01/26 22:11:20 - 0:01:42 - ============ Starting epoch 19 ... ============
+INFO - 04/01/26 22:11:21 - 0:01:42 -     900 - 1770.34 equations/s - 61962.00 words/s - MEM: 0.29 GB - LOSS:  0.0000 || ACC1: 100.0000 || ACC2: 100.0000 - LR: 1.0000e-04
+INFO - 04/01/26 22:11:22 - 0:01:43 - ============ End of epoch 19 ============
+INFO - 04/01/26 22:11:22 - 0:01:43 - Starting Distinguisher Method
+INFO - 04/01/26 22:11:27 - 0:01:48 - Distinguishing 0s using the emd. 
+INFO - 04/01/26 22:11:27 - 0:01:48 - Distinguisher Method emd: secret not predicted.
+INFO - 04/01/26 22:11:27 - 0:01:48 - Distinguishing 0s using the mean. 
+INFO - 04/01/26 22:11:27 - 0:01:48 - Distinguisher Method mean: secret not predicted.
+INFO - 04/01/26 22:11:27 - 0:01:48 - Starting Direct Method
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=9
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=10
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=9
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=9
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=5
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=10
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=9
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=10
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=5
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=5
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=7
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=6
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=9
+INFO - 04/01/26 22:11:27 - 0:01:48 - Direct:  K=9
+INFO - 04/01/26 22:11:27 - 0:01:49 - Direct:  K=8
+INFO - 04/01/26 22:11:27 - 0:01:49 - Direct: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - CA: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - CA: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - Hybrid: direct, ca
+INFO - 04/01/26 22:11:28 - 0:01:49 - direct, ca - Sum Normalized: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - direct, ca - Max Normalized: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - direct, ca - Sum Rank: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - direct, ca - Max Rank: secret not predicted.
+INFO - 04/01/26 22:11:28 - 0:01:49 - Hybrid: direct, distinguisher
+INFO - 04/01/26 22:11:28 - 0:01:49 - Hybrid: ca, distinguisher
+INFO - 04/01/26 22:11:28 - 0:01:49 - Hybrid: direct, ca, distinguisher
+INFO - 04/01/26 22:11:28 - 0:01:49 - __log__:{"epoch": 19, "valid_xe_loss": 2.8391089141368866}
+INFO - 04/01/26 22:11:28 - 0:01:49 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n10_q17_h3/train_gpu_gaussian/checkpoint.pth ...
+WARNING - 04/01/26 22:11:28 - 0:01:49 - Saving encoder parameters ...
+WARNING - 04/01/26 22:11:28 - 0:01:49 - Saving decoder parameters ...
+WARNING - 04/01/26 22:11:28 - 0:01:49 - Saving optimizer ...

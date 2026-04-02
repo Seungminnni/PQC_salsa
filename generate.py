@@ -18,6 +18,7 @@ from src.slurm import init_signal_handler, init_distributed_mode
 from src.utils import bool_flag, initialize_exp, create_logger
 from src.generate.export import Generator
 from src.generate.genSamples import BKZReducedRLWE, RA_Rb, BenchmarkBKZ
+from src.generate.lwe import OriginalLWESamples
 from multiprocessing import Process, Manager
 from joblib import Parallel, delayed
 
@@ -43,7 +44,7 @@ def get_parser():
     parser.add_argument("--exp_id", type=str, default="",
                         help="Experiment ID")
     parser.add_argument("--step", type=str, default="RA",
-                        help="data generation step, RA, RA_tiny1, RA_tiny2, BKZ, or Ab")
+                        help="data generation step, origA, RA, RA_tiny1, RA_tiny2, BKZ, or Ab")
 
     # iteration
     parser.add_argument("--env_base_seed", type=int, default=-1,
@@ -62,6 +63,8 @@ def get_parser():
                         help="Directory to tinyA with permuted cols")
     parser.add_argument("--reload_size", type=int, default=100000,
                         help="Reloaded number of matrices")
+    parser.add_argument("--num_orig_samples", type=int, default=-1,
+                        help="Number of original LWE rows to generate for step origA. Defaults to 4*N")
 
     # debug
     parser.add_argument("--debug_slurm", type=bool_flag, default=False,
@@ -186,6 +189,12 @@ def main(params):
 
     if params.env_base_seed < 0: 
         params.env_base_seed = np.random.randint(1_000_000_000)
+
+    if params.step == "origA":
+        generator = OriginalLWESamples(params)
+        output_path, shape = generator.save()
+        logger.info(f"Saved original LWE matrix to {output_path} with shape {shape}")
+        return
 
     n_cpu = joblib.cpu_count()
     n_jobs = min(n_cpu, params.num_workers)

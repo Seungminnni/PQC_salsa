@@ -309,7 +309,9 @@ class Trainer(object):
                 assert os.path.isfile(checkpoint_path)
         
         logger.warning(f"Reloading checkpoint from {checkpoint_path} ...")
-        data = torch.load(checkpoint_path, map_location="cpu")
+        # PyTorch 2.6+ defaults to weights_only=True, which breaks our
+        # checkpoints because they store optimizer / scaler / metadata too.
+        data = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
 
         # reload model parameters
         for k, v in self.modules.items():
@@ -399,11 +401,15 @@ class Trainer(object):
         """
         # Check to see if secret_match is True -- this means the model has learned the secret based on eval tests.
         if self.secret_match:
-            logger.info('Found secret match - ending experiment.')
+            if self.params.exit_on_secret_match:
+                logger.info('Found secret match - ending experiment.')
+                self.save_checkpoint("checkpoint")
+                if self.params.multi_gpu and "SLURM_JOB_ID" in os.environ:
+                    os.system("scancel " + os.environ["SLURM_JOB_ID"])
+                exit()
+            logger.info('Found secret match - continuing experiment because exit_on_secret_match is False.')
             self.save_checkpoint("checkpoint")
-            if self.params.multi_gpu and "SLURM_JOB_ID" in os.environ:
-                os.system("scancel " + os.environ["SLURM_JOB_ID"])
-            exit()
+            self.secret_match = False
 
 
         # stop if the stopping criterion has not improved after a certain number of epochs

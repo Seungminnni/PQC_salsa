@@ -40,13 +40,141 @@ __Running sweeps with slurm__: To run sweeps on our cluster, we use slurm to par
 __Analyzing results__: If you have a large set of experiments you want to analyze, you can use ```./notebooks/LatticeMLReader.ipynb```. This will parse log file(s) from a given experiment(s) and provides other helpful information.
 
 __Generating your own data__: If you are interested in generating your own reduced data to run a different attack, proceed as follows.
-  - First, generate the a vectors of the original lwe samples with all entries as integers [0, q). Store it as a 4n x n matrix in a numpy file (see the orig_A.npy in the provided data folder as an example). 
-  - Then, run the lattice reduction preprocessing with the following command: ```python generate.py --timeout 432000 --N 256 --Q 842779 --lll_delta 0.99 --float_type dd --bkz_block_size 35 --threshold 0.435 --threshold2 0.5 –use_polish true --step RA_tiny2 --reload_data <path of orig_A.npy>``` (you can change N, Q, etc., depending on the attack you want to run).
+  - First, generate the original LWE sample matrix with all entries as integers in [0, q). The command below writes `orig_A.npy` with shape `4N x N` by default:
+  ```python generate.py --step origA --lwe true --N 256 --Q 842779 --dump_path <output folder>```
+  - Then, run the lattice reduction preprocessing with the following command: ```python generate.py --timeout 432000 --N 256 --Q 842779 --lll_delta 0.99 --float_type dd --bkz_block_size 35 --threshold 0.435 --threshold2 0.5 --use_polish true --step RA_tiny2 --reload_data <path of orig_A.npy>``` (you can change N, Q, etc., depending on the attack you want to run).
   - This creates a directory for the reduced matrices. Inside the directory, there should be a params.pkl and data.prefix, where the reduced matrices are written into. 
   - The last step is to get a dataset of reduced (A, b) with the following command:
   ```python generate.py --min_hamming 16 --max_hamming 25 --num_workers 1 --num_secret_seeds 5 --step Ab --secret_type binary --epoch_size 1000000 --reload_size 1000000 --reload_data <path of directory for the reduced matrices>```. This will create the dataset with 50 binary secrets with Hamming weight ranging from 16 to 25, 5 at each Hamming weight. 
 
 Now you have a set of reduced matrices on which you can run attacks! The command provided above for training models on the provided data should also work on this dataset, as long as you change the path to point at your own reduced data. 
+
+__Successful end-to-end example (N=5, Q=17, h=2, 10k preprocessing)__: The commands below were run successfully in `lattice_env` and provide a compact sanity-check pipeline for the full LWE attack. This is a small reproducible example, not the paper-scale `n=256` setting.
+
+1. Activate the environment:
+```bash
+source /home/yu_mcc/miniconda3/etc/profile.d/conda.sh
+conda activate lattice_env
+```
+
+2. Generate the original LWE samples. This writes `orig_A.npy` with exactly `4N x N` rows / columns:
+```bash
+python generate.py \
+  --cpu true \
+  --step origA \
+  --lwe true \
+  --N 5 \
+  --Q 17 \
+  --num_orig_samples 20 \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n5_q17_h2_10k \
+  --exp_id origA_4n
+```
+Expected result:
+- `runs/n5_q17_h2_10k/origA_4n/orig_A.npy` exists
+- shape is `(20, 5)`
+- entries lie in `[0, 16]`
+
+3. Run the reduction stage on the saved `orig_A.npy`. For this small setting, the following VERDE-style settings were stable: reordered rows, `lll_penalty=10`, adaptive BKZ parameters, and `use_polish=false`. We keep `m=10` even though `N=5` so that the downstream `Ab` stage has enough reduced equations to create both `test.prefix` and `train.prefix` with `epoch_size=10000`.
+```bash
+python generate.py \
+  --cpu true \
+  --step RA_tiny2 \
+  --reload_data /home/yu_mcc/PQC_salsa/runs/n5_q17_h2_10k/origA_4n/orig_A.npy \
+  --N 5 \
+  --Q 17 \
+  --m 10 \
+  --num_workers 1 \
+  --epoch_size 10000 \
+  --timeout 30 \
+  --float_type double \
+  --lll_penalty 10 \
+  --algo BKZ2.0 \
+  --lll_delta 0.96 \
+  --bkz_block_size 5 \
+  --algo2 BKZ2.0 \
+  --lll_delta2 0.99 \
+  --bkz_block_size2 8 \
+  --threshold 0.95 \
+  --threshold2 0.90 \
+  --use_polish false \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n5_q17_h2_10k \
+  --exp_id ra_main
+```
+Expected result:
+- `runs/n5_q17_h2_10k/ra_main/data.prefix` exists
+- `wc -l runs/n5_q17_h2_10k/ra_main/data.prefix` returns `100000`
+
+4. Create reduced `(A, b)` samples for sparse binary secrets of Hamming weight 2:
+```bash
+python generate.py \
+  --cpu true \
+  --step Ab \
+  --reload_data /home/yu_mcc/PQC_salsa/runs/n5_q17_h2_10k/ra_main \
+  --min_hamming 2 \
+  --max_hamming 2 \
+  --num_secret_seeds 1 \
+  --secret_type binary \
+  --sigma 3 \
+  --epoch_size 10000 \
+  --reload_size 100000 \
+  --num_workers 1 \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n5_q17_h2_10k \
+  --exp_id ab_main
+```
+Expected result:
+- `runs/n5_q17_h2_10k/ab_main/train.prefix` and `test.prefix` exist
+- `runs/n5_q17_h2_10k/ab_main/secret.npy` exists
+- the secret has shape `(5, 1)` and Hamming weight `2`
+- in our local run, `test.prefix` had `10000` lines and `train.prefix` had `134790`
+
+5. Recover the secret on GPU. The command below uses the same model settings that succeeded in our local run. This training intentionally stops early once the evaluator detects a recovered secret.
+```bash
+python train.py \
+  --cpu false \
+  --reload_data /home/yu_mcc/PQC_salsa/runs/n5_q17_h2_10k/ab_main \
+  --secret_seed 0 \
+  --hamming 2 \
+  --input_int_base 3 \
+  --share_token 1 \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n5_q17_h2_10k \
+  --exp_id train_gpu \
+  --batch_size 256 \
+  --epoch_size 12000 \
+  --max_epoch 5 \
+  --eval_size 2048 \
+  --distinguisher_size 256 \
+  --enc_emb_dim 256 \
+  --dec_emb_dim 256 \
+  --n_enc_layers 1 \
+  --n_dec_layers 2 \
+  --n_enc_heads 4 \
+  --n_dec_heads 4 \
+  --n_cross_heads 4 \
+  --enc_loops 1 \
+  --dec_loops 2 \
+  --dropout 0 \
+  --attention_dropout 0 \
+  --optimizer adam_warmup,lr=0.0001,warmup_updates=200,warmup_init_lr=0.000001 \
+  --num_workers 0 \
+  --beam_size 1 \
+  --max_output_len 4
+```
+Expected result:
+- `runs/n5_q17_h2_10k/train_gpu/train.log` shows `cpu: False`
+- the evaluator logs `Distinguisher Method emd: all bits in secret have been recovered!`
+- the evaluator logs `Direct: all bits in secret have been recovered!`
+- the evaluator logs `CA: all bits in secret have been recovered!`
+- the evaluator logs `Found secret match - ending experiment.`
+- `runs/n5_q17_h2_10k/train_gpu/checkpoint.pth` is saved before exit
+
+Notes:
+- For this toy setting, the attack usually succeeds during evaluation after epoch `0`, so the run is short by design.
+- `input_int_base=3` and `share_token=1` are only for this small `Q=17` example. The paper-scale `n=256, q=842779` setting uses different encoding values.
+- If you want a longer learning curve instead of immediate early stopping, increase the problem difficulty rather than treating short logs as a failure.
 
 If you want to run the two preprocessing steps above using slurm, we have provided two .json files in the ```slurm_params``` folder: ```create_n256_data_step1.json``` and ```create_n256_data_step2.json```. These files provide helpful examples for setting up sbatch (or similar slurm scheduling tool) runs. 
 

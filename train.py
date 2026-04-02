@@ -201,6 +201,8 @@ def get_parser():
     # evaluation
     parser.add_argument("--eval_only", type=bool_flag, default=False,
                         help="Only run evaluations")
+    parser.add_argument("--exit_on_secret_match", type=bool_flag, default=True,
+                        help="Stop training immediately when evaluation recovers the secret")
     parser.add_argument("--eval_from_exp", type=str, default="",
                         help="Path of experiment to use")
     parser.add_argument("--eval_data", type=str, default="",

@@ -57,6 +57,7 @@ def append_metrics_csv(dump_path, scores):
     ]
     row = {field: scores.get(field) for field in fields}
     path = os.path.join(dump_path, "metrics.csv")
+    os.makedirs(dump_path, exist_ok=True)
     file_exists = os.path.isfile(path)
     with open(path, "a", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fields)

@@ -7,7 +7,6 @@
 import io
 import os
 import pickle
-import queue
 import numpy as np
 from time import time
 from logging import getLogger
@@ -66,7 +65,7 @@ class BKZReducedRLWE():
             assert self.float_type == 'mpfr'
             FPLLL.set_precision(int(precision))
 
-    def timedout_bkz(self, result_queue):
+    def timedout_bkz(self, send_conn):
         if os.path.isfile(self.matrix_filename):
             A_Ap = np.load(self.matrix_filename)
             UT_or_AT, Ap = A_Ap[:, :self.m], A_Ap[:, self.m:]
@@ -89,10 +88,11 @@ class BKZReducedRLWE():
         self.save_mat(newA.T, newAp)
 
         R = (Ap[:,:self.m] / self.params.lll_penalty).astype(int)
-        result_queue.put({
+        send_conn.send({
             "R": R,
             "XT": UT_or_AT[:len(newA.T)],
         })
+        send_conn.close()
 
     def run_bkz(self, UT_or_AT, Ap):
         fplll_Ap = IntegerMatrix.from_matrix(Ap.tolist())
@@ -166,24 +166,28 @@ class BKZReducedRLWE():
         return self.calc_std(X)
 
     def generate(self):
-        result_queue = multiprocessing.Queue(maxsize=1)
-        p = multiprocessing.Process(target=self.timedout_bkz, name="data generation", args=(result_queue,))
+        recv_conn, send_conn = multiprocessing.Pipe(duplex=False)
+        p = multiprocessing.Process(target=self.timedout_bkz, name="data generation", args=(send_conn,))
         p.start()
         start = time()
-        curr = time() - start
-        while curr < self.timeout:
-            curr = time() - start
+        deadline = start + self.timeout
+        result = None
+        while time() < deadline:
+            if recv_conn.poll(0.1):
+                result = recv_conn.recv()
+                break
             if not p.is_alive():
                 break
-        p.kill()
+        if result is None and p.is_alive():
+            p.kill()
         p.join()
-        if curr >= self.timeout:
+        recv_conn.close()
+        if result is None:
             raise TimeoutError
         try:
-            result = result_queue.get_nowait()
             R = result["R"]
             XT = result["XT"]
-        except (queue.Empty, KeyError):
+        except KeyError:
             raise TimeoutError
         self.counter += 1
         if self.counter % 200 == 0:

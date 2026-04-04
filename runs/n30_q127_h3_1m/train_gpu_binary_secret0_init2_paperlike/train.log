@@ -1,0 +1,803 @@
+INFO - 04/05/26 03:00:57 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/05/26 03:00:57 - 0:00:00 - N: 30
+                                     Q: 127
+                                     accumulate_gradients: 1
+                                     act_ponder_coupling: 0.05
+                                     act_threshold: 0.01
+                                     add_unred_perc: 0
+                                     amp: 2
+                                     attention_dropout: 0.0
+                                     balanced_base: False
+                                     batch_load: False
+                                     batch_size: 128
+                                     beam_early_stopping: True
+                                     beam_eval: True
+                                     beam_eval_train: 0
+                                     beam_length_penalty: 1
+                                     beam_size: 1
+                                     clip_grad_norm: 5
+                                     command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary' --secret_seed 0 --env_base_seed 1002 --hamming 3 --input_int_base 16 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n30_q127_h3_1m --exp_id train_gpu_binary_secret0_init2_paperlike --batch_size 128 --epoch_size 20000 --max_epoch 20 --eval_size 10000 --distinguisher_size 128 --enc_emb_dim 1024 --dec_emb_dim 512 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 8 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.00001,warmup_updates=8000,warmup_init_lr=0.00000001,weight_decay=0.99' --num_workers 1 --beam_size 1 --max_output_len 10 --exp_id "train_gpu_binary_secret0_init2_paperlike"
+                                     correctQ: False
+                                     cpu: False
+                                     data_cols: None
+                                     debug: False
+                                     debug_slurm: False
+                                     dec_act: False
+                                     dec_emb_dim: 512
+                                     dec_gated: False
+                                     dec_loop_idx: 0
+                                     dec_loops: 8
+                                     dense_cols: None
+                                     dim_red: 
+                                     distinguisher_size: 128
+                                     dropout: 0.0
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike
+                                     enc_act: False
+                                     enc_emb_dim: 1024
+                                     enc_gated: False
+                                     enc_loop_idx: -1
+                                     enc_loops: 1
+                                     env_base_seed: 1002
+                                     epoch_size: 20000
+                                     eval_data: 
+                                     eval_from_exp: 
+                                     eval_only: False
+                                     eval_size: 10000
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exit_on_secret_match: True
+                                     exp_id: train_gpu_binary_secret0_init2_paperlike
+                                     exp_name: n30_q127_h3_1m
+                                     fp16: True
+                                     freeze_embeddings: False
+                                     gated: True
+                                     gelu_activation: False
+                                     global_rank: 0
+                                     hamming: 3
+                                     input_int_base: 16
+                                     is_master: True
+                                     is_slurm_job: False
+                                     local_rank: 0
+                                     master_port: -1
+                                     max_epoch: 20
+                                     max_output_len: 10
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_cross_heads: 4
+                                     n_dec_heads: 4
+                                     n_dec_hidden_layers: 1
+                                     n_dec_layers: 2
+                                     n_enc_heads: 4
+                                     n_enc_hidden_layers: 1
+                                     n_enc_layers: 1
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     norm_attention: False
+                                     num_reuse_samples: 10000
+                                     num_workers: 1
+                                     nvidia_apex: False
+                                     optimizer: adam_warmup,lr=0.00001,warmup_updates=8000,warmup_init_lr=0.00000001,weight_decay=0.99
+                                     output_int_base: 16
+                                     reload_checkpoint: 
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary
+                                     reload_model: 
+                                     reload_size: 10000000
+                                     reuse: False
+                                     scalar_gate: False
+                                     secret: [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
+                                     secret_col: 0
+                                     secret_seed: 0
+                                     secret_type: binary
+                                     share_inout_emb: True
+                                     share_token: 1
+                                     shuffle: True
+                                     sigma: 3.0
+                                     sinusoidal_embeddings: False
+                                     stopping_criterion: 
+                                     test_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary/test.prefix
+                                     times_reused: 10
+                                     train_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary/train.prefix
+                                     transformermode: old
+                                     validation_metrics: 
+                                     weighted_loss: False
+                                     windows: False
+                                     world_size: 1
+                                     xav_init: False
+INFO - 04/05/26 03:00:57 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike
+                                     
+INFO - 04/05/26 03:00:57 - 0:00:00 - Running command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary' --secret_seed 0 --env_base_seed 1002 --hamming 3 --input_int_base 16 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n30_q127_h3_1m --exp_id train_gpu_binary_secret0_init2_paperlike --batch_size 128 --epoch_size 20000 --max_epoch 20 --eval_size 10000 --distinguisher_size 128 --enc_emb_dim 1024 --dec_emb_dim 512 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 8 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.00001,warmup_updates=8000,warmup_init_lr=0.00000001,weight_decay=0.99' --num_workers 1 --beam_size 1 --max_output_len 10
+
+INFO - 04/05/26 03:00:57 - 0:00:00 - vocabulary: 20 words
+INFO - 04/05/26 03:00:57 - 0:00:00 - words: {'<eos>': 0, '<pad>': 1, '<mask>': 2, '+': 3, '0': 4, '1': 5, '10': 6, '11': 7, '12': 8, '13': 9, '14': 10, '15': 11, '2': 12, '3': 13, '4': 14, '5': 15, '6': 16, '7': 17, '8': 18, '9': 19}
+DEBUG - 04/05/26 03:00:57 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 1024)
+                                        (embeddings): Embedding(20, 1024, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                              (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 1024)
+                                        (embeddings): Embedding(20, 1024, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                              (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      )
+DEBUG - 04/05/26 03:00:57 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 512)
+                                        (embeddings): Embedding(20, 512, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (gate2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=512, out_features=20, bias=True)
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 512)
+                                        (embeddings): Embedding(20, 512, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (gate2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=512, out_features=20, bias=True)
+                                      )
+INFO - 04/05/26 03:00:57 - 0:00:00 - Number of parameters (encoder): 16813056
+INFO - 04/05/26 03:00:57 - 0:00:00 - Number of parameters (decoder): 13664788
+INFO - 04/05/26 03:00:57 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary/train.prefix ... seekpos 0, basepos 0
+INFO - 04/05/26 03:01:03 - 0:00:07 - Loaded 1014440 equations from the disk. seekpos 0, nextpos 1014440
+INFO - 04/05/26 03:01:03 - 0:00:07 - Creating train dataloader...
+INFO - 04/05/26 03:01:03 - 0:00:07 - Loading data from /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_binary/test.prefix ... seekpos 0, basepos 0
+INFO - 04/05/26 03:01:03 - 0:00:07 - Loaded 10000 equations from the disk. seekpos 1009073, nextpos 10000
+INFO - 04/05/26 03:01:03 - 0:00:07 - Creating test dataloader...
+INFO - 04/05/26 03:01:03 - 0:00:07 - Found 81 parameters in model.
+INFO - 04/05/26 03:01:04 - 0:00:07 - Optimizer: <class 'src.train.optim.AdamWithWarmup'>
+INFO - 04/05/26 03:01:04 - 0:00:07 - ============ Starting epoch 0 ... ============
+INFO - 04/05/26 03:01:04 - 0:00:07 - Initialized random generator for worker 0, with seed [0, 0, 1002, 1775325664] (base seed=1002).
+INFO - 04/05/26 03:01:08 - 0:00:11 -      50 - 1819.98 equations/s - 116478.63 words/s - MEM: 1.34 GB - LOSS:  6.9157 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 7.2438e-08
+INFO - 04/05/26 03:01:11 - 0:00:14 -     100 - 2140.47 equations/s - 136990.14 words/s - MEM: 1.34 GB - LOSS:  6.7010 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 1.3488e-07
+INFO - 04/05/26 03:01:14 - 0:00:17 -     150 - 2126.33 equations/s - 136085.35 words/s - MEM: 1.34 GB - LOSS:  6.2936 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 1.9731e-07
+INFO - 04/05/26 03:01:14 - 0:00:17 -     157 - 2054.25 equations/s - 131472.07 words/s - MEM: 1.34 GB - LOSS:  6.0204 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 2.0605e-07
+INFO - 04/05/26 03:01:14 - 0:00:17 - ============ End of epoch 0 ============
+INFO - 04/05/26 03:01:14 - 0:00:17 - Starting Distinguisher Method
+INFO - 04/05/26 03:01:19 - 0:00:23 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:01:19 - 0:00:23 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:19 - 0:00:23 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:01:19 - 0:00:23 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:19 - 0:00:23 - Starting Direct Method
+INFO - 04/05/26 03:01:19 - 0:00:23 - Direct:  K=79
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=49
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=82
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=57
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=68
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=74
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=75
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=45
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=88
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=81
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=87
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=63
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=51
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=55
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct:  K=44
+INFO - 04/05/26 03:01:20 - 0:00:23 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:28 - 0:00:31 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:28 - 0:00:31 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:28 - 0:00:31 - Hybrid: direct, ca
+INFO - 04/05/26 03:01:28 - 0:00:31 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:01:28 - 0:00:31 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:01:28 - 0:00:31 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:01:28 - 0:00:31 - Epoch 0 metrics | train_loss: 6.609307 | train_acc1: 0.000000 | train_acc2: 0.000000 | valid_xe_loss: 5.970995 | valid_acc1: 0.000000 | valid_acc2: 0.000000
+INFO - 04/05/26 03:01:28 - 0:00:31 - __log__:{"train_loss": 6.6093072162312305, "train_acc1": 0.0, "train_acc2": 0.0, "epoch": 0, "valid_xe_loss": 5.970994750155678, "valid_acc1": 0.0, "valid_acc2": 0.0}
+INFO - 04/05/26 03:01:28 - 0:00:31 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:01:28 - 0:00:31 - Saving encoder parameters ...
+WARNING - 04/05/26 03:01:28 - 0:00:31 - Saving decoder parameters ...
+WARNING - 04/05/26 03:01:28 - 0:00:31 - Saving optimizer ...
+INFO - 04/05/26 03:01:28 - 0:00:31 - ============ Starting epoch 1 ... ============
+INFO - 04/05/26 03:01:30 - 0:00:33 -     200 -  336.04 equations/s - 21506.34 words/s - MEM: 1.36 GB - LOSS:  5.6923 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 2.5975e-07
+INFO - 04/05/26 03:01:33 - 0:00:36 -     250 - 2237.86 equations/s - 143222.81 words/s - MEM: 1.36 GB - LOSS:  5.0351 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 3.2219e-07
+INFO - 04/05/26 03:01:36 - 0:00:39 -     300 - 2312.49 equations/s - 147999.50 words/s - MEM: 1.36 GB - LOSS:  4.2591 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 3.8463e-07
+INFO - 04/05/26 03:01:37 - 0:00:40 -     314 - 2164.44 equations/s - 138523.99 words/s - MEM: 1.36 GB - LOSS:  3.7730 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 4.0211e-07
+INFO - 04/05/26 03:01:37 - 0:00:40 - ============ End of epoch 1 ============
+INFO - 04/05/26 03:01:37 - 0:00:40 - Starting Distinguisher Method
+INFO - 04/05/26 03:01:42 - 0:00:45 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:01:42 - 0:00:45 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:42 - 0:00:45 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:01:42 - 0:00:45 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:42 - 0:00:45 - Starting Direct Method
+INFO - 04/05/26 03:01:42 - 0:00:45 - Direct:  K=56
+INFO - 04/05/26 03:01:42 - 0:00:45 - Direct:  K=50
+INFO - 04/05/26 03:01:42 - 0:00:45 - Direct:  K=94
+INFO - 04/05/26 03:01:42 - 0:00:45 - Direct:  K=42
+INFO - 04/05/26 03:01:42 - 0:00:45 - Direct:  K=65
+INFO - 04/05/26 03:01:42 - 0:00:46 - Direct:  K=89
+INFO - 04/05/26 03:01:42 - 0:00:46 - Direct:  K=56
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=59
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=31
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=50
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=32
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=54
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=70
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=45
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct:  K=90
+INFO - 04/05/26 03:01:43 - 0:00:46 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:49 - 0:00:53 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:49 - 0:00:53 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:01:49 - 0:00:53 - Hybrid: direct, ca
+INFO - 04/05/26 03:01:49 - 0:00:53 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:01:49 - 0:00:53 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:01:49 - 0:00:53 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:01:49 - 0:00:53 - Epoch 1 metrics | train_loss: 4.855417 | train_acc1: 0.000000 | train_acc2: 0.000000 | valid_xe_loss: 3.660772 | valid_acc1: 0.000000 | valid_acc2: 0.000000
+INFO - 04/05/26 03:01:49 - 0:00:53 - __log__:{"train_loss": 4.855416592518995, "train_acc1": 0.0, "train_acc2": 0.0, "epoch": 1, "valid_xe_loss": 3.6607718015018897, "valid_acc1": 0.0, "valid_acc2": 0.0}
+INFO - 04/05/26 03:01:49 - 0:00:53 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:01:49 - 0:00:53 - Saving encoder parameters ...
+WARNING - 04/05/26 03:01:49 - 0:00:53 - Saving decoder parameters ...
+WARNING - 04/05/26 03:01:49 - 0:00:53 - Saving optimizer ...
+INFO - 04/05/26 03:01:50 - 0:00:53 - ============ Starting epoch 2 ... ============
+INFO - 04/05/26 03:01:52 - 0:00:55 -     350 -  306.70 equations/s - 19628.92 words/s - MEM: 1.36 GB - LOSS:  3.3979 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 4.4706e-07
+INFO - 04/05/26 03:01:55 - 0:00:58 -     400 - 2227.39 equations/s - 142553.27 words/s - MEM: 1.36 GB - LOSS:  2.8713 || ACC1:  0.0000 || ACC2:  0.2031 - LR: 5.0950e-07
+INFO - 04/05/26 03:01:58 - 0:01:01 -     450 - 2201.74 equations/s - 140911.60 words/s - MEM: 1.36 GB - LOSS:  2.4312 || ACC1:  0.0000 || ACC2:  3.8594 - LR: 5.7194e-07
+INFO - 04/05/26 03:02:00 - 0:01:03 -     471 - 1412.97 equations/s - 90429.91 words/s - MEM: 1.36 GB - LOSS:  2.1986 || ACC1:  0.0000 || ACC2:  6.3244 - LR: 5.9816e-07
+INFO - 04/05/26 03:02:00 - 0:01:03 - ============ End of epoch 2 ============
+INFO - 04/05/26 03:02:00 - 0:01:03 - Starting Distinguisher Method
+INFO - 04/05/26 03:02:13 - 0:01:16 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:02:13 - 0:01:16 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:13 - 0:01:16 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:02:13 - 0:01:16 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:13 - 0:01:16 - Starting Direct Method
+INFO - 04/05/26 03:02:13 - 0:01:16 - Direct:  K=70
+INFO - 04/05/26 03:02:13 - 0:01:16 - Direct:  K=47
+INFO - 04/05/26 03:02:13 - 0:01:16 - Direct:  K=51
+INFO - 04/05/26 03:02:13 - 0:01:16 - Direct:  K=54
+INFO - 04/05/26 03:02:13 - 0:01:17 - Direct:  K=52
+INFO - 04/05/26 03:02:14 - 0:01:17 - Direct:  K=66
+INFO - 04/05/26 03:02:14 - 0:01:17 - Direct:  K=40
+INFO - 04/05/26 03:02:14 - 0:01:17 - Direct:  K=91
+INFO - 04/05/26 03:02:14 - 0:01:17 - Direct:  K=72
+INFO - 04/05/26 03:02:14 - 0:01:17 - Direct:  K=65
+INFO - 04/05/26 03:02:14 - 0:01:18 - Direct:  K=31
+INFO - 04/05/26 03:02:15 - 0:01:18 - Direct:  K=80
+INFO - 04/05/26 03:02:15 - 0:01:18 - Direct:  K=61
+INFO - 04/05/26 03:02:15 - 0:01:18 - Direct:  K=57
+INFO - 04/05/26 03:02:15 - 0:01:18 - Direct:  K=49
+INFO - 04/05/26 03:02:15 - 0:01:18 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:22 - 0:01:25 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:22 - 0:01:25 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:22 - 0:01:25 - Hybrid: direct, ca
+INFO - 04/05/26 03:02:22 - 0:01:25 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:02:22 - 0:01:25 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:02:22 - 0:01:25 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:02:22 - 0:01:25 - Epoch 2 metrics | train_loss: 2.761919 | train_acc1: 0.000000 | train_acc2: 2.139729 | valid_xe_loss: 2.148107 | valid_acc1: 0.000000 | valid_acc2: 6.259889
+INFO - 04/05/26 03:02:22 - 0:01:25 - __log__:{"train_loss": 2.761919027680804, "train_acc1": 0.0, "train_acc2": 2.1397292993630574, "epoch": 2, "valid_xe_loss": 2.1481065025812462, "valid_acc1": 0.0, "valid_acc2": 6.259889240506329}
+INFO - 04/05/26 03:02:22 - 0:01:25 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:02:22 - 0:01:25 - Saving encoder parameters ...
+WARNING - 04/05/26 03:02:22 - 0:01:25 - Saving decoder parameters ...
+WARNING - 04/05/26 03:02:22 - 0:01:25 - Saving optimizer ...
+INFO - 04/05/26 03:02:22 - 0:01:25 - ============ Starting epoch 3 ... ============
+INFO - 04/05/26 03:02:24 - 0:01:27 -     500 -  154.60 equations/s -  9894.26 words/s - MEM: 1.36 GB - LOSS:  2.0868 || ACC1:  4.6067 || ACC2: 10.6142 - LR: 6.3438e-07
+INFO - 04/05/26 03:02:26 - 0:01:29 -     550 - 2279.55 equations/s - 145891.40 words/s - MEM: 1.36 GB - LOSS:  1.9602 || ACC1: 20.4062 || ACC2: 25.2969 - LR: 6.9681e-07
+INFO - 04/05/26 03:02:29 - 0:01:32 -     600 - 2337.14 equations/s - 149577.27 words/s - MEM: 1.36 GB - LOSS:  1.8528 || ACC1: 20.0625 || ACC2: 25.3594 - LR: 7.5925e-07
+INFO - 04/05/26 03:02:31 - 0:01:34 -     628 - 2240.23 equations/s - 143374.75 words/s - MEM: 1.36 GB - LOSS:  1.7890 || ACC1: 19.3638 || ACC2: 25.3627 - LR: 7.9422e-07
+INFO - 04/05/26 03:02:31 - 0:01:34 - ============ End of epoch 3 ============
+INFO - 04/05/26 03:02:31 - 0:01:34 - Starting Distinguisher Method
+INFO - 04/05/26 03:02:40 - 0:01:43 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:02:40 - 0:01:43 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:40 - 0:01:43 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:02:40 - 0:01:43 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:40 - 0:01:43 - Starting Direct Method
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=33
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=77
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=51
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=42
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=89
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=51
+INFO - 04/05/26 03:02:40 - 0:01:43 - Direct:  K=83
+INFO - 04/05/26 03:02:40 - 0:01:44 - Direct:  K=70
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=86
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=47
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=82
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=34
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=55
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=70
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct:  K=53
+INFO - 04/05/26 03:02:41 - 0:01:44 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:47 - 0:01:50 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:47 - 0:01:50 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:02:47 - 0:01:50 - Hybrid: direct, ca
+INFO - 04/05/26 03:02:47 - 0:01:50 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:02:47 - 0:01:50 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:02:47 - 0:01:50 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:02:47 - 0:01:50 - Epoch 3 metrics | train_loss: 1.918847 | train_acc1: 17.192476 | train_acc2: 22.616441 | valid_xe_loss: 1.780948 | valid_acc1: 20.688291 | valid_acc2: 26.186709
+INFO - 04/05/26 03:02:47 - 0:01:50 - __log__:{"train_loss": 1.9188467089537602, "train_acc1": 17.192476114649683, "train_acc2": 22.61644108280255, "epoch": 3, "valid_xe_loss": 1.7809482797791687, "valid_acc1": 20.688291139240505, "valid_acc2": 26.186708860759495}
+INFO - 04/05/26 03:02:47 - 0:01:50 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:02:47 - 0:01:50 - Saving encoder parameters ...
+WARNING - 04/05/26 03:02:47 - 0:01:50 - Saving decoder parameters ...
+WARNING - 04/05/26 03:02:47 - 0:01:50 - Saving optimizer ...
+INFO - 04/05/26 03:02:47 - 0:01:51 - ============ Starting epoch 4 ... ============
+INFO - 04/05/26 03:02:49 - 0:01:52 -     650 -  156.28 equations/s - 10001.79 words/s - MEM: 1.36 GB - LOSS:  1.7646 || ACC1: 20.3125 || ACC2: 25.6037 - LR: 8.2169e-07
+INFO - 04/05/26 03:02:52 - 0:01:55 -     700 - 2269.60 equations/s - 145254.11 words/s - MEM: 1.36 GB - LOSS:  1.7358 || ACC1: 21.2188 || ACC2: 26.3125 - LR: 8.8413e-07
+INFO - 04/05/26 03:02:54 - 0:01:57 -     750 - 2245.07 equations/s - 143684.25 words/s - MEM: 1.36 GB - LOSS:  1.7019 || ACC1: 20.1406 || ACC2: 25.3594 - LR: 9.4656e-07
+INFO - 04/05/26 03:02:56 - 0:01:59 -     785 - 2294.17 equations/s - 146826.90 words/s - MEM: 1.36 GB - LOSS:  1.6794 || ACC1: 20.0670 || ACC2: 25.4464 - LR: 9.9027e-07
+INFO - 04/05/26 03:02:56 - 0:01:59 - ============ End of epoch 4 ============
+INFO - 04/05/26 03:02:56 - 0:01:59 - Starting Distinguisher Method
+INFO - 04/05/26 03:03:06 - 0:02:09 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:03:06 - 0:02:09 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:06 - 0:02:09 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:03:06 - 0:02:09 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:06 - 0:02:09 - Starting Direct Method
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=46
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=65
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=69
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=45
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=48
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=34
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=52
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=58
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=40
+INFO - 04/05/26 03:03:06 - 0:02:09 - Direct:  K=89
+INFO - 04/05/26 03:03:06 - 0:02:10 - Direct:  K=84
+INFO - 04/05/26 03:03:07 - 0:02:10 - Direct:  K=74
+INFO - 04/05/26 03:03:07 - 0:02:10 - Direct:  K=46
+INFO - 04/05/26 03:03:07 - 0:02:10 - Direct:  K=32
+INFO - 04/05/26 03:03:07 - 0:02:10 - Direct:  K=83
+INFO - 04/05/26 03:03:07 - 0:02:10 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:13 - 0:02:16 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:13 - 0:02:16 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:13 - 0:02:16 - Hybrid: direct, ca
+INFO - 04/05/26 03:03:13 - 0:02:16 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:03:13 - 0:02:16 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:03:13 - 0:02:16 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:03:13 - 0:02:16 - Epoch 4 metrics | train_loss: 1.716468 | train_acc1: 20.491640 | train_acc2: 25.716561 | valid_xe_loss: 1.676335 | valid_acc1: 19.462025 | valid_acc2: 24.545095
+INFO - 04/05/26 03:03:13 - 0:02:16 - __log__:{"train_loss": 1.7164679211416063, "train_acc1": 20.491640127388536, "train_acc2": 25.71656050955414, "epoch": 4, "valid_xe_loss": 1.676334966587115, "valid_acc1": 19.462025316455698, "valid_acc2": 24.54509493670886}
+INFO - 04/05/26 03:03:13 - 0:02:16 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:03:13 - 0:02:16 - Saving encoder parameters ...
+WARNING - 04/05/26 03:03:13 - 0:02:16 - Saving decoder parameters ...
+WARNING - 04/05/26 03:03:13 - 0:02:16 - Saving optimizer ...
+INFO - 04/05/26 03:03:14 - 0:02:17 - ============ Starting epoch 5 ... ============
+INFO - 04/05/26 03:03:14 - 0:02:17 -     800 -  106.46 equations/s -  6813.35 words/s - MEM: 1.36 GB - LOSS:  1.6671 || ACC1: 21.6667 || ACC2: 26.0938 - LR: 1.0090e-06
+INFO - 04/05/26 03:03:17 - 0:02:20 -     850 - 2230.26 equations/s - 142736.77 words/s - MEM: 1.36 GB - LOSS:  1.6614 || ACC1: 19.9688 || ACC2: 25.2344 - LR: 1.0714e-06
+INFO - 04/05/26 03:03:20 - 0:02:23 -     900 - 2256.37 equations/s - 144407.44 words/s - MEM: 1.36 GB - LOSS:  1.6483 || ACC1: 20.5156 || ACC2: 25.8438 - LR: 1.1339e-06
+INFO - 04/05/26 03:03:22 - 0:02:26 -     942 - 2277.16 equations/s - 145738.25 words/s - MEM: 1.36 GB - LOSS:  1.6343 || ACC1: 20.6101 || ACC2: 25.6324 - LR: 1.1863e-06
+INFO - 04/05/26 03:03:22 - 0:02:26 - ============ End of epoch 5 ============
+INFO - 04/05/26 03:03:22 - 0:02:26 - Starting Distinguisher Method
+INFO - 04/05/26 03:03:31 - 0:02:34 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:03:31 - 0:02:34 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:31 - 0:02:34 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:03:31 - 0:02:34 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:31 - 0:02:34 - Starting Direct Method
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=74
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=90
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=55
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=75
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=64
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=58
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=92
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=77
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=82
+INFO - 04/05/26 03:03:31 - 0:02:34 - Direct:  K=48
+INFO - 04/05/26 03:03:31 - 0:02:35 - Direct:  K=60
+INFO - 04/05/26 03:03:32 - 0:02:35 - Direct:  K=50
+INFO - 04/05/26 03:03:32 - 0:02:35 - Direct:  K=46
+INFO - 04/05/26 03:03:32 - 0:02:35 - Direct:  K=74
+INFO - 04/05/26 03:03:32 - 0:02:35 - Direct:  K=54
+INFO - 04/05/26 03:03:32 - 0:02:35 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - Hybrid: direct, ca
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:03:39 - 0:02:42 - ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - direct, ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:39 - 0:02:42 - Epoch 5 metrics | train_loss: 1.650511 | train_acc1: 20.476712 | train_acc2: 25.617038 | valid_xe_loss: 1.631682 | valid_acc1: 19.363133 | valid_acc2: 24.446203
+INFO - 04/05/26 03:03:39 - 0:02:42 - __log__:{"train_loss": 1.6505108768013632, "train_acc1": 20.47671178343949, "train_acc2": 25.61703821656051, "epoch": 5, "valid_xe_loss": 1.6316821047022372, "valid_acc1": 19.363132911392405, "valid_acc2": 24.446202531645568}
+INFO - 04/05/26 03:03:39 - 0:02:42 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:03:39 - 0:02:42 - Saving encoder parameters ...
+WARNING - 04/05/26 03:03:39 - 0:02:42 - Saving decoder parameters ...
+WARNING - 04/05/26 03:03:39 - 0:02:42 - Saving optimizer ...
+INFO - 04/05/26 03:03:39 - 0:02:42 - ============ Starting epoch 6 ... ============
+INFO - 04/05/26 03:03:39 - 0:02:43 -     950 -   60.12 equations/s -  3847.93 words/s - MEM: 1.36 GB - LOSS:  1.6250 || ACC1: 20.5078 || ACC2: 27.2461 - LR: 1.1963e-06
+INFO - 04/05/26 03:03:42 - 0:02:45 -    1000 - 2188.47 equations/s - 140062.12 words/s - MEM: 1.36 GB - LOSS:  1.6233 || ACC1: 19.9688 || ACC2: 25.4219 - LR: 1.2588e-06
+INFO - 04/05/26 03:03:45 - 0:02:48 -    1050 - 2161.32 equations/s - 138324.27 words/s - MEM: 1.36 GB - LOSS:  1.6160 || ACC1: 21.0000 || ACC2: 26.0312 - LR: 1.3212e-06
+INFO - 04/05/26 03:03:48 - 0:02:51 -    1099 - 2129.11 equations/s - 136263.25 words/s - MEM: 1.36 GB - LOSS:  1.6118 || ACC1: 20.5357 || ACC2: 25.4464 - LR: 1.3824e-06
+INFO - 04/05/26 03:03:48 - 0:02:51 - ============ End of epoch 6 ============
+INFO - 04/05/26 03:03:48 - 0:02:51 - Starting Distinguisher Method
+INFO - 04/05/26 03:03:57 - 0:03:00 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:03:57 - 0:03:00 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:57 - 0:03:00 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:03:57 - 0:03:00 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:03:57 - 0:03:00 - Starting Direct Method
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=60
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=89
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=40
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=89
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=56
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=77
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=57
+INFO - 04/05/26 03:03:57 - 0:03:00 - Direct:  K=33
+INFO - 04/05/26 03:03:57 - 0:03:01 - Direct:  K=74
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct:  K=93
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct:  K=80
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct:  K=94
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct:  K=35
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct:  K=61
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct:  K=37
+INFO - 04/05/26 03:03:58 - 0:03:01 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - Hybrid: direct, ca
+INFO - 04/05/26 03:04:04 - 0:03:07 - direct, ca - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - direct, ca - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - direct, ca - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - direct, ca - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:04 - 0:03:07 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:04:04 - 0:03:07 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:04:04 - 0:03:07 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:04:04 - 0:03:07 - Epoch 6 metrics | train_loss: 1.617460 | train_acc1: 20.501592 | train_acc2: 25.716561 | valid_xe_loss: 1.610812 | valid_acc1: 20.520174 | valid_acc2: 25.484573
+INFO - 04/05/26 03:04:04 - 0:03:07 - __log__:{"train_loss": 1.6174596927727862, "train_acc1": 20.501592356687897, "train_acc2": 25.71656050955414, "epoch": 6, "valid_xe_loss": 1.6108118039143235, "valid_acc1": 20.52017405063291, "valid_acc2": 25.484572784810126}
+INFO - 04/05/26 03:04:04 - 0:03:07 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:04:04 - 0:03:07 - Saving encoder parameters ...
+WARNING - 04/05/26 03:04:04 - 0:03:07 - Saving decoder parameters ...
+WARNING - 04/05/26 03:04:04 - 0:03:07 - Saving optimizer ...
+INFO - 04/05/26 03:04:05 - 0:03:08 - ============ Starting epoch 7 ... ============
+INFO - 04/05/26 03:04:05 - 0:03:08 -    1100 -    7.84 equations/s -   501.63 words/s - MEM: 1.36 GB - LOSS:  1.6003 || ACC1: 17.9688 || ACC2: 23.4375 - LR: 1.3836e-06
+INFO - 04/05/26 03:04:08 - 0:03:11 -    1150 - 2203.75 equations/s - 141039.78 words/s - MEM: 1.36 GB - LOSS:  1.6047 || ACC1: 20.6719 || ACC2: 25.7031 - LR: 1.4461e-06
+INFO - 04/05/26 03:04:10 - 0:03:13 -    1200 - 2291.90 equations/s - 146681.47 words/s - MEM: 1.36 GB - LOSS:  1.6040 || ACC1: 20.2031 || ACC2: 25.1875 - LR: 1.5085e-06
+INFO - 04/05/26 03:04:14 - 0:03:17 -    1250 - 1796.13 equations/s - 114952.57 words/s - MEM: 1.36 GB - LOSS:  1.5944 || ACC1: 20.6719 || ACC2: 25.6406 - LR: 1.5709e-06
+INFO - 04/05/26 03:04:14 - 0:03:17 -    1256 - 2334.76 equations/s - 149424.92 words/s - MEM: 1.36 GB - LOSS:  1.5947 || ACC1: 20.3125 || ACC2: 25.7812 - LR: 1.5784e-06
+INFO - 04/05/26 03:04:14 - 0:03:17 - ============ End of epoch 7 ============
+INFO - 04/05/26 03:04:14 - 0:03:17 - Starting Distinguisher Method
+INFO - 04/05/26 03:04:23 - 0:03:26 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:04:23 - 0:03:26 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0])
+INFO - 04/05/26 03:04:23 - 0:03:26 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:04:23 - 0:03:26 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0])
+INFO - 04/05/26 03:04:23 - 0:03:26 - Starting Direct Method
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=37
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=70
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=53
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=84
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=42
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=41
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=80
+INFO - 04/05/26 03:04:23 - 0:03:26 - Direct:  K=38
+INFO - 04/05/26 03:04:23 - 0:03:27 - Direct:  K=89
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct:  K=48
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct:  K=53
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct:  K=42
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct:  K=38
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct:  K=50
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct:  K=38
+INFO - 04/05/26 03:04:24 - 0:03:27 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - Hybrid: direct, ca
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:04:30 - 0:03:34 - ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 1 0 0 0 1 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 1 0 0 0 1 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1])
+INFO - 04/05/26 03:04:30 - 0:03:34 - direct, ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:30 - 0:03:34 - Epoch 7 metrics | train_loss: 1.600811 | train_acc1: 20.491640 | train_acc2: 25.507564 | valid_xe_loss: 1.597228 | valid_acc1: 19.986155 | valid_acc2: 25.207674
+INFO - 04/05/26 03:04:30 - 0:03:34 - __log__:{"train_loss": 1.600810676623302, "train_acc1": 20.491640127388536, "train_acc2": 25.507563694267517, "epoch": 7, "valid_xe_loss": 1.5972281981118117, "valid_acc1": 19.98615506329114, "valid_acc2": 25.20767405063291}
+INFO - 04/05/26 03:04:30 - 0:03:34 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:04:30 - 0:03:34 - Saving encoder parameters ...
+WARNING - 04/05/26 03:04:30 - 0:03:34 - Saving decoder parameters ...
+WARNING - 04/05/26 03:04:30 - 0:03:34 - Saving optimizer ...
+INFO - 04/05/26 03:04:31 - 0:03:34 - ============ Starting epoch 8 ... ============
+INFO - 04/05/26 03:04:33 - 0:03:36 -    1300 -  294.44 equations/s - 18844.10 words/s - MEM: 1.36 GB - LOSS:  1.5901 || ACC1: 21.9105 || ACC2: 27.4325 - LR: 1.6334e-06
+INFO - 04/05/26 03:04:36 - 0:03:39 -    1350 - 2184.08 equations/s - 139781.38 words/s - MEM: 1.36 GB - LOSS:  1.5911 || ACC1: 20.8906 || ACC2: 26.0156 - LR: 1.6958e-06
+INFO - 04/05/26 03:04:39 - 0:03:42 -    1400 - 2114.87 equations/s - 135351.91 words/s - MEM: 1.36 GB - LOSS:  1.5909 || ACC1: 20.2969 || ACC2: 25.6250 - LR: 1.7583e-06
+INFO - 04/05/26 03:04:40 - 0:03:43 -    1413 - 2250.32 equations/s - 144020.56 words/s - MEM: 1.36 GB - LOSS:  1.5827 || ACC1: 22.2356 || ACC2: 27.2837 - LR: 1.7745e-06
+INFO - 04/05/26 03:04:40 - 0:03:43 - ============ End of epoch 8 ============
+INFO - 04/05/26 03:04:40 - 0:03:43 - Starting Distinguisher Method
+INFO - 04/05/26 03:04:49 - 0:03:52 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:04:49 - 0:03:52 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0])
+INFO - 04/05/26 03:04:49 - 0:03:52 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:04:49 - 0:03:52 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0])
+INFO - 04/05/26 03:04:49 - 0:03:52 - Starting Direct Method
+INFO - 04/05/26 03:04:49 - 0:03:52 - Direct:  K=87
+INFO - 04/05/26 03:04:49 - 0:03:53 - Direct:  K=70
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=40
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=42
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=94
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=42
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=93
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=84
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=93
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=67
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=70
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=76
+INFO - 04/05/26 03:04:50 - 0:03:53 - Direct:  K=62
+INFO - 04/05/26 03:04:50 - 0:03:54 - Direct:  K=80
+INFO - 04/05/26 03:04:51 - 0:03:54 - Direct:  K=66
+INFO - 04/05/26 03:04:51 - 0:03:54 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - Hybrid: direct, ca
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:04:57 - 0:04:00 - ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - direct, ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0])
+INFO - 04/05/26 03:04:57 - 0:04:00 - Epoch 8 metrics | train_loss: 1.590045 | train_acc1: 21.098726 | train_acc2: 26.393312 | valid_xe_loss: 1.588746 | valid_acc1: 19.402690 | valid_acc2: 24.742880
+INFO - 04/05/26 03:04:57 - 0:04:00 - __log__:{"train_loss": 1.5900447049717994, "train_acc1": 21.098726114649683, "train_acc2": 26.393312101910826, "epoch": 8, "valid_xe_loss": 1.5887463062624387, "valid_acc1": 19.40268987341772, "valid_acc2": 24.742879746835442}
+INFO - 04/05/26 03:04:57 - 0:04:00 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:04:57 - 0:04:00 - Saving encoder parameters ...
+WARNING - 04/05/26 03:04:57 - 0:04:00 - Saving decoder parameters ...
+WARNING - 04/05/26 03:04:57 - 0:04:00 - Saving optimizer ...
+INFO - 04/05/26 03:04:57 - 0:04:00 - ============ Starting epoch 9 ... ============
+INFO - 04/05/26 03:04:59 - 0:04:02 -    1450 -  250.87 equations/s - 16055.41 words/s - MEM: 1.36 GB - LOSS:  1.5880 || ACC1: 20.6715 || ACC2: 25.7179 - LR: 1.8207e-06
+INFO - 04/05/26 03:05:02 - 0:04:05 -    1500 - 2282.83 equations/s - 146101.05 words/s - MEM: 1.36 GB - LOSS:  1.5871 || ACC1: 20.6875 || ACC2: 25.8750 - LR: 1.8831e-06
+INFO - 04/05/26 03:05:04 - 0:04:08 -    1550 - 2337.09 equations/s - 149573.70 words/s - MEM: 1.36 GB - LOSS:  1.5825 || ACC1: 21.1719 || ACC2: 26.4375 - LR: 1.9456e-06
+INFO - 04/05/26 03:05:06 - 0:04:09 -    1570 - 2229.26 equations/s - 142672.88 words/s - MEM: 1.36 GB - LOSS:  1.5759 || ACC1: 21.9141 || ACC2: 26.6797 - LR: 1.9705e-06
+INFO - 04/05/26 03:05:06 - 0:04:09 - ============ End of epoch 9 ============
+INFO - 04/05/26 03:05:06 - 0:04:09 - Starting Distinguisher Method
+INFO - 04/05/26 03:05:14 - 0:04:17 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:05:14 - 0:04:17 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 0 0])
+INFO - 04/05/26 03:05:14 - 0:04:17 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:05:14 - 0:04:17 - Distinguisher Method mean: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:14 - 0:04:17 - Starting Direct Method
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=91
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=83
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=57
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=88
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=34
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=69
+INFO - 04/05/26 03:05:14 - 0:04:17 - Direct:  K=33
+INFO - 04/05/26 03:05:14 - 0:04:18 - Direct:  K=44
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=39
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=32
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=41
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=54
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=51
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=37
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct:  K=73
+INFO - 04/05/26 03:05:15 - 0:04:18 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - Hybrid: direct, ca
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:05:22 - 0:04:25 - ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca, distinguisher - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - direct, ca, distinguisher - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:22 - 0:04:25 - Epoch 9 metrics | train_loss: 1.584438 | train_acc1: 20.994228 | train_acc2: 26.119626 | valid_xe_loss: 1.583536 | valid_acc1: 20.520174 | valid_acc2: 25.672468
+INFO - 04/05/26 03:05:22 - 0:04:25 - __log__:{"train_loss": 1.5844378577675788, "train_acc1": 20.99422770700637, "train_acc2": 26.119625796178344, "epoch": 9, "valid_xe_loss": 1.5835358206229875, "valid_acc1": 20.52017405063291, "valid_acc2": 25.67246835443038}
+INFO - 04/05/26 03:05:22 - 0:04:25 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:05:22 - 0:04:25 - Saving encoder parameters ...
+WARNING - 04/05/26 03:05:22 - 0:04:25 - Saving decoder parameters ...
+WARNING - 04/05/26 03:05:22 - 0:04:25 - Saving optimizer ...
+INFO - 04/05/26 03:05:22 - 0:04:25 - ============ Starting epoch 10 ... ============
+INFO - 04/05/26 03:05:24 - 0:04:27 -    1600 -  208.26 equations/s - 13328.58 words/s - MEM: 1.36 GB - LOSS:  1.5805 || ACC1: 21.2500 || ACC2: 26.3542 - LR: 2.0080e-06
+INFO - 04/05/26 03:05:27 - 0:04:30 -    1650 - 2411.26 equations/s - 154320.91 words/s - MEM: 1.36 GB - LOSS:  1.5810 || ACC1: 21.1406 || ACC2: 26.4219 - LR: 2.0704e-06
+INFO - 04/05/26 03:05:30 - 0:04:33 -    1700 - 2230.79 equations/s - 142770.26 words/s - MEM: 1.36 GB - LOSS:  1.5765 || ACC1: 22.0781 || ACC2: 27.3438 - LR: 2.1329e-06
+INFO - 04/05/26 03:05:31 - 0:04:34 -    1727 - 2143.87 equations/s - 137207.75 words/s - MEM: 1.36 GB - LOSS:  1.5763 || ACC1: 21.7014 || ACC2: 26.8229 - LR: 2.1666e-06
+INFO - 04/05/26 03:05:31 - 0:04:34 - ============ End of epoch 10 ============
+INFO - 04/05/26 03:05:31 - 0:04:34 - Starting Distinguisher Method
+INFO - 04/05/26 03:05:40 - 0:04:43 - Distinguishing 0s using the emd. 
+INFO - 04/05/26 03:05:40 - 0:04:43 - Distinguisher Method emd: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0])
+INFO - 04/05/26 03:05:40 - 0:04:43 - Distinguishing 0s using the mean. 
+INFO - 04/05/26 03:05:40 - 0:04:43 - Distinguisher Method mean: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:40 - 0:04:43 - Starting Direct Method
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=51
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=68
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=74
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=84
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=38
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=33
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=79
+INFO - 04/05/26 03:05:40 - 0:04:43 - Direct:  K=55
+INFO - 04/05/26 03:05:40 - 0:04:44 - Direct:  K=56
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct:  K=86
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct:  K=94
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct:  K=83
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct:  K=80
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct:  K=74
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct:  K=33
+INFO - 04/05/26 03:05:41 - 0:04:44 - Direct: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - CA: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - Hybrid: direct, ca
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca - Sum Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca - Max Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - Hybrid: direct, distinguisher
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, distinguisher - Sum Normalized: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, distinguisher - Sum Rank: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, distinguisher - Max Rank: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - Hybrid: ca, distinguisher
+INFO - 04/05/26 03:05:47 - 0:04:50 - ca, distinguisher - Sum Normalized: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - ca, distinguisher - Max Normalized: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - ca, distinguisher - Max Rank: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - Hybrid: direct, ca, distinguisher
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca, distinguisher - Sum Normalized: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca, distinguisher - Max Normalized: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca, distinguisher - Sum Rank: secret not predicted. (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - direct, ca, distinguisher - Max Rank: all bits in secret have been recovered! (true secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted secret = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], true support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0], predicted support = [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+INFO - 04/05/26 03:05:47 - 0:04:50 - Epoch 10 metrics | train_loss: 1.578651 | train_acc1: 21.556529 | train_acc2: 26.771497 | valid_xe_loss: 1.573730 | valid_acc1: 22.517801 | valid_acc2: 27.946994
+INFO - 04/05/26 03:05:47 - 0:04:50 - __log__:{"train_loss": 1.5786507235970466, "train_acc1": 21.556528662420384, "train_acc2": 26.771496815286625, "epoch": 10, "valid_xe_loss": 1.5737304928936535, "valid_acc1": 22.517800632911392, "valid_acc2": 27.946993670886076}
+INFO - 04/05/26 03:05:47 - 0:04:50 - Found secret match - ending experiment.
+INFO - 04/05/26 03:05:47 - 0:04:50 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_binary_secret0_init2_paperlike/checkpoint.pth ...
+WARNING - 04/05/26 03:05:47 - 0:04:50 - Saving encoder parameters ...
+WARNING - 04/05/26 03:05:47 - 0:04:50 - Saving decoder parameters ...
+WARNING - 04/05/26 03:05:47 - 0:04:50 - Saving optimizer ...

@@ -52,11 +52,16 @@ class SecretCheck(object):
         Takes an int or bool (binary) list or array as secret guess and check against the original tiny dataset. 
         '''
         guess = np.array(guess).astype(int)
-        if self.params.secret_type in ['gaussian', 'binomial']:
+        true_secret = np.asarray(self.params.secret).astype(int)
+        if self.params.secret_type in ['binary', 'ternary']:
+            # For sparse discrete secrets we only declare success on exact
+            # coordinate-wise agreement with the ground-truth secret.
+            matched = np.array_equal(true_secret, guess)
+        elif self.params.secret_type in ['gaussian', 'binomial']:
             # only check if nonzeros are identified for gaussian and binomial secrets
-            matched = np.all((self.params.secret != 0) == (guess != 0))
+            matched = np.all((true_secret != 0) == (guess != 0))
         elif self.orig_A is None: # Old data, original dataset not available. Directly check the secret. 
-            matched = np.all(self.params.secret == guess)
+            matched = np.array_equal(true_secret, guess)
         else:
             err_pred = (self.orig_A @ guess - self.orig_b) % self.params.Q
             err_pred[err_pred > self.params.Q // 2] -= self.params.Q
@@ -88,6 +93,7 @@ class SecretCheck(object):
 
     def store_results(self, path, epoch):
         try:
+            os.makedirs(path, exist_ok=True)
             pickle.dump(self.secret_recovery, open(os.path.join(path, f'secret_recovery_{epoch}.pkl'), 'wb'))
         except Exception as e:
             logger.info(f'secret recovery: {self.secret_recovery}')
@@ -388,8 +394,7 @@ class TernaryDistinguisher(object):
         guess = np.zeros(self.params.N)
         guess[nonzeros[list(clique0)]] = 1
         guess[nonzeros[list(clique1)]] = -1
-        matching = self.secret_check.match_secret(guess, 'Distinguisher Method')
-        return matching or self.secret_check.match_secret(guess*-1, 'Distinguisher Method')
+        return self.secret_check.match_secret(guess, 'Distinguisher Method')
 
     def run(self, lwe_preds, diffs, func):
         """

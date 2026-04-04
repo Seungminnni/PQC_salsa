@@ -1,38 +1,78 @@
-import pandas as pd
+from pathlib import Path
+import argparse
+
 import matplotlib.pyplot as plt
+import pandas as pd
 
-csv_path = "data_n5q17_pathcheck/train_run/debug/debug_seed1_epoch1000/metrics.csv"
-df = pd.read_csv(csv_path)
 
-# x축: epoch 우선, 없으면 index
-x_col = df["epoch"] if "epoch" in df.columns else df.index
+DEFAULT_CSV = "runs/n30_q127_h3_paperstyle_200k/train_gpu_binary/metrics.csv"
+TARGET_COLS = ["train_loss", "train_acc1", "valid_xe_loss", "valid_acc1"]
 
-# 원하는 4개 컬럼
-target_cols = ["train_loss", "train_acc1", "valid_xe_loss", "valid_acc1"]
 
-# 컬럼 존재 여부 체크
-missing = [c for c in target_cols if c not in df.columns]
-if missing:
-    print(f"사용 가능한 컬럼: {list(df.columns)}")
-    target_cols = [c for c in target_cols if c in df.columns]
-    print(f"사용 가능한 컬럼만 시각화: {target_cols}")
+def plot_metrics(csv_path: str, out_suffix: str) -> None:
+    df = pd.read_csv(csv_path)
 
-# 그림 2x2
-fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
-axes = axes.ravel()
+    # Prefer epoch on x-axis when available.
+    x_col = df["epoch"] if "epoch" in df.columns else df.index
 
-for i, col in enumerate(target_cols):
-    if i < 4:
+    target_cols = [c for c in TARGET_COLS if c in df.columns]
+    missing = [c for c in TARGET_COLS if c not in df.columns]
+
+    if missing:
+        print(f"[{csv_path}] missing columns: {missing}")
+        print(f"[{csv_path}] available columns: {list(df.columns)}")
+
+    if not target_cols:
+        print(f"[{csv_path}] no target columns found, skip plotting")
+        return
+
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
+    axes = axes.ravel()
+
+    for i, col in enumerate(target_cols[:4]):
         ax = axes[i]
         ax.plot(x_col, df[col], linewidth=1.8)
         ax.set_title(col)
         ax.grid(alpha=0.3)
         ax.set_ylabel(col)
 
-axes[-1].set_xlabel("epoch" if "epoch" in df.columns else "index")
-axes[-2].set_xlabel("epoch" if "epoch" in df.columns else "index")
+    # Hide any unused subplot panels.
+    for i in range(len(target_cols[:4]), 4):
+        axes[i].axis("off")
 
-plt.tight_layout()
-out_path = "data_n5q17_pathcheck/train_run/debug/debug_seed1_epoch1000/metrics_4panel.png"
-plt.savefig(out_path, dpi=150)
-print(f"saved: {out_path}")
+    x_label = "epoch" if "epoch" in df.columns else "index"
+    axes[-1].set_xlabel(x_label)
+    axes[-2].set_xlabel(x_label)
+
+    plt.tight_layout()
+    out_path = str(Path(csv_path).with_name(out_suffix))
+    plt.savefig(out_path, dpi=150)
+    plt.close(fig)
+    print(f"saved: {out_path}")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Plot metrics CSV files into 4-panel PNGs")
+    parser.add_argument(
+        "csv_paths",
+        nargs="*",
+        help="One or more CSV paths. If omitted, uses the default sample path.",
+    )
+    parser.add_argument(
+        "--out-suffix",
+        default="metrics_4panel.png",
+        help="Output filename to save next to each input CSV.",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    csv_paths = args.csv_paths if args.csv_paths else [DEFAULT_CSV]
+
+    for csv_path in csv_paths:
+        plot_metrics(csv_path, args.out_suffix)
+
+
+if __name__ == "__main__":
+    main()

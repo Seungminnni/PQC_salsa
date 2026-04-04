@@ -190,6 +190,129 @@ python train.py \
 - `input_int_base=3`와 `share_token=1`은 작은 `Q=17` 예제 전용입니다. 논문 스케일의 `n=256, q=842779` 설정에서는 다른 인코딩 값을 사용합니다.
 - 즉시 조기 종료되는 대신 더 긴 학습 곡선을 보고 싶다면, 짧은 로그를 실패로 해석하기보다 문제 난이도를 올려서 실험하세요.
 
+__Paper-style q127 binary 설정 (N=30, Q=127, h=3)__: 아래 명령들은 `num_orig_samples=4N`, `m=N`으로 맞춘 paper-style 생성 흐름과, 더 짧은 epoch(`epoch_size=16000`) 및 더 긴 warmup(`warmup_updates=1000`)을 반영한 학습 스케줄입니다. 로컬 실행 기준으로 `RA`는 `7000`개의 reduced matrix를 만들었고, `Ab` 결과는 `train.prefix=410000`, `test.prefix=10000`줄이었습니다.
+
+1. 원본 `origA` 생성 (`4N x N`):
+```bash
+python generate.py \
+  --cpu true \
+  --step origA \
+  --lwe true \
+  --N 30 \
+  --Q 127 \
+  --num_orig_samples 120 \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n30_q127_h3_paperstyle_200k \
+  --exp_id origA_4n
+```
+
+2. `RA_tiny2` 실행 (`m=N`):
+```bash
+python generate.py \
+  --cpu true \
+  --step RA_tiny2 \
+  --reload_data /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_paperstyle_200k/origA_4n/orig_A.npy \
+  --N 30 \
+  --Q 127 \
+  --m 30 \
+  --num_workers 1 \
+  --epoch_size 7000 \
+  --timeout 30 \
+  --float_type double \
+  --lll_penalty 10 \
+  --algo BKZ2.0 \
+  --lll_delta 0.96 \
+  --bkz_block_size 10 \
+  --algo2 BKZ2.0 \
+  --lll_delta2 0.99 \
+  --bkz_block_size2 15 \
+  --threshold 3.0 \
+  --threshold2 4.0 \
+  --use_polish false \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n30_q127_h3_paperstyle_200k \
+  --exp_id ra_main
+```
+
+3. binary `Ab` 생성:
+```bash
+python generate.py \
+  --cpu true \
+  --step Ab \
+  --reload_data /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_paperstyle_200k/ra_main \
+  --N 30 \
+  --Q 127 \
+  --m 30 \
+  --min_hamming 3 \
+  --max_hamming 3 \
+  --num_secret_seeds 1 \
+  --secret_type binary \
+  --sigma 3 \
+  --epoch_size 7000 \
+  --reload_size 100000 \
+  --num_workers 1 \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n30_q127_h3_paperstyle_200k \
+  --exp_id ab_binary
+```
+
+4. 더 보수적인 학습 스케줄로 binary attack 실행:
+```bash
+python train.py \
+  --cpu false \
+  --reload_data /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_paperstyle_200k/ab_binary \
+  --secret_seed 0 \
+  --hamming 3 \
+  --input_int_base 16 \
+  --share_token 1 \
+  --dump_path /home/yu_mcc/PQC_salsa/runs \
+  --exp_name n30_q127_h3_paperstyle_200k_ep16k_wu1000 \
+  --exp_id train_gpu_binary \
+  --batch_size 256 \
+  --epoch_size 16000 \
+  --max_epoch 10 \
+  --eval_size 4096 \
+  --distinguisher_size 512 \
+  --enc_emb_dim 256 \
+  --dec_emb_dim 256 \
+  --n_enc_layers 1 \
+  --n_dec_layers 2 \
+  --n_enc_heads 4 \
+  --n_dec_heads 4 \
+  --n_cross_heads 4 \
+  --enc_loops 1 \
+  --dec_loops 2 \
+  --dropout 0 \
+  --attention_dropout 0 \
+  --optimizer adam_warmup,lr=0.0001,warmup_updates=1000,warmup_init_lr=0.000001 \
+  --num_workers 0 \
+  --beam_size 1 \
+  --max_output_len 4
+```
+
+기대 결과:
+- `runs/n30_q127_h3_paperstyle_200k/origA_4n/orig_A.npy` shape은 `(120, 30)`
+- `runs/n30_q127_h3_paperstyle_200k/ra_main/data.prefix`는 `210000`줄
+- `runs/n30_q127_h3_paperstyle_200k/ab_binary/train.prefix`는 `410000`줄
+- `runs/n30_q127_h3_paperstyle_200k/ab_binary/test.prefix`는 `10000`줄
+- `runs/n30_q127_h3_paperstyle_200k_ep16k_wu1000/train_gpu_binary/train.log`에 새 스케줄이 기록됨
+
+샘플 수 요약:
+
+| 단계 | 파일 / 의미 | 개수 |
+| --- | --- | ---: |
+| 원본 샘플 | `orig_A.npy` row 수 (`num_orig_samples=4N`) | `120` |
+| 축소 샘플 | `ra_main/data.prefix` 줄 수 | `210000` |
+| 학습 샘플 | `ab_binary/train.prefix` 줄 수 | `410000` |
+| 테스트 샘플 | `ab_binary/test.prefix` 줄 수 | `10000` |
+| 학습 시 train 로드 | `train_gpu_binary`가 디스크에서 읽은 train equations | `410000` |
+| 학습 시 test 로드 | `train_gpu_binary`가 디스크에서 읽은 test equations (`eval_size`) | `4096` |
+
+관련 로그 기준:
+- 원본 샘플 `120`: `origA_4n/train.log`의 `num_orig_samples: 120`
+- 축소 단계 `7000`개 matrix 사용: `ab_binary/train.log`의 `Loaded 7000 matrices from the disk`
+- 학습 시 `410000` train / `4096` test 로드: `train_gpu_binary/train.log`의 `Loaded 410000 equations from the disk`, `Loaded 4096 equations from the disk`
+
 __가우시안 설정 정의 (실제 성공한 경로 기준, N=5, Q=17, h=3)__: 아래 명령들은 로컬에서 실제로 support recovery가 성공했던 `data_n5q17_pathcheck` Gaussian 파이프라인을 그대로 재현합니다. 위의 짧은 binary sanity check보다, 작은 `q=17`에서 Gaussian support recovery를 다시 확인하고 싶을 때 적합한 설정입니다.
 
 1. 환경을 활성화하고 `fpylll`가 준비되어 있는지 확인:

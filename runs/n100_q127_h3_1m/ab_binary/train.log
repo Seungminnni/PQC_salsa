@@ -1,0 +1,78 @@
+INFO - 04/05/26 12:35:40 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/05/26 12:35:40 - 0:00:00 - N: 100
+                                     Q: 127
+                                     algo: BKZ2.0
+                                     algo2: BKZ2.0
+                                     batch_size: 20
+                                     bkz_block_size: 30
+                                     bkz_block_size2: 40
+                                     command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ra_main' --N 100 --Q 127 --m 100 --min_hamming 3 --max_hamming 3 --num_secret_seeds 1 --secret_type binary --sigma 3 --epoch_size 5500 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n100_q127_h3_1m --exp_id ab_binary --exp_id "ab_binary"
+                                     correctQ: False
+                                     cpu: True
+                                     debug: False
+                                     debug_slurm: False
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ab_binary
+                                     env_base_seed: -1
+                                     epoch_size: 5500
+                                     exp_id: ab_binary
+                                     exp_name: n100_q127_h3_1m
+                                     float_type: double
+                                     gamma: 2
+                                     global_rank: 0
+                                     is_master: True
+                                     is_slurm_job: False
+                                     lll_delta: 0.96
+                                     lll_delta2: 0.99
+                                     lll_penalty: 10
+                                     local_rank: 0
+                                     lwe: False
+                                     m: 100
+                                     master_port: -1
+                                     max_hamming: 3
+                                     max_timeout_count: 10
+                                     min_hamming: 3
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     num_orig_samples: -1
+                                     num_secret_seeds: 1
+                                     num_workers: 1
+                                     orig_A_path: /home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/origA_4n/orig_A.npy
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ra_main
+                                     reload_perm: 
+                                     reload_size: 1000000
+                                     resume_path: 
+                                     rnorm: 1.0
+                                     secret_dir: 
+                                     secret_type: binary
+                                     sigma: 3.0
+                                     step: Ab
+                                     threshold: -1
+                                     threshold2: 0.5
+                                     timeout: 10
+                                     tiny1: False
+                                     tiny2: True
+                                     use_polish: False
+                                     world_size: 1
+INFO - 04/05/26 12:35:40 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ab_binary
+                                     
+INFO - 04/05/26 12:35:40 - 0:00:00 - Running command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ra_main' --N 100 --Q 127 --m 100 --min_hamming 3 --max_hamming 3 --num_secret_seeds 1 --secret_type binary --sigma 3 --epoch_size 5500 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n100_q127_h3_1m --exp_id ab_binary
+
+INFO - 04/05/26 12:35:40 - 0:00:00 -  Nb CPU: 24 and Nb worker: 1
+INFO - 04/05/26 12:35:40 - 0:00:00 - Creating binary secret
+INFO - 04/05/26 12:35:40 - 0:00:00 - Data will be stored in: /home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ab_binary/test.prefix ...
+INFO - 04/05/26 12:35:40 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n100_q127_h3_1m/ra_main/data.prefix ... seekpos 0
+INFO - 04/05/26 12:35:53 - 0:00:13 - Loaded 5500 matrices from the disk. seekpos 235259303
+INFO - 04/05/26 12:35:58 - 0:00:18 -     500 - 5600.81 equations/s - 
+INFO - 04/05/26 12:35:59 - 0:00:20 -    1000 - 60609.92 equations/s - 
+INFO - 04/05/26 12:36:01 - 0:00:21 -    1500 - 58086.41 equations/s - 
+INFO - 04/05/26 12:36:03 - 0:00:23 -    2000 - 56032.85 equations/s - 
+INFO - 04/05/26 12:36:05 - 0:00:25 -    2500 - 53678.67 equations/s - 
+INFO - 04/05/26 12:36:07 - 0:00:27 -    3000 - 51694.67 equations/s - 
+INFO - 04/05/26 12:36:09 - 0:00:29 -    3500 - 50976.23 equations/s - 
+INFO - 04/05/26 12:36:10 - 0:00:31 -    4000 - 51688.21 equations/s - 
+INFO - 04/05/26 12:36:12 - 0:00:33 -    4500 - 51191.66 equations/s - 
+INFO - 04/05/26 12:36:14 - 0:00:35 -    5000 - 53022.08 equations/s - 
+INFO - 04/05/26 12:36:16 - 0:00:36 -    5500 - 52090.34 equations/s - 

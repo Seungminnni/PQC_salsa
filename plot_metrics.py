@@ -28,6 +28,7 @@ def plot_metrics(csv_path: str, out_suffix: str) -> None:
 
     fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
     axes = axes.ravel()
+    x_label = "epoch" if "epoch" in df.columns else "index"
 
     for i, col in enumerate(target_cols[:4]):
         ax = axes[i]
@@ -35,14 +36,12 @@ def plot_metrics(csv_path: str, out_suffix: str) -> None:
         ax.set_title(col)
         ax.grid(alpha=0.3)
         ax.set_ylabel(col)
+        ax.set_xlabel(x_label)
+        ax.tick_params(axis="x", labelbottom=True)
 
     # Hide any unused subplot panels.
     for i in range(len(target_cols[:4]), 4):
         axes[i].axis("off")
-
-    x_label = "epoch" if "epoch" in df.columns else "index"
-    axes[-1].set_xlabel(x_label)
-    axes[-2].set_xlabel(x_label)
 
     plt.tight_layout()
     out_path = str(Path(csv_path).with_name(out_suffix))

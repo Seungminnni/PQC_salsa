@@ -1,0 +1,101 @@
+INFO - 04/05/26 19:43:54 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/05/26 19:43:54 - 0:00:00 - N: 30
+                                     Q: 127
+                                     algo: BKZ2.0
+                                     algo2: BKZ2.0
+                                     batch_size: 20
+                                     bkz_block_size: 30
+                                     bkz_block_size2: 40
+                                     command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ra_main' --N 30 --Q 127 --m 30 --min_hamming 3 --max_hamming 3 --num_secret_seeds 1 --secret_type gaussian --sigma 3 --epoch_size 17074 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n30_q127_h3_1m --exp_id ab_gaussian --exp_id "ab_gaussian"
+                                     correctQ: False
+                                     cpu: True
+                                     debug: False
+                                     debug_slurm: False
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_gaussian
+                                     env_base_seed: -1
+                                     epoch_size: 17074
+                                     exp_id: ab_gaussian
+                                     exp_name: n30_q127_h3_1m
+                                     float_type: double
+                                     gamma: 2
+                                     global_rank: 0
+                                     is_master: True
+                                     is_slurm_job: False
+                                     lll_delta: 0.96
+                                     lll_delta2: 0.99
+                                     lll_penalty: 10
+                                     local_rank: 0
+                                     lwe: False
+                                     m: 30
+                                     master_port: -1
+                                     max_hamming: 3
+                                     max_timeout_count: 10
+                                     min_hamming: 3
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     num_orig_samples: -1
+                                     num_secret_seeds: 1
+                                     num_workers: 1
+                                     orig_A_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/origA_4n/orig_A.npy
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ra_main
+                                     reload_perm: 
+                                     reload_size: 1000000
+                                     resume_path: 
+                                     rnorm: 1.0
+                                     secret_dir: 
+                                     secret_type: gaussian
+                                     sigma: 3.0
+                                     step: Ab
+                                     threshold: -1
+                                     threshold2: 0.5
+                                     timeout: 10
+                                     tiny1: False
+                                     tiny2: True
+                                     use_polish: False
+                                     world_size: 1
+INFO - 04/05/26 19:43:54 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_gaussian
+                                     
+INFO - 04/05/26 19:43:54 - 0:00:00 - Running command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ra_main' --N 30 --Q 127 --m 30 --min_hamming 3 --max_hamming 3 --num_secret_seeds 1 --secret_type gaussian --sigma 3 --epoch_size 17074 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n30_q127_h3_1m --exp_id ab_gaussian
+
+INFO - 04/05/26 19:43:54 - 0:00:00 -  Nb CPU: 24 and Nb worker: 1
+INFO - 04/05/26 19:43:54 - 0:00:00 - Creating gaussian secret
+INFO - 04/05/26 19:43:54 - 0:00:00 - Data will be stored in: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_gaussian/test.prefix ...
+INFO - 04/05/26 19:43:54 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ra_main/data.prefix ... seekpos 0
+INFO - 04/05/26 19:43:58 - 0:00:05 - Loaded 17074 matrices from the disk. seekpos 74474233
+INFO - 04/05/26 19:43:59 - 0:00:05 -     500 - 6327.79 equations/s - 
+INFO - 04/05/26 19:43:59 - 0:00:05 -    1000 - 129662.33 equations/s - 
+INFO - 04/05/26 19:43:59 - 0:00:05 -    1500 - 129600.23 equations/s - 
+INFO - 04/05/26 19:43:59 - 0:00:05 -    2000 - 126440.33 equations/s - 
+INFO - 04/05/26 19:43:59 - 0:00:06 -    2500 - 118176.93 equations/s - 
+INFO - 04/05/26 19:44:00 - 0:00:06 -    3000 - 85480.00 equations/s - 
+INFO - 04/05/26 19:44:00 - 0:00:06 -    3500 - 73783.11 equations/s - 
+INFO - 04/05/26 19:44:01 - 0:00:07 -    4000 - 67027.36 equations/s - 
+INFO - 04/05/26 19:44:01 - 0:00:07 -    4500 - 63626.12 equations/s - 
+INFO - 04/05/26 19:44:02 - 0:00:08 -    5000 - 58382.18 equations/s - 
+INFO - 04/05/26 19:44:02 - 0:00:08 -    5500 - 57300.46 equations/s - 
+INFO - 04/05/26 19:44:03 - 0:00:09 -    6000 - 51946.71 equations/s - 
+INFO - 04/05/26 19:44:03 - 0:00:10 -    6500 - 49324.06 equations/s - 
+INFO - 04/05/26 19:44:04 - 0:00:10 -    7000 - 49561.64 equations/s - 
+INFO - 04/05/26 19:44:05 - 0:00:11 -    7500 - 48316.19 equations/s - 
+INFO - 04/05/26 19:44:05 - 0:00:11 -    8000 - 45718.24 equations/s - 
+INFO - 04/05/26 19:44:06 - 0:00:12 -    8500 - 45266.83 equations/s - 
+INFO - 04/05/26 19:44:07 - 0:00:13 -    9000 - 48165.51 equations/s - 
+INFO - 04/05/26 19:44:07 - 0:00:13 -    9500 - 49756.68 equations/s - 
+INFO - 04/05/26 19:44:08 - 0:00:14 -   10000 - 52197.18 equations/s - 
+INFO - 04/05/26 19:44:08 - 0:00:15 -   10500 - 50561.22 equations/s - 
+INFO - 04/05/26 19:44:09 - 0:00:15 -   11000 - 47320.07 equations/s - 
+INFO - 04/05/26 19:44:10 - 0:00:16 -   11500 - 45144.64 equations/s - 
+INFO - 04/05/26 19:44:10 - 0:00:17 -   12000 - 44499.85 equations/s - 
+INFO - 04/05/26 19:44:11 - 0:00:17 -   12500 - 43771.43 equations/s - 
+INFO - 04/05/26 19:44:12 - 0:00:18 -   13000 - 43486.64 equations/s - 
+INFO - 04/05/26 19:44:12 - 0:00:19 -   13500 - 43135.98 equations/s - 
+INFO - 04/05/26 19:44:13 - 0:00:19 -   14000 - 41133.81 equations/s - 
+INFO - 04/05/26 19:44:14 - 0:00:20 -   14500 - 43078.40 equations/s - 
+INFO - 04/05/26 19:44:14 - 0:00:21 -   15000 - 42381.21 equations/s - 
+INFO - 04/05/26 19:44:15 - 0:00:21 -   15500 - 39654.21 equations/s - 
+INFO - 04/05/26 19:44:16 - 0:00:22 -   16000 - 40118.94 equations/s - 
+INFO - 04/05/26 19:44:17 - 0:00:23 -   16500 - 38463.37 equations/s - 
+INFO - 04/05/26 19:44:18 - 0:00:24 -   17000 - 37008.53 equations/s - 

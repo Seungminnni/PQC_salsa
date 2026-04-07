@@ -1,20 +1,20 @@
-INFO - 04/06/26 20:42:47 - 0:00:00 - ============ Initialized logger ============
-INFO - 04/06/26 20:42:47 - 0:00:00 - N: 70
+INFO - 04/07/26 21:39:58 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/07/26 21:39:58 - 0:00:00 - N: 70
                                      Q: 127
                                      algo: BKZ2.0
                                      algo2: BKZ2.0
                                      batch_size: 20
                                      bkz_block_size: 30
                                      bkz_block_size2: 40
-                                     command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ra_main' --N 70 --Q 127 --m 70 --min_hamming 3 --max_hamming 3 --num_secret_seeds 10 --secret_type ternary --sigma 3 --epoch_size 8000 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n70_q127_h3_1m --exp_id ab_ternary --exp_id "ab_ternary"
+                                     command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ra_main' --N 70 --Q 127 --m 70 --min_hamming 3 --max_hamming 3 --num_secret_seeds 10 --secret_type ternary --sigma 3 --epoch_size 8000 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n70_q127_h3_1m --exp_id ab_ternary_s10 --exp_id "ab_ternary_s10"
                                      correctQ: False
                                      cpu: True
                                      debug: False
                                      debug_slurm: False
-                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ab_ternary
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ab_ternary_s10
                                      env_base_seed: -1
                                      epoch_size: 8000
-                                     exp_id: ab_ternary
+                                     exp_id: ab_ternary_s10
                                      exp_name: n70_q127_h3_1m
                                      float_type: double
                                      gamma: 2
@@ -56,28 +56,28 @@ INFO - 04/06/26 20:42:47 - 0:00:00 - N: 70
                                      tiny2: True
                                      use_polish: False
                                      world_size: 1
-INFO - 04/06/26 20:42:47 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ab_ternary
+INFO - 04/07/26 21:39:58 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ab_ternary_s10
                                      
-INFO - 04/06/26 20:42:47 - 0:00:00 - Running command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ra_main' --N 70 --Q 127 --m 70 --min_hamming 3 --max_hamming 3 --num_secret_seeds 10 --secret_type ternary --sigma 3 --epoch_size 8000 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n70_q127_h3_1m --exp_id ab_ternary
+INFO - 04/07/26 21:39:58 - 0:00:00 - Running command: python generate.py --cpu true --step Ab --reload_data '/home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ra_main' --N 70 --Q 127 --m 70 --min_hamming 3 --max_hamming 3 --num_secret_seeds 10 --secret_type ternary --sigma 3 --epoch_size 8000 --reload_size 1000000 --num_workers 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n70_q127_h3_1m --exp_id ab_ternary_s10
 
-INFO - 04/06/26 20:42:47 - 0:00:00 -  Nb CPU: 24 and Nb worker: 1
-INFO - 04/06/26 20:42:47 - 0:00:00 - Creating ternary secret
-INFO - 04/06/26 20:42:47 - 0:00:00 - Data will be stored in: /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ab_ternary/test.prefix ...
-INFO - 04/06/26 20:42:47 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ra_main/data.prefix ... seekpos 0
-INFO - 04/06/26 20:42:57 - 0:00:10 - Loaded 8000 matrices from the disk. seekpos 173690149
-INFO - 04/06/26 20:42:59 - 0:00:12 -     500 - 6005.38 equations/s - 
-INFO - 04/06/26 20:43:00 - 0:00:13 -    1000 - 49892.18 equations/s - 
-INFO - 04/06/26 20:43:02 - 0:00:15 -    1500 - 42651.52 equations/s - 
-INFO - 04/06/26 20:43:04 - 0:00:17 -    2000 - 38604.11 equations/s - 
-INFO - 04/06/26 20:43:06 - 0:00:19 -    2500 - 34330.72 equations/s - 
-INFO - 04/06/26 20:43:08 - 0:00:21 -    3000 - 28388.38 equations/s - 
-INFO - 04/06/26 20:43:11 - 0:00:24 -    3500 - 24465.07 equations/s - 
-INFO - 04/06/26 20:43:14 - 0:00:27 -    4000 - 22839.92 equations/s - 
-INFO - 04/06/26 20:43:17 - 0:00:30 -    4500 - 20819.14 equations/s - 
-INFO - 04/06/26 20:43:21 - 0:00:34 -    5000 - 19204.84 equations/s - 
-INFO - 04/06/26 20:43:25 - 0:00:38 -    5500 - 16981.87 equations/s - 
-INFO - 04/06/26 20:43:29 - 0:00:42 -    6000 - 16085.45 equations/s - 
-INFO - 04/06/26 20:43:36 - 0:00:49 -    6500 - 10453.43 equations/s - 
-INFO - 04/06/26 20:43:41 - 0:00:54 -    7000 - 14863.32 equations/s - 
-INFO - 04/06/26 20:43:46 - 0:00:59 -    7500 - 13947.67 equations/s - 
-INFO - 04/06/26 20:43:52 - 0:01:05 -    8000 - 10577.97 equations/s - 
+INFO - 04/07/26 21:39:58 - 0:00:00 -  Nb CPU: 24 and Nb worker: 1
+INFO - 04/07/26 21:39:58 - 0:00:00 - Creating ternary secret
+INFO - 04/07/26 21:39:58 - 0:00:00 - Data will be stored in: /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ab_ternary_s10/test.prefix ...
+INFO - 04/07/26 21:39:58 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n70_q127_h3_1m/ra_main/data.prefix ... seekpos 0
+INFO - 04/07/26 21:40:08 - 0:00:10 - Loaded 8000 matrices from the disk. seekpos 173690149
+INFO - 04/07/26 21:40:10 - 0:00:11 -     500 - 6102.91 equations/s - 
+INFO - 04/07/26 21:40:11 - 0:00:13 -    1000 - 45317.23 equations/s - 
+INFO - 04/07/26 21:40:13 - 0:00:15 -    1500 - 40529.03 equations/s - 
+INFO - 04/07/26 21:40:15 - 0:00:17 -    2000 - 35129.96 equations/s - 
+INFO - 04/07/26 21:40:17 - 0:00:19 -    2500 - 29915.95 equations/s - 
+INFO - 04/07/26 21:40:20 - 0:00:22 -    3000 - 27822.62 equations/s - 
+INFO - 04/07/26 21:40:22 - 0:00:24 -    3500 - 26352.14 equations/s - 
+INFO - 04/07/26 21:40:29 - 0:00:31 -    4000 - 10705.06 equations/s - 
+INFO - 04/07/26 21:40:32 - 0:00:34 -    4500 - 22014.29 equations/s - 
+INFO - 04/07/26 21:40:36 - 0:00:37 -    5000 - 20412.58 equations/s - 
+INFO - 04/07/26 21:40:39 - 0:00:41 -    5500 - 18858.90 equations/s - 
+INFO - 04/07/26 21:40:43 - 0:00:45 -    6000 - 18119.86 equations/s - 
+INFO - 04/07/26 21:40:47 - 0:00:49 -    6500 - 17492.07 equations/s - 
+INFO - 04/07/26 21:40:51 - 0:00:53 -    7000 - 16363.34 equations/s - 
+INFO - 04/07/26 21:40:56 - 0:00:58 -    7500 - 14543.30 equations/s - 
+INFO - 04/07/26 21:41:06 - 0:01:08 -    8000 - 6802.01 equations/s - 

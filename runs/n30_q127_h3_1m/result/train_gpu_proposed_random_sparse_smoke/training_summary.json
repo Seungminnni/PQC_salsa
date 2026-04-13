@@ -1,0 +1,20 @@
+[
+  {
+    "run_dir": "runs/n30_q127_h3_1m/train_gpu_proposed_random_sparse_smoke",
+    "run_name": "train_gpu_proposed_random_sparse_smoke",
+    "secret_seed": null,
+    "init_seed": null,
+    "final_epoch": 0,
+    "final_train_loss": 6.8797095119953156,
+    "final_train_acc1": 0.0,
+    "final_train_acc2": 0.0,
+    "final_valid_xe_loss": 6.834503173828125,
+    "final_valid_acc1": 0.0,
+    "final_valid_acc2": 0.0,
+    "best_valid_xe_epoch": 0,
+    "best_valid_xe_loss": 6.834503173828125,
+    "secret_recovered": false,
+    "success_epoch": null,
+    "success_methods": "[]"
+  }
+]

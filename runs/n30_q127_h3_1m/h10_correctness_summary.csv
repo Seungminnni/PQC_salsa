@@ -1,0 +1,7 @@
+dataset,secret_type,per_secret_mean,per_secret_std,per_secret_min,per_secret_max
+ab_binary_h10_s10,binary,0.791796875,0.20226719413257707,0.39453125,0.953125
+ab_ternary_h10_s10,ternary,0.87890625,0.06245115278659794,0.76953125,0.94921875
+ab_gaussian_h10_s10,gaussian,0.79296875,0.24182180051253652,0.11328125,0.9765625
+ab_binomial_h10_s10,binomial,1.0,0.0,1.0,1.0
+ab_proposed_random_sparse_h10_s10,proposed_random_sparse,0.83046875,0.12871908761184178,0.5234375,0.93359375
+ab_proposed_ternary_h10_s10,proposed_ternary_sparse,0.77265625,0.14526628969542452,0.46484375,0.96875

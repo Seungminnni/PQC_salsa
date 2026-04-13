@@ -1,0 +1,320 @@
+INFO - 04/07/26 22:21:00 - 0:00:00 - ============ Initialized logger ============
+INFO - 04/07/26 22:21:00 - 0:00:00 - N: 30
+                                     Q: 127
+                                     accumulate_gradients: 1
+                                     act_ponder_coupling: 0.05
+                                     act_threshold: 0.01
+                                     add_unred_perc: 0
+                                     amp: 2
+                                     attention_dropout: 0.0
+                                     balanced_base: False
+                                     batch_load: False
+                                     batch_size: 128
+                                     beam_early_stopping: True
+                                     beam_eval: True
+                                     beam_eval_train: 0
+                                     beam_length_penalty: 1
+                                     beam_size: 1
+                                     clip_grad_norm: 5
+                                     command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10' --secret_seed 0 --env_base_seed 1000 --hamming 3 --input_int_base 16 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n30_q127_h3_1m --exp_id train_gpu_proposed_random_sparse_smoke --batch_size 128 --epoch_size 2000 --max_epoch 1 --eval_size 512 --distinguisher_size 64 --enc_emb_dim 1024 --dec_emb_dim 512 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 8 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.00001,warmup_updates=8000,warmup_init_lr=0.00000001,weight_decay=0.99' --num_workers 1 --beam_size 1 --max_output_len 10 --exp_id "train_gpu_proposed_random_sparse_smoke"
+                                     correctQ: False
+                                     cpu: False
+                                     data_cols: None
+                                     debug: False
+                                     debug_slurm: False
+                                     dec_act: False
+                                     dec_emb_dim: 512
+                                     dec_gated: False
+                                     dec_loop_idx: 0
+                                     dec_loops: 8
+                                     dense_cols: None
+                                     dim_red: 
+                                     distinguisher_size: 64
+                                     dropout: 0.0
+                                     dump_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_proposed_random_sparse_smoke
+                                     enc_act: False
+                                     enc_emb_dim: 1024
+                                     enc_gated: False
+                                     enc_loop_idx: -1
+                                     enc_loops: 1
+                                     env_base_seed: 1000
+                                     epoch_size: 2000
+                                     eval_data: 
+                                     eval_from_exp: 
+                                     eval_only: False
+                                     eval_size: 512
+                                     eval_verbose: 0
+                                     eval_verbose_print: False
+                                     exit_on_secret_match: True
+                                     exp_id: train_gpu_proposed_random_sparse_smoke
+                                     exp_name: n30_q127_h3_1m
+                                     fp16: True
+                                     freeze_embeddings: False
+                                     gated: True
+                                     gelu_activation: False
+                                     global_rank: 0
+                                     hamming: 3
+                                     input_int_base: 16
+                                     is_master: True
+                                     is_slurm_job: False
+                                     local_rank: 0
+                                     master_port: -1
+                                     max_epoch: 1
+                                     max_output_len: 10
+                                     multi_gpu: False
+                                     multi_node: False
+                                     n_cross_heads: 4
+                                     n_dec_heads: 4
+                                     n_dec_hidden_layers: 1
+                                     n_dec_layers: 2
+                                     n_enc_heads: 4
+                                     n_enc_hidden_layers: 1
+                                     n_enc_layers: 1
+                                     n_gpu_per_node: 1
+                                     n_nodes: 1
+                                     node_id: 0
+                                     norm_attention: False
+                                     num_reuse_samples: 10000
+                                     num_workers: 1
+                                     nvidia_apex: False
+                                     optimizer: adam_warmup,lr=0.00001,warmup_updates=8000,warmup_init_lr=0.00000001,weight_decay=0.99
+                                     output_int_base: 16
+                                     reload_checkpoint: 
+                                     reload_data: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10
+                                     reload_model: 
+                                     reload_size: 10000000
+                                     reuse: False
+                                     scalar_gate: False
+                                     secret: [ 0  0  0  0  0  0 -2  0  0  0  0 -2  0  0  0  0  0  0  0  0  0  0  0  0
+                                      -2  0  0  0  0  0]
+                                     secret_col: 0
+                                     secret_seed: 0
+                                     secret_type: proposed_random_sparse
+                                     share_inout_emb: True
+                                     share_token: 1
+                                     shuffle: True
+                                     sigma: 3.0
+                                     sinusoidal_embeddings: False
+                                     stopping_criterion: 
+                                     test_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10/test.prefix
+                                     times_reused: 10
+                                     train_path: /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10/train.prefix
+                                     transformermode: old
+                                     validation_metrics: 
+                                     weighted_loss: False
+                                     windows: False
+                                     world_size: 1
+                                     xav_init: False
+INFO - 04/07/26 22:21:00 - 0:00:00 - The experiment will be stored in /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_proposed_random_sparse_smoke
+                                     
+INFO - 04/07/26 22:21:00 - 0:00:00 - Running command: python train.py --cpu false --reload_data '/home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10' --secret_seed 0 --env_base_seed 1000 --hamming 3 --input_int_base 16 --share_token 1 --dump_path '/home/yu_mcc/PQC_salsa/runs' --exp_name n30_q127_h3_1m --exp_id train_gpu_proposed_random_sparse_smoke --batch_size 128 --epoch_size 2000 --max_epoch 1 --eval_size 512 --distinguisher_size 64 --enc_emb_dim 1024 --dec_emb_dim 512 --n_enc_layers 1 --n_dec_layers 2 --n_enc_heads 4 --n_dec_heads 4 --n_cross_heads 4 --enc_loops 1 --dec_loops 8 --dropout 0 --attention_dropout 0 --optimizer 'adam_warmup,lr=0.00001,warmup_updates=8000,warmup_init_lr=0.00000001,weight_decay=0.99' --num_workers 1 --beam_size 1 --max_output_len 10
+
+INFO - 04/07/26 22:21:00 - 0:00:00 - vocabulary: 20 words
+INFO - 04/07/26 22:21:00 - 0:00:00 - words: {'<eos>': 0, '<pad>': 1, '<mask>': 2, '+': 3, '0': 4, '1': 5, '10': 6, '11': 7, '12': 8, '13': 9, '14': 10, '15': 11, '2': 12, '3': 13, '4': 14, '5': 15, '6': 16, '7': 17, '8': 18, '9': 19}
+DEBUG - 04/07/26 22:21:00 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 1024)
+                                        (embeddings): Embedding(20, 1024, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                              (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 1024)
+                                        (embeddings): Embedding(20, 1024, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                              (out_lin): Linear(in_features=1024, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=1024, out_features=4096, bias=True)
+                                              (lin2): Linear(in_features=4096, out_features=1024, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((1024,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                      )
+DEBUG - 04/07/26 22:21:00 - 0:00:00 - TransformerModel(
+                                        (position_embeddings): Embedding(4096, 512)
+                                        (embeddings): Embedding(20, 512, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (gate2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=512, out_features=20, bias=True)
+                                      ): TransformerModel(
+                                        (position_embeddings): Embedding(4096, 512)
+                                        (embeddings): Embedding(20, 512, padding_idx=1)
+                                        (layer_norm_emb): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                        (layers): ModuleList(
+                                          (0): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (gate): Gate(
+                                              (gate1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (gate2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                          )
+                                          (1): TransformerLayer(
+                                            (self_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (layer_norm1): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (layer_norm15): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                            (cross_attention): MultiHeadAttention(
+                                              (q_lin): Linear(in_features=512, out_features=512, bias=True)
+                                              (k_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (v_lin): Linear(in_features=1024, out_features=512, bias=True)
+                                              (out_lin): Linear(in_features=512, out_features=512, bias=True)
+                                            )
+                                            (ffn): TransformerFFN(
+                                              (midlin): ModuleList()
+                                              (lin1): Linear(in_features=512, out_features=2048, bias=True)
+                                              (lin2): Linear(in_features=2048, out_features=512, bias=True)
+                                            )
+                                            (layer_norm2): LayerNorm((512,), eps=1e-12, elementwise_affine=True)
+                                          )
+                                        )
+                                        (proj): Linear(in_features=512, out_features=20, bias=True)
+                                      )
+INFO - 04/07/26 22:21:00 - 0:00:00 - Number of parameters (encoder): 16813056
+INFO - 04/07/26 22:21:00 - 0:00:00 - Number of parameters (decoder): 13664788
+INFO - 04/07/26 22:21:00 - 0:00:00 - Loading data from /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10/train.prefix ... seekpos 0, basepos 0
+INFO - 04/07/26 22:21:04 - 0:00:04 - Loaded 470000 equations from the disk. seekpos 0, nextpos 470000
+INFO - 04/07/26 22:21:04 - 0:00:04 - Creating train dataloader...
+INFO - 04/07/26 22:21:04 - 0:00:04 - Loading data from /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/ab_proposed_random_sparse_s10/test.prefix ... seekpos 0, basepos 0
+INFO - 04/07/26 22:21:04 - 0:00:04 - Loaded 512 equations from the disk. seekpos 66400, nextpos 512
+INFO - 04/07/26 22:21:04 - 0:00:04 - Creating test dataloader...
+INFO - 04/07/26 22:21:04 - 0:00:04 - Found 81 parameters in model.
+INFO - 04/07/26 22:21:04 - 0:00:05 - Optimizer: <class 'src.train.optim.AdamWithWarmup'>
+INFO - 04/07/26 22:21:04 - 0:00:05 - ============ Starting epoch 0 ... ============
+INFO - 04/07/26 22:21:04 - 0:00:05 - Initialized random generator for worker 0, with seed [0, 0, 1000, 1775568064] (base seed=1000).
+INFO - 04/07/26 22:21:07 - 0:00:08 -      16 -  720.61 equations/s - 46119.17 words/s - MEM: 1.34 GB - LOSS:  6.8797 || ACC1:  0.0000 || ACC2:  0.0000 - LR: 2.9980e-08
+INFO - 04/07/26 22:21:07 - 0:00:08 - ============ End of epoch 0 ============
+INFO - 04/07/26 22:21:07 - 0:00:08 - Starting Distinguisher Method
+INFO - 04/07/26 22:21:13 - 0:00:14 - Distinguishing 0s using the emd. 
+INFO - 04/07/26 22:21:13 - 0:00:14 - Distinguisher Method emd: secret not predicted. (true secret = [ 0  0  0  0  0  0 -2  0  0  0  0 -2  0  0  0  0  0  0  0  0  0  0  0  0
+                                      -2  0  0  0  0  0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/07/26 22:21:13 - 0:00:14 - Distinguishing 0s using the mean. 
+INFO - 04/07/26 22:21:13 - 0:00:14 - Distinguisher Method mean: secret not predicted. (true secret = [ 0  0  0  0  0  0 -2  0  0  0  0 -2  0  0  0  0  0  0  0  0  0  0  0  0
+                                      -2  0  0  0  0  0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/07/26 22:21:13 - 0:00:14 - Starting Direct Method
+INFO - 04/07/26 22:21:13 - 0:00:14 - Direct:  K=52
+INFO - 04/07/26 22:21:13 - 0:00:14 - Direct:  K=68
+INFO - 04/07/26 22:21:13 - 0:00:14 - Direct:  K=36
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=89
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=84
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=56
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=91
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=53
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=85
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=68
+INFO - 04/07/26 22:21:14 - 0:00:14 - Direct:  K=94
+INFO - 04/07/26 22:21:14 - 0:00:15 - Direct:  K=91
+INFO - 04/07/26 22:21:14 - 0:00:15 - Direct:  K=57
+INFO - 04/07/26 22:21:14 - 0:00:15 - Direct:  K=55
+INFO - 04/07/26 22:21:14 - 0:00:15 - Direct:  K=67
+INFO - 04/07/26 22:21:14 - 0:00:15 - Direct: secret not predicted. (true secret = [ 0  0  0  0  0  0 -2  0  0  0  0 -2  0  0  0  0  0  0  0  0  0  0  0  0
+                                      -2  0  0  0  0  0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/07/26 22:21:15 - 0:00:16 - CA: secret not predicted. (true secret = [ 0  0  0  0  0  0 -2  0  0  0  0 -2  0  0  0  0  0  0  0  0  0  0  0  0
+                                      -2  0  0  0  0  0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/07/26 22:21:15 - 0:00:16 - CA: secret not predicted. (true secret = [ 0  0  0  0  0  0 -2  0  0  0  0 -2  0  0  0  0  0  0  0  0  0  0  0  0
+                                      -2  0  0  0  0  0], predicted secret = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0], true support = [0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0], predicted support = [1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+INFO - 04/07/26 22:21:15 - 0:00:16 - Hybrid: direct, ca
+INFO - 04/07/26 22:21:15 - 0:00:16 - Hybrid: direct, distinguisher
+INFO - 04/07/26 22:21:15 - 0:00:16 - Hybrid: ca, distinguisher
+INFO - 04/07/26 22:21:15 - 0:00:16 - Hybrid: direct, ca, distinguisher
+INFO - 04/07/26 22:21:15 - 0:00:16 - Epoch 0 metrics | train_loss: 6.879710 | train_acc1: 0.000000 | train_acc2: 0.000000 | valid_xe_loss: 6.834503 | valid_acc1: 0.000000 | valid_acc2: 0.000000
+INFO - 04/07/26 22:21:15 - 0:00:16 - __log__:{"train_loss": 6.8797095119953156, "train_acc1": 0.0, "train_acc2": 0.0, "epoch": 0, "valid_xe_loss": 6.834503173828125, "valid_acc1": 0.0, "valid_acc2": 0.0}
+INFO - 04/07/26 22:21:15 - 0:00:16 - Saving checkpoint to /home/yu_mcc/PQC_salsa/runs/n30_q127_h3_1m/train_gpu_proposed_random_sparse_smoke/checkpoint.pth ...
+WARNING - 04/07/26 22:21:15 - 0:00:16 - Saving encoder parameters ...
+WARNING - 04/07/26 22:21:15 - 0:00:16 - Saving decoder parameters ...
+WARNING - 04/07/26 22:21:15 - 0:00:16 - Saving optimizer ...

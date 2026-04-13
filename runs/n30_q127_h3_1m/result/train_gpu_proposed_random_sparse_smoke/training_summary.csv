@@ -1,0 +1,2 @@
+run_dir,run_name,secret_seed,init_seed,final_epoch,final_train_loss,final_train_acc1,final_train_acc2,final_valid_xe_loss,final_valid_acc1,final_valid_acc2,best_valid_xe_epoch,best_valid_xe_loss,secret_recovered,success_epoch,success_methods
+runs/n30_q127_h3_1m/train_gpu_proposed_random_sparse_smoke,train_gpu_proposed_random_sparse_smoke,,,0,6.8797095119953156,0.0,0.0,6.834503173828125,0.0,0.0,0,6.834503173828125,False,,[]

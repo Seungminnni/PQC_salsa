@@ -1,0 +1,902 @@
+[
+  {
+    "avg_abs_after_quantization": 0.5666666666666667,
+    "avg_abs_before_quantization": 0.6404128028957375,
+    "column": 0,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      12,
+      2,
+      24,
+      6,
+      21,
+      26,
+      14,
+      15,
+      17,
+      19
+    ],
+    "occupied_quantization_levels": 4,
+    "pre_projection_nonzero_count": 16,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      3,
+      13,
+      10,
+      4
+    ],
+    "resample_attempts": 0,
+    "sample_index": 0,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7666666666666667,
+    "avg_abs_before_quantization": 0.8824943604159682,
+    "column": 1,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      15,
+      18,
+      1,
+      7,
+      26,
+      28,
+      19,
+      21,
+      0,
+      4
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      5,
+      7,
+      8,
+      10
+    ],
+    "resample_attempts": 0,
+    "sample_index": 1,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7666666666666667,
+    "avg_abs_before_quantization": 0.8341503054037526,
+    "column": 2,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      27,
+      6,
+      25,
+      7,
+      16,
+      24,
+      22,
+      17,
+      28,
+      18
+    ],
+    "occupied_quantization_levels": 4,
+    "pre_projection_nonzero_count": 22,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      8,
+      8,
+      8,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 2,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7,
+    "avg_abs_before_quantization": 0.8882699614718663,
+    "column": 3,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      5,
+      18,
+      15,
+      19,
+      1,
+      9,
+      0,
+      12,
+      8,
+      13
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      4,
+      5,
+      14,
+      7
+    ],
+    "resample_attempts": 0,
+    "sample_index": 3,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.9,
+    "avg_abs_before_quantization": 0.8786744461079713,
+    "column": 4,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      2,
+      28,
+      6,
+      27,
+      15,
+      24,
+      13,
+      12,
+      20,
+      5
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 22,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      3,
+      9,
+      11,
+      7
+    ],
+    "resample_attempts": 0,
+    "sample_index": 4,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7666666666666667,
+    "avg_abs_before_quantization": 0.8574168681682564,
+    "column": 5,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      4,
+      20,
+      26,
+      24,
+      12,
+      10,
+      22,
+      27,
+      13,
+      15
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      3,
+      6,
+      13,
+      8
+    ],
+    "resample_attempts": 0,
+    "sample_index": 5,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.9384794610368712,
+    "column": 6,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      14,
+      23,
+      0,
+      13,
+      7,
+      18,
+      24,
+      10,
+      6,
+      22
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 19,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      2,
+      5,
+      14,
+      9
+    ],
+    "resample_attempts": 0,
+    "sample_index": 6,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.6666666666666666,
+    "avg_abs_before_quantization": 0.7837539435775785,
+    "column": 7,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      20,
+      17,
+      8,
+      27,
+      12,
+      24,
+      7,
+      6,
+      13,
+      4
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 15,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      3,
+      10,
+      12,
+      5
+    ],
+    "resample_attempts": 0,
+    "sample_index": 7,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.9033434914307072,
+    "column": 8,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      9,
+      17,
+      24,
+      20,
+      19,
+      8,
+      1,
+      15,
+      6,
+      11
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      3,
+      10,
+      9,
+      8
+    ],
+    "resample_attempts": 0,
+    "sample_index": 8,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7,
+    "avg_abs_before_quantization": 0.7715572791247816,
+    "column": 9,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      7,
+      25,
+      20,
+      14,
+      21,
+      5,
+      0,
+      8,
+      26,
+      6
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      6,
+      12,
+      8,
+      4
+    ],
+    "resample_attempts": 0,
+    "sample_index": 9,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8333333333333334,
+    "avg_abs_before_quantization": 0.8846799722695132,
+    "column": 10,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      3,
+      25,
+      5,
+      24,
+      17,
+      20,
+      1,
+      4,
+      14,
+      8
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      6,
+      7,
+      11,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 10,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8,
+    "avg_abs_before_quantization": 0.8782874682595231,
+    "column": 11,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      23,
+      22,
+      8,
+      21,
+      7,
+      25,
+      14,
+      15,
+      27,
+      0
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      5,
+      10,
+      7,
+      8
+    ],
+    "resample_attempts": 0,
+    "sample_index": 11,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8333333333333334,
+    "avg_abs_before_quantization": 0.8805057859320122,
+    "column": 12,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      11,
+      28,
+      0,
+      10,
+      15,
+      8,
+      6,
+      2,
+      13,
+      24
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      7,
+      6,
+      11,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 12,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7666666666666667,
+    "avg_abs_before_quantization": 0.86381247041231,
+    "column": 13,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      17,
+      18,
+      15,
+      14,
+      1,
+      23,
+      0,
+      28,
+      20,
+      5
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 17,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      5,
+      6,
+      12,
+      7
+    ],
+    "resample_attempts": 0,
+    "sample_index": 13,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.9157299521033363,
+    "column": 14,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      28,
+      6,
+      16,
+      22,
+      1,
+      8,
+      10,
+      7,
+      4,
+      12
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      7,
+      9,
+      7,
+      7
+    ],
+    "resample_attempts": 0,
+    "sample_index": 14,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.9333333333333333,
+    "avg_abs_before_quantization": 1.0052628576177882,
+    "column": 15,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      16,
+      6,
+      1,
+      26,
+      20,
+      13,
+      8,
+      10,
+      17,
+      27
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 19,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      5,
+      8,
+      8,
+      9
+    ],
+    "resample_attempts": 0,
+    "sample_index": 15,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7333333333333333,
+    "avg_abs_before_quantization": 0.8437310714196052,
+    "column": 16,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      12,
+      7,
+      16,
+      20,
+      22,
+      9,
+      19,
+      26,
+      15,
+      25
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 17,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      4,
+      15,
+      6,
+      5
+    ],
+    "resample_attempts": 0,
+    "sample_index": 16,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.9,
+    "avg_abs_before_quantization": 0.9594330462900554,
+    "column": 17,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      7,
+      18,
+      16,
+      4,
+      11,
+      17,
+      3,
+      19,
+      26,
+      21
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      1,
+      11,
+      8,
+      10
+    ],
+    "resample_attempts": 0,
+    "sample_index": 17,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7,
+    "avg_abs_before_quantization": 0.8472337747873803,
+    "column": 18,
+    "fraction_clipped_coordinates": 0.03333333333333333,
+    "kept_support": [
+      21,
+      16,
+      0,
+      10,
+      27,
+      26,
+      18,
+      24,
+      15,
+      13
+    ],
+    "occupied_quantization_levels": 4,
+    "pre_projection_nonzero_count": 17,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      4,
+      14,
+      4,
+      8
+    ],
+    "resample_attempts": 0,
+    "sample_index": 18,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.885147270947009,
+    "column": 19,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      11,
+      25,
+      26,
+      17,
+      16,
+      15,
+      13,
+      12,
+      4,
+      0
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      5,
+      10,
+      11,
+      4
+    ],
+    "resample_attempts": 0,
+    "sample_index": 19,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.9316698179938644,
+    "column": 20,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      19,
+      23,
+      6,
+      11,
+      25,
+      12,
+      21,
+      5,
+      9,
+      0
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      4,
+      8,
+      10,
+      8
+    ],
+    "resample_attempts": 0,
+    "sample_index": 20,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8,
+    "avg_abs_before_quantization": 0.93418805522197,
+    "column": 21,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      20,
+      27,
+      15,
+      9,
+      16,
+      25,
+      23,
+      0,
+      3,
+      26
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 17,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      8,
+      8,
+      8,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 21,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7333333333333333,
+    "avg_abs_before_quantization": 0.8099704430705168,
+    "column": 22,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      12,
+      4,
+      27,
+      2,
+      22,
+      15,
+      17,
+      7,
+      26,
+      24
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 19,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      7,
+      5,
+      13,
+      5
+    ],
+    "resample_attempts": 0,
+    "sample_index": 22,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.9703050047471594,
+    "column": 23,
+    "fraction_clipped_coordinates": 0.03333333333333333,
+    "kept_support": [
+      24,
+      25,
+      15,
+      5,
+      20,
+      6,
+      13,
+      4,
+      11,
+      12
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      7,
+      5,
+      12,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 23,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8666666666666667,
+    "avg_abs_before_quantization": 0.7652420158225091,
+    "column": 24,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      24,
+      22,
+      8,
+      18,
+      4,
+      12,
+      19,
+      13,
+      20,
+      29
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 20,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      6,
+      10,
+      11,
+      3
+    ],
+    "resample_attempts": 0,
+    "sample_index": 24,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.6,
+    "avg_abs_before_quantization": 0.6124610161650929,
+    "column": 25,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      27,
+      7,
+      15,
+      9,
+      26,
+      24,
+      25,
+      5,
+      11,
+      2
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 16,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      5,
+      12,
+      12,
+      1
+    ],
+    "resample_attempts": 0,
+    "sample_index": 25,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8333333333333334,
+    "avg_abs_before_quantization": 0.7553133802984812,
+    "column": 26,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      15,
+      0,
+      6,
+      17,
+      21,
+      16,
+      20,
+      27,
+      8,
+      22
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 21,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      6,
+      9,
+      9,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 26,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7333333333333333,
+    "avg_abs_before_quantization": 0.7518500933565898,
+    "column": 27,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      11,
+      16,
+      5,
+      23,
+      6,
+      0,
+      22,
+      13,
+      8,
+      7
+    ],
+    "occupied_quantization_levels": 6,
+    "pre_projection_nonzero_count": 18,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      3,
+      10,
+      12,
+      5
+    ],
+    "resample_attempts": 0,
+    "sample_index": 27,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.8333333333333334,
+    "avg_abs_before_quantization": 0.8727391906570933,
+    "column": 28,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      12,
+      25,
+      17,
+      21,
+      15,
+      27,
+      5,
+      11,
+      6,
+      26
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 21,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      6,
+      7,
+      11,
+      6
+    ],
+    "resample_attempts": 0,
+    "sample_index": 28,
+    "target_hamming": 10
+  },
+  {
+    "avg_abs_after_quantization": 0.7333333333333333,
+    "avg_abs_before_quantization": 0.7859276226425157,
+    "column": 29,
+    "fraction_clipped_coordinates": 0.0,
+    "kept_support": [
+      11,
+      10,
+      15,
+      23,
+      16,
+      26,
+      27,
+      4,
+      1,
+      14
+    ],
+    "occupied_quantization_levels": 5,
+    "pre_projection_nonzero_count": 19,
+    "projection_mode": "ternary",
+    "region_counts_vector": [
+      6,
+      11,
+      8,
+      5
+    ],
+    "resample_attempts": 0,
+    "sample_index": 29,
+    "target_hamming": 10
+  }
+]

@@ -13,19 +13,15 @@ import torch
 import os
 import logging
 
-from lwe_experiment.config import build_default_config
 from src import utils
 from src.slurm import init_signal_handler, init_distributed_mode
 from src.utils import bool_flag, initialize_exp, create_logger
 from src.generate.export import Generator
 from src.generate.genSamples import BKZReducedRLWE, RA_Rb, BenchmarkBKZ
-from src.generate.lwe import OriginalLWESamples
 from multiprocessing import Process, Manager
 from joblib import Parallel, delayed
 
 np.seterr(all='raise')
-
-PROPOSED_DEFAULTS = build_default_config().proposed_base_params
 
 
 def get_parser():
@@ -47,7 +43,7 @@ def get_parser():
     parser.add_argument("--exp_id", type=str, default="",
                         help="Experiment ID")
     parser.add_argument("--step", type=str, default="RA",
-                        help="data generation step, origA, RA, RA_tiny1, RA_tiny2, BKZ, or Ab")
+                        help="data generation step, RA, RA_tiny1, RA_tiny2, BKZ, or Ab")
 
     # iteration
     parser.add_argument("--env_base_seed", type=int, default=-1,
@@ -66,8 +62,6 @@ def get_parser():
                         help="Directory to tinyA with permuted cols")
     parser.add_argument("--reload_size", type=int, default=100000,
                         help="Reloaded number of matrices")
-    parser.add_argument("--num_orig_samples", type=int, default=-1,
-                        help="Number of original LWE rows to generate for step origA. Defaults to 4*N")
 
     # debug
     parser.add_argument("--debug_slurm", type=bool_flag, default=False,
@@ -102,27 +96,11 @@ def get_parser():
     parser.add_argument("--max_hamming", type=int, default=20,
                         help="max hamming weight when generating secrets. Used in step2_Ab and benchmarking")
     parser.add_argument("--secret_type", type=str, default="binary",
-                        help="binary, ternary, gaussian, binomial, proposed_random_sparse, or proposed_ternary_sparse")
+                        help="binary, ternary, gaussian, or binomial")
     parser.add_argument("--sigma", type=float, default=3, 
                         help='sigma for gaussian error')
     parser.add_argument("--gamma", type=int, default=2, 
                         help='gamma for binomial error')
-    parser.add_argument("--region_count", type=int, default=int(PROPOSED_DEFAULTS["region_count"]),
-                        help="region count for proposed_random_sparse")
-    parser.add_argument("--clipping_bound", type=int, default=int(PROPOSED_DEFAULTS["clipping_bound"]),
-                        help="base clipping bound for proposed_random_sparse")
-    parser.add_argument("--beta_min", type=float, default=float(PROPOSED_DEFAULTS["beta_min"]),
-                        help="minimum beta for proposed_random_sparse")
-    parser.add_argument("--beta_max", type=float, default=float(PROPOSED_DEFAULTS["beta_max"]),
-                        help="maximum beta for proposed_random_sparse")
-    parser.add_argument("--boundary_base", type=float, default=float(PROPOSED_DEFAULTS["boundary_base"]),
-                        help="base boundary for proposed_random_sparse")
-    parser.add_argument("--boundary_jitter", type=float, default=float(PROPOSED_DEFAULTS["boundary_jitter"]),
-                        help="boundary jitter for proposed_random_sparse")
-    parser.add_argument("--setup_eval_samples", type=int, default=int(PROPOSED_DEFAULTS["setup_eval_samples"]),
-                        help="setup evaluation samples for proposed_random_sparse diagnostics")
-    parser.add_argument("--family_count", type=int, default=int(PROPOSED_DEFAULTS["family_count"]),
-                        help="number of nonlinear families for proposed_random_sparse")
     parser.add_argument("--correctQ", type=bool_flag, default=False, 
                         help='flip the Q range to be within -Q/2 and Q/2?')
 
@@ -208,12 +186,6 @@ def main(params):
 
     if params.env_base_seed < 0: 
         params.env_base_seed = np.random.randint(1_000_000_000)
-
-    if params.step == "origA":
-        generator = OriginalLWESamples(params)
-        output_path, shape = generator.save()
-        logger.info(f"Saved original LWE matrix to {output_path} with shape {shape}")
-        return
 
     n_cpu = joblib.cpu_count()
     n_jobs = min(n_cpu, params.num_workers)

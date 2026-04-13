@@ -7,17 +7,14 @@
 import io
 import os
 import pickle
-import json
 import numpy as np
 from time import time
+from scipy.linalg import circulant
 from logging import getLogger
 from fpylll import FPLLL, LLL, BKZ, GSO, IntegerMatrix
 from fpylll.algorithms.bkz2 import BKZReduction as BKZ2
-from lwe_experiment.config import build_default_config
-from lwe_experiment.secret_generators import build_secret_generator
 from ..utils import TimeoutError, timeout
 import multiprocessing
-from .lwe import sample_negacyclic_rlwe_matrix, sample_uniform_lwe_matrix
 
 logger = getLogger()
 FLOAT_UPGRADE = {
@@ -27,22 +24,6 @@ FLOAT_UPGRADE = {
     'qd': 'mpfr_250'
 }
 MAX_TIME = 60
-
-
-def _json_ready(value):
-    if isinstance(value, dict):
-        return {str(k): _json_ready(v) for k, v in value.items()}
-    if isinstance(value, (list, tuple)):
-        return [_json_ready(v) for v in value]
-    if isinstance(value, np.ndarray):
-        return _json_ready(value.tolist())
-    if isinstance(value, (np.integer,)):
-        return int(value)
-    if isinstance(value, (np.floating,)):
-        return float(value)
-    if isinstance(value, (np.bool_,)):
-        return bool(value)
-    return value
 
 class BKZReducedRLWE():
     def __init__(self, params, thread):
@@ -84,7 +65,7 @@ class BKZReducedRLWE():
             assert self.float_type == 'mpfr'
             FPLLL.set_precision(int(precision))
 
-    def timedout_bkz(self, send_conn):
+    def timedout_bkz(self, return_dict):
         if os.path.isfile(self.matrix_filename):
             A_Ap = np.load(self.matrix_filename)
             UT_or_AT, Ap = A_Ap[:, :self.m], A_Ap[:, self.m:]
@@ -100,20 +81,17 @@ class BKZReducedRLWE():
 
         param_change = True
         while param_change:
-            Ap, param_change = self.run_bkz(UT_or_AT, Ap)
+            Ap, param_change = self.run_bkz(return_dict, UT_or_AT, Ap)
 
         # Rewrite checkpoint with new data and return the bkz reduced result
         newA, newAp = self.get_A_Ap()
         self.save_mat(newA.T, newAp)
 
         R = (Ap[:,:self.m] / self.params.lll_penalty).astype(int)
-        send_conn.send({
-            "R": R,
-            "XT": UT_or_AT[:len(newA.T)],
-        })
-        send_conn.close()
+        return_dict["R"] = R
+        return_dict["XT"] = UT_or_AT[:len(newA.T)]
 
-    def run_bkz(self, UT_or_AT, Ap):
+    def run_bkz(self, return_dict, UT_or_AT, Ap):
         fplll_Ap = IntegerMatrix.from_matrix(Ap.tolist())
         M = GSO.Mat(fplll_Ap, float_type=self.float_type, update=True)
         bkz_params = BKZ.Param(self.block_size, delta=self.delta, max_time=MAX_TIME)
@@ -152,8 +130,6 @@ class BKZReducedRLWE():
             if oldstddev - newstddev > 0:
                 logger.info(f'stddev reduction: {oldstddev - newstddev}, time {time() - polishtime}. ')
                 return Ap, True
-            logger.info(f'stddev plateau at {newstddev}. Exporting {self.matrix_filename}')
-            return Ap, False
         
     def save_mat(self, X, Y):
         mat_to_save = np.zeros((len(Y), len(Y)+self.m)).astype(int)
@@ -185,27 +161,23 @@ class BKZReducedRLWE():
         return self.calc_std(X)
 
     def generate(self):
-        recv_conn, send_conn = multiprocessing.Pipe(duplex=False)
-        p = multiprocessing.Process(target=self.timedout_bkz, name="data generation", args=(send_conn,))
+        manager = multiprocessing.Manager()
+        return_dict = manager.dict()
+        p = multiprocessing.Process(target=self.timedout_bkz, name="data generation", args=(return_dict,))
         p.start()
         start = time()
-        deadline = start + self.timeout
-        result = None
-        while time() < deadline:
-            if recv_conn.poll(0.1):
-                result = recv_conn.recv()
-                break
+        curr = time() - start
+        while curr < self.timeout:
+            curr = time() - start
             if not p.is_alive():
                 break
-        if result is None and p.is_alive():
-            p.kill()
+        p.kill()
         p.join()
-        recv_conn.close()
-        if result is None:
+        if curr >= self.timeout:
             raise TimeoutError
         try:
-            R = result["R"]
-            XT = result["XT"]
+            R = return_dict["R"]
+            XT = return_dict["XT"]
         except KeyError:
             raise TimeoutError
         self.counter += 1
@@ -229,9 +201,14 @@ class BKZReducedRLWE():
             A = self.tiny_A[idxs]
         else: # regular
             if self.params.lwe:
-                A = sample_uniform_lwe_matrix(rng, self.m, self.N, self.Q)
+                A = rng.randint(0, self.Q, size=(self.m, self.N), dtype=np.int64)
             else:
-                A = sample_negacyclic_rlwe_matrix(rng, self.N, self.Q)
+                a = rng.randint(0, self.Q, size=self.N, dtype=np.int64)
+                A = circulant(a)
+                tri = np.triu_indices(self.N, 1)
+                A[tri] *= -1
+        A = A % self.Q
+        assert (np.min(A) >= 0) and (np.max(A) < self.Q)
         
         # Arrange the matrix as [0 Q*Id; w*Id A]
         Ap = np.zeros((self.m+self.N, self.m+self.N), dtype = int)
@@ -274,7 +251,7 @@ class BenchmarkBKZ():
         w = 1 # weight for gaussian secret
         if secret_type == 'binary':
             w = np.round(np.sqrt(2) * self.sigma)
-        elif secret_type in ['ternary', 'proposed_ternary_sparse']:
+        elif secret_type == 'ternary':
             w = np.round(np.sqrt(1.5) * self.sigma)
         d = 2*n*np.log(q/w)  /  np.log( q / ( np.sqrt(2*np.pi*np.e) * sigma) )
         logdelta = np.log(q / (np.sqrt(2*np.pi*np.e) * sigma)) ** 2  /  (4*n*np.log(q/w))
@@ -349,7 +326,8 @@ class BenchmarkBKZ():
     def get_Kannans_embedding(self):
         N, m, Q = self.N, self.m, self.Q
         rng = np.random.RandomState(self.seed + [int(time())])
-        A = sample_uniform_lwe_matrix(rng, m, N, Q)
+        A = rng.randint(0, Q, size=(m, N), dtype=np.int64)
+        assert (np.min(A) >= 0) and (np.max(A) < Q)
         e = rng.normal(0, self.sigma, size = m).round()
         b = ((A@self.s).flatten() + e).astype(int) % Q
         self.start = time()
@@ -378,155 +356,43 @@ class RA_Rb():
         self.loaded_X_R = []
         self.diff = None
 
-    def _build_proposed_sparse_secret(self, params, secret_size, projection_mode):
-        default_params = dict(build_default_config().proposed_base_params)
-        default_params.update(
-            {
-                "region_count": params.region_count,
-                "clipping_bound": params.clipping_bound,
-                "beta_min": params.beta_min,
-                "beta_max": params.beta_max,
-                "boundary_base": params.boundary_base,
-                "boundary_jitter": params.boundary_jitter,
-                "setup_eval_samples": params.setup_eval_samples,
-                "family_count": params.family_count,
-            }
-        )
-        generator_seed = max(int(params.env_base_seed), 0)
-        generator = build_secret_generator(
-            model_name="proposed_final",
-            generator_type="proposed",
-            n=self.N,
-            run_seed=generator_seed,
-            params=default_params,
-        )
-
-        dense_secret = np.zeros(secret_size, dtype=int)
-        sparse_secret = np.zeros(secret_size, dtype=int)
-        projection_support = np.zeros(secret_size, dtype=np.uint8)
-        sample_metadata = []
-        total_columns = secret_size[1]
-
-        for h in range(params.min_hamming, params.max_hamming + 1):
-            for seed_id in range(params.num_secret_seeds):
-                column = (h - params.min_hamming) * params.num_secret_seeds + seed_id
-                attempts = 0
-                while True:
-                    sample_index = column + attempts * total_columns
-                    sampled = generator.sample_with_metadata(sample_index)
-                    sampled_secret = sampled.secret.astype(int)
-                    nonzeros = np.where(sampled_secret != 0)[0]
-                    if len(nonzeros) >= h:
-                        break
-                    attempts += 1
-                    if attempts >= 1024:
-                        raise RuntimeError(
-                            f"Unable to sample proposed_random_sparse secret with at least h={h} nonzeros."
-                        )
-
-                rng = np.random.default_rng(generator_seed + 104729 * (column + 1))
-                keep = rng.choice(nonzeros, size=h, replace=False)
-                dense_secret[:, column] = sampled_secret
-                kept_values = sampled_secret[keep].astype(int)
-                if projection_mode == "ternary":
-                    kept_values = np.sign(kept_values).astype(int)
-                sparse_secret[keep, column] = kept_values
-                projection_support[keep, column] = 1
-                metadata = _json_ready(sampled.metadata)
-                metadata.update(
-                    {
-                        "column": column,
-                        "sample_index": sample_index,
-                        "target_hamming": h,
-                        "pre_projection_nonzero_count": int(len(nonzeros)),
-                        "resample_attempts": int(attempts),
-                        "projection_mode": projection_mode,
-                        "kept_support": keep.astype(int).tolist(),
-                    }
-                )
-                sample_metadata.append(metadata)
-
-        return (
-            sparse_secret,
-            dense_secret,
-            projection_support,
-            _json_ready(generator.get_setup_diagnostics()),
-            sample_metadata,
-        )
-
     def init_b(self, params):
         self.N, self.Q, self.m = params.N, params.Q, params.m
         self.tiny1, self.tiny2 = params.tiny1, params.tiny2
         self.sigma = params.sigma
-        self.pre_projection_s = None
-        self.projection_support = None
-        self.generator_setup_diagnostics = None
-        self.generator_sample_metadata = None
-        secret_path = os.path.join(params.secret_dir, 'secret.npy') if params.secret_dir else ""
-        # load secret (create if not exist) # 비밀 생성 알고리즘 
-        if secret_path and os.path.isfile(secret_path):
-            self.s = np.load(secret_path)
+        # load secret (create if not exist)
+        if os.path.isfile(os.path.join(params.secret_dir, 'secret.npy')):
+            self.s = np.load(os.path.join(params.secret_dir, 'secret.npy'))
             if self.tiny1 or self.tiny2:
                 self.tiny_b = np.load(os.path.join(params.secret_dir, 'orig_b.npy'))
             logger.info(f'Loaded secret (and b, if tiny) from {params.secret_dir}')
-            loaded_from_secret_dir = True
         else:
-            loaded_from_secret_dir = False
             secret_size = (self.N, params.num_secret_seeds * (params.max_hamming-params.min_hamming+1))
-            if params.secret_type == "ternary": # 삼진
+            if params.secret_type == "ternary":
                 logger.info(f'Creating ternary secret')
                 self.s = np.random.choice([-1,1], size = secret_size)
-            elif params.secret_type == "gaussian": # 가우시안
+            elif params.secret_type == "gaussian":
                 logger.info(f'Creating gaussian secret')
                 self.s = np.random.normal(0, params.sigma, size = secret_size).round().astype(int)
-            elif params.secret_type == "binomial": # 이항분포
+            elif params.secret_type == "binomial":
                 logger.info(f'Creating binomial secret')
                 self.s = np.random.binomial(params.gamma, 0.5, secret_size) - np.random.binomial(params.gamma, 0.5, secret_size)
-            elif params.secret_type == "proposed_random_sparse":
-                logger.info('Creating proposed_random_sparse secret')
-                (
-                    self.s,
-                    self.pre_projection_s,
-                    self.projection_support,
-                    self.generator_setup_diagnostics,
-                    self.generator_sample_metadata,
-                ) = self._build_proposed_sparse_secret(params, secret_size, projection_mode="integer")
-            elif params.secret_type == "proposed_ternary_sparse":
-                logger.info('Creating proposed_ternary_sparse secret')
-                (
-                    self.s,
-                    self.pre_projection_s,
-                    self.projection_support,
-                    self.generator_setup_diagnostics,
-                    self.generator_sample_metadata,
-                ) = self._build_proposed_sparse_secret(params, secret_size, projection_mode="ternary")
             else:
                 logger.info(f'Creating binary secret')
                 self.s = np.ones(secret_size).astype(int)
-            if params.secret_type not in ["proposed_random_sparse", "proposed_ternary_sparse"]:
-                for h in range(params.min_hamming, params.max_hamming + 1):
-                    for seed_id in range(params.num_secret_seeds):
-                        column = (h-params.min_hamming) * params.num_secret_seeds + seed_id
-                        nonzeros = np.where(self.s[:, column] != 0)[0]
-                        idxs = np.random.choice(nonzeros, size = len(nonzeros)-h, replace=False)
-                        self.s[idxs, column] = 0
-                        assert h == sum(self.s[:, column] != 0)
+            for h in range(params.min_hamming, params.max_hamming + 1):
+                for seed_id in range(params.num_secret_seeds):
+                    column = (h-params.min_hamming) * params.num_secret_seeds + seed_id
+                    nonzeros = np.where(self.s[:, column] != 0)[0]
+                    idxs = np.random.choice(nonzeros, size = len(nonzeros)-h, replace=False)
+                    self.s[idxs, column] = 0
+                    assert h == sum(self.s[:, column] != 0)
         np.save(os.path.join(params.dump_path, 'secret.npy'), self.s)
-        if self.pre_projection_s is not None:
-            np.save(os.path.join(params.dump_path, 'pre_projection_secret.npy'), self.pre_projection_s)
-        if self.projection_support is not None:
-            np.save(os.path.join(params.dump_path, 'projection_support.npy'), self.projection_support)
-        if self.generator_setup_diagnostics is not None:
-            with open(os.path.join(params.dump_path, 'generator_setup_diagnostics.json'), 'w', encoding='utf-8') as f:
-                json.dump(self.generator_setup_diagnostics, f, ensure_ascii=True, indent=2, sort_keys=True)
-        if self.generator_sample_metadata is not None:
-            with open(os.path.join(params.dump_path, 'generator_sample_metadata.json'), 'w', encoding='utf-8') as f:
-                json.dump(self.generator_sample_metadata, f, ensure_ascii=True, indent=2, sort_keys=True)
 
         if self.tiny1 or self.tiny2:
             self.tiny_A = np.load(params.orig_A_path)
             np.save(os.path.join(params.dump_path, 'orig_A.npy'), self.tiny_A)
-            if not loaded_from_secret_dir:
+            if not os.path.isfile(params.secret_dir):
                 # generate the e in the original b=A*s+e
                 err_shape = (self.tiny_A.shape[0], self.s.shape[1])
                 tiny_e = np.random.normal(0, params.sigma, size = err_shape).round().astype(int)

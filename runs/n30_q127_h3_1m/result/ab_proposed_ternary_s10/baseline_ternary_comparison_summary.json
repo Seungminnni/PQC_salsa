@@ -1,0 +1,303 @@
+[
+  {
+    "metric": "baseline_nonzero_count",
+    "mean": 3.0,
+    "std": 0.0,
+    "min": 3.0,
+    "max": 3.0
+  },
+  {
+    "metric": "baseline_support_ratio",
+    "mean": 0.1,
+    "std": 0.0,
+    "min": 0.1,
+    "max": 0.1
+  },
+  {
+    "metric": "baseline_l1_norm",
+    "mean": 3.0,
+    "std": 0.0,
+    "min": 3.0,
+    "max": 3.0
+  },
+  {
+    "metric": "baseline_l2_norm",
+    "mean": 1.7320508075688772,
+    "std": 0.0,
+    "min": 1.7320508075688772,
+    "max": 1.7320508075688772
+  },
+  {
+    "metric": "baseline_linf_norm",
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0
+  },
+  {
+    "metric": "baseline_mean",
+    "mean": -0.006666666666666665,
+    "std": 0.07423685817106697,
+    "min": -0.1,
+    "max": 0.1
+  },
+  {
+    "metric": "baseline_std",
+    "mean": 0.30723301886761006,
+    "std": 0.007233018867610097,
+    "min": 0.29999999999999993,
+    "max": 0.3144660377352202
+  },
+  {
+    "metric": "baseline_abs_mean",
+    "mean": 0.1,
+    "std": 0.0,
+    "min": 0.1,
+    "max": 0.1
+  },
+  {
+    "metric": "baseline_sparsity_ratio",
+    "mean": 0.9,
+    "std": 0.0,
+    "min": 0.9,
+    "max": 0.9
+  },
+  {
+    "metric": "baseline_entropy",
+    "mean": 0.5149103852920057,
+    "std": 0.0459147917027245,
+    "min": 0.4689955935892812,
+    "max": 0.5608251769947302
+  },
+  {
+    "metric": "baseline_positive_count",
+    "mean": 1.4,
+    "std": 1.1135528725660044,
+    "min": 0.0,
+    "max": 3.0
+  },
+  {
+    "metric": "baseline_negative_count",
+    "mean": 1.6,
+    "std": 1.1135528725660044,
+    "min": 0.0,
+    "max": 3.0
+  },
+  {
+    "metric": "baseline_decrypt_success_rate",
+    "mean": 0.848046875,
+    "std": 0.1447153599324917,
+    "min": 0.4375,
+    "max": 0.9609375
+  },
+  {
+    "metric": "baseline_decrypt_failure_rate",
+    "mean": 0.151953125,
+    "std": 0.14471535993249168,
+    "min": 0.0390625,
+    "max": 0.5625
+  },
+  {
+    "metric": "baseline_avg_effective_noise",
+    "mean": 17.4890625,
+    "std": 5.947007139805571,
+    "min": 12.77734375,
+    "max": 33.75
+  },
+  {
+    "metric": "baseline_noise_margin_mean",
+    "mean": 14.2609375,
+    "std": 5.947007139805571,
+    "min": -2.0,
+    "max": 18.97265625
+  },
+  {
+    "metric": "proposed_nonzero_count",
+    "mean": 3.0,
+    "std": 0.0,
+    "min": 3.0,
+    "max": 3.0
+  },
+  {
+    "metric": "proposed_support_ratio",
+    "mean": 0.1,
+    "std": 0.0,
+    "min": 0.1,
+    "max": 0.1
+  },
+  {
+    "metric": "proposed_l1_norm",
+    "mean": 3.0,
+    "std": 0.0,
+    "min": 3.0,
+    "max": 3.0
+  },
+  {
+    "metric": "proposed_l2_norm",
+    "mean": 1.7320508075688772,
+    "std": 0.0,
+    "min": 1.7320508075688772,
+    "max": 1.7320508075688772
+  },
+  {
+    "metric": "proposed_linf_norm",
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0
+  },
+  {
+    "metric": "proposed_mean",
+    "mean": 1.3877787807814458e-18,
+    "std": 0.06146362971528592,
+    "min": -0.1,
+    "max": 0.1
+  },
+  {
+    "metric": "proposed_std",
+    "mean": 0.31012622641465415,
+    "std": 0.006629171292773414,
+    "min": 0.3,
+    "max": 0.31446603773522025
+  },
+  {
+    "metric": "proposed_abs_mean",
+    "mean": 0.1,
+    "std": 0.0,
+    "min": 0.1,
+    "max": 0.1
+  },
+  {
+    "metric": "proposed_sparsity_ratio",
+    "mean": 0.9,
+    "std": 0.0,
+    "min": 0.9,
+    "max": 0.9
+  },
+  {
+    "metric": "proposed_entropy",
+    "mean": 0.5332763019730955,
+    "std": 0.04208160169917306,
+    "min": 0.4689955935892812,
+    "max": 0.5608251769947302
+  },
+  {
+    "metric": "proposed_positive_count",
+    "mean": 1.5,
+    "std": 0.9219544457292888,
+    "min": 0.0,
+    "max": 3.0
+  },
+  {
+    "metric": "proposed_negative_count",
+    "mean": 1.5,
+    "std": 0.9219544457292888,
+    "min": 0.0,
+    "max": 3.0
+  },
+  {
+    "metric": "proposed_decrypt_success_rate",
+    "mean": 0.85078125,
+    "std": 0.10497279223386888,
+    "min": 0.58203125,
+    "max": 0.9453125
+  },
+  {
+    "metric": "proposed_decrypt_failure_rate",
+    "mean": 0.14921875,
+    "std": 0.10497279223386888,
+    "min": 0.0546875,
+    "max": 0.41796875
+  },
+  {
+    "metric": "proposed_avg_effective_noise",
+    "mean": 17.247265625,
+    "std": 4.327428676076962,
+    "min": 12.828125,
+    "max": 28.1796875
+  },
+  {
+    "metric": "proposed_noise_margin_mean",
+    "mean": 14.502734375,
+    "std": 4.327428676076962,
+    "min": 3.5703125,
+    "max": 18.921875
+  },
+  {
+    "metric": "coord_equal_ratio",
+    "mean": 0.82,
+    "std": 0.02666666666666666,
+    "min": 0.8,
+    "max": 0.8666666666666667
+  },
+  {
+    "metric": "support_equal",
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  {
+    "metric": "support_intersection_count",
+    "mean": 0.4,
+    "std": 0.48989794855663565,
+    "min": 0.0,
+    "max": 1.0
+  },
+  {
+    "metric": "support_union_count",
+    "mean": 5.6,
+    "std": 0.4898979485566356,
+    "min": 5.0,
+    "max": 6.0
+  },
+  {
+    "metric": "support_jaccard",
+    "mean": 0.08,
+    "std": 0.09797958971132713,
+    "min": 0.0,
+    "max": 0.2
+  },
+  {
+    "metric": "delta_l1_norm",
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  {
+    "metric": "delta_l2_norm",
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  {
+    "metric": "delta_abs_mean",
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  {
+    "metric": "delta_entropy",
+    "mean": 0.018365916681089778,
+    "std": 0.05509775004326939,
+    "min": -0.091829583405449,
+    "max": 0.091829583405449
+  },
+  {
+    "metric": "delta_decrypt_success_rate",
+    "mean": 0.002734375,
+    "std": 0.06587679559044766,
+    "min": -0.1015625,
+    "max": 0.14453125
+  },
+  {
+    "metric": "delta_noise_margin_mean",
+    "mean": 0.241796875,
+    "std": 2.60437187017038,
+    "min": -3.3515625,
+    "max": 5.5703125
+  }
+]

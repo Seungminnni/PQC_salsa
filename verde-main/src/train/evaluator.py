@@ -16,7 +16,6 @@ import torch
 from scipy import stats
 
 from src.train.model import TransformerModel
-from src.train.metrics import compute_prediction_accuracies
 from src.utils import to_cuda
 
 logger = getLogger()
@@ -29,50 +28,26 @@ class SecretCheck(object):
         self.orig_A, self.orig_b = dataset.orig_A, dataset.orig_b
         self.secret_recovery = { 'success': [] }
 
-    @staticmethod
-    def _format_array(arr):
-        return np.array2string(np.asarray(arr).astype(int), separator=' ')
-
-    def _support(self, arr):
-        return (np.asarray(arr).astype(int) != 0).astype(int)
-
-    def _log_guess(self, method_name, status, guess):
-        true_secret = np.asarray(self.params.secret).astype(int)
-        guess = np.asarray(guess).astype(int)
-        logger.info(
-            f"{method_name}: {status} "
-            f"(true secret = {self._format_array(true_secret)}, "
-            f"predicted secret = {self._format_array(guess)}, "
-            f"true support = {self._format_array(self._support(true_secret))}, "
-            f"predicted support = {self._format_array(self._support(guess))})"
-        )
-
     def match_secret(self, guess, method_name):
         '''
         Takes an int or bool (binary) list or array as secret guess and check against the original tiny dataset. 
         '''
         guess = np.array(guess).astype(int)
-        true_secret = np.asarray(self.params.secret).astype(int)
-        if self.params.secret_type in ['binary', 'ternary', 'proposed_ternary_sparse']:
-            # For sparse discrete secrets we only declare success on exact
-            # coordinate-wise agreement with the ground-truth secret.
-            matched = np.array_equal(true_secret, guess)
-        elif self.params.secret_type in ['gaussian', 'binomial', 'proposed_random_sparse']:
-            # only check if nonzeros are identified for integer-valued sparse secrets
-            matched = np.all((true_secret != 0) == (guess != 0))
+        if self.params.secret_type in ['gaussian', 'binomial']:
+            # only check if nonzeros are identified for gaussian and binomial secrets
+            matched = np.all((self.params.secret != 0) == (guess != 0))
         elif self.orig_A is None: # Old data, original dataset not available. Directly check the secret. 
-            matched = np.array_equal(true_secret, guess)
+            matched = np.all(self.params.secret == guess)
         else:
             err_pred = (self.orig_A @ guess - self.orig_b) % self.params.Q
             err_pred[err_pred > self.params.Q // 2] -= self.params.Q
             matched = np.std(err_pred) < 2*self.params.sigma
         if matched: 
-            self._log_guess(method_name, 'all bits in secret have been recovered!', guess)
+            logger.info(f'{method_name}: all bits in secret have been recovered!')
             if method_name not in self.secret_recovery['success']:
                 self.secret_recovery['success'].append(method_name)
                 self.trainer.secret_match = True
             return True
-        return False
 
     def match_secret_iter(self, idx_list, sorted_idx_with_scores, method_name):
         ''' 
@@ -85,7 +60,7 @@ class SecretCheck(object):
             guess[idx_list[i]] = 1
             if self.match_secret(guess, method_name):
                 return True
-        self._log_guess(method_name, 'secret not predicted.', guess)
+        logger.info(f'{method_name}: secret not predicted.')
         return False
     
     def add_log(self, k, v):
@@ -93,7 +68,6 @@ class SecretCheck(object):
 
     def store_results(self, path, epoch):
         try:
-            os.makedirs(path, exist_ok=True)
             pickle.dump(self.secret_recovery, open(os.path.join(path, f'secret_recovery_{epoch}.pkl'), 'wb'))
         except Exception as e:
             logger.info(f'secret recovery: {self.secret_recovery}')
@@ -235,10 +209,8 @@ class Evaluator(object):
                 continue
 
             # 3 methods of testing for matching: mean, mode, and softmax mean
-            mode_result = stats.mode(pred_final, keepdims=False)
-            mode_value = np.asarray(mode_result.mode).reshape(-1)[0]
             pred_bin1 = np.vectorize(lambda x: 0 if x > np.mean(pred_final) else 1)(pred_final) 
-            pred_bin2 = np.vectorize(lambda x: 0 if x != mode_value else 1)(pred_final)
+            pred_bin2 = np.vectorize(lambda x: 0 if x != stats.mode(pred_final)[0][0] else 1)(pred_final)
             pred_bin3 = np.vectorize(lambda x: 0 if x > np.mean(pred_softmax) else 1)(pred_softmax)
 
             # Match list
@@ -253,20 +225,7 @@ class Evaluator(object):
     def run_distinguisher(self, encoder, decoder):
         self.distinguisher_results = np.zeros(self.params.N)
         logger.info(f'Starting Distinguisher Method')
-        available = len(self.iterator.dataset.data)
-        num_samples = min(self.params.distinguisher_size, available)
-        # Keep the positive / negative perturbation halves aligned with the
-        # actual number of eval samples we loaded from disk.
-        if num_samples % 2 == 1:
-            num_samples -= 1
-        if num_samples <= 0:
-            logger.info('Distinguisher skipped: no evaluation samples available.')
-            return
-        if num_samples < self.params.distinguisher_size:
-            logger.info(
-                f'Reducing distinguisher_size from {self.params.distinguisher_size} '
-                f'to {num_samples} to match the available evaluation samples.'
-            )
+        num_samples = self.params.distinguisher_size
         # Get the A (bkz reduced) and run through the model. 
         A_s = np.array(self.iterator.dataset.getbatchA(num_samples))
         lwe_preds0 = self.predict_outputs(A_s, encoder, decoder, intermediate=True)
@@ -291,7 +250,7 @@ class Evaluator(object):
             logger.info(f"Distinguishing 0s using the {func_name}. ")
             for i in range(self.params.N):
                 self.distinguisher_results[i] = get_diff(lwe_preds[i], lwe_preds0)
-            if self.params.secret_type in ['ternary', 'proposed_ternary_sparse']:
+            if self.params.secret_type == 'ternary':
                 try:
                     self.secret_check.add_log(f'Distinguisher Method {func_name}', self.distinguisher_results)
                     ternary_dist = TernaryDistinguisher(self.secret_check, func_name)
@@ -315,8 +274,6 @@ class Evaluator(object):
         # iterator
         ca_results = np.zeros(self.params.N), np.zeros(self.params.N)
         xe_loss = []
-        valid_acc1 = []
-        valid_acc2 = []
         for (x1, len1), (x2, len2), nb_ops in self.iterator:
             # target words to predict
             alen = torch.arange(len2.max(), dtype=torch.long, device=len2.device)
@@ -342,9 +299,6 @@ class Evaluator(object):
                 "predict", tensor=decoded, pred_mask=pred_mask, y=y, get_scores=True
             )
             xe_loss.append(loss.item())
-            acc1, acc2 = compute_prediction_accuracies(pred_mask, word_scores, y)
-            valid_acc1.append(acc1)
-            valid_acc2.append(acc2)
 
             for layerId in [0, 1]:
                 ca_scores = torch.stack(decoder.layers[layerId].cross_attention.outputs)
@@ -359,8 +313,6 @@ class Evaluator(object):
             self.secret_check.match_secret_iter(indices, sorted_idx_by_count, 'CA')
 
         scores["valid_xe_loss"] = np.mean(xe_loss)
-        scores["valid_acc1"] = np.mean(valid_acc1)
-        scores["valid_acc2"] = np.mean(valid_acc2)
         self.secret_check.add_log('xe_loss', np.mean(xe_loss))
         TransformerModel.STORE_OUTPUTS = False
 
@@ -394,7 +346,8 @@ class TernaryDistinguisher(object):
         guess = np.zeros(self.params.N)
         guess[nonzeros[list(clique0)]] = 1
         guess[nonzeros[list(clique1)]] = -1
-        return self.secret_check.match_secret(guess, 'Distinguisher Method')
+        matching = self.secret_check.match_secret(guess, 'Distinguisher Method')
+        return matching or self.secret_check.match_secret(guess*-1, 'Distinguisher Method')
 
     def run(self, lwe_preds, diffs, func):
         """
